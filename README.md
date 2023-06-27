@@ -1,5 +1,5 @@
 # gethamquestions
-Get Amateur Radio (HAM) Element Questions in a JSON object from the official FCC questions pools.
+Parse the official Amateur Radio FCC question pools and get the Element Questios in a JSON object
 
 ## Installation
 Download the getquestions.py file.  I am working on supporting pip from github.
