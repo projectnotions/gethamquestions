@@ -1,6 +1,7 @@
 ﻿{
-  "filename": "./temp/2020ExtraClassPoolwitherrataFeb242020.utf8.txt",
-  "timestamp": "2023-06-28 12:19:41.499318",
+  "filename": "./output/Element4.txt",
+  "filetype": "UTF-8 Unicode",
+  "timestamp": "2023-06-28 16:51:25.637611",
   "elem": "4",
   "elname": "Extra",
   "yrvalid": {
@@ -142,7 +143,7 @@
                 "A. At the lowest frequency of the channel",
                 "B. At the center frequency of the channel",
                 "C. At the highest frequency of the channel",
-                "D. On any frequency where the signal's sidebands are within the channel"
+                "D. On any frequency where the signal\u2019s sidebands are within the channel"
               ],
               "topics": [
                 "Operating Standards: frequency privileges",
@@ -200,7 +201,7 @@
               "answers": [
                 "A. Discontinue forwarding the communication as soon as you become aware of it",
                 "B. Notify the originating station that the communication does not comply with FCC rules",
-                "C. Notify the nearest FCC Field Engineer's office",
+                "C. Notify the nearest FCC Field Engineer\u2019s office",
                 "D. All these choices are correct"
               ],
               "topics": [
@@ -332,7 +333,7 @@
                 "A. An amateur station transmission made without the proper call sign identification",
                 "B. A signal transmitted to prevent its detection by any station other than the intended recipient",
                 "C. Any transmitted signal that unintentionally interferes with another licensed radio station",
-                "D. An emission outside the signal's necessary bandwidth that can be reduced or eliminated without affecting the information transmitted"
+                "D. An emission outside the signal\u2019s necessary bandwidth that can be reduced or eliminated without affecting the information transmitted"
               ],
               "topics": [
                 "spurious emissions"
@@ -697,7 +698,7 @@
               "group": "C",
               "num": "08",
               "qid": "E1C08",
-              "text": "What is the maximum permissible duration of a remotely controlled station's transmissions if its control link malfunctions?",
+              "text": "What is the maximum permissible duration of a remotely controlled station\u2019s transmissions if its control link malfunctions?",
               "correct": "B",
               "figure": "",
               "fcc": "[97.213]",
@@ -918,7 +919,7 @@
               "group": "D",
               "num": "05",
               "qid": "E1D05",
-              "text": "What must be posted at the station location of a station being operated by telecommand on or within 50 km of the earth's surface?",
+              "text": "What must be posted at the station location of a station being operated by telecommand on or within 50 km of the earth\u2019s surface?",
               "correct": "D",
               "figure": "",
               "fcc": "[97.213(d)]",
@@ -1039,7 +1040,7 @@
               "figure": "",
               "fcc": "[97.209]",
               "answers": [
-                "A. Any amateur station whose licensee has filed a pre-space notification with the FCC's International Bureau",
+                "A. Any amateur station whose licensee has filed a pre-space notification with the FCC\u2019s International Bureau",
                 "B. Only those of General, Advanced or Amateur Extra Class operators",
                 "C. Only those of Amateur Extra Class operators",
                 "D. Any amateur station, subject to the privileges of the class of operator license held by the control operator"
@@ -1196,15 +1197,15 @@
               "group": "E",
               "num": "07",
               "qid": "E1E07",
-              "text": "What should a VE do if a candidate fails to comply with the examiner's instructions during an amateur operator license examination?",
+              "text": "What should a VE do if a candidate fails to comply with the examiner\u2019s instructions during an amateur operator license examination?",
               "correct": "B",
               "figure": "",
               "fcc": "[97.509]",
               "answers": [
                 "A. Warn the candidate that continued failure to comply will result in termination of the examination",
-                "B. Immediately terminate the candidate's examination",
+                "B. Immediately terminate the candidate\u2019s examination",
                 "C. Allow the candidate to complete the examination, but invalidate the results",
-                "D. Immediately terminate everyone's examination and close the session"
+                "D. Immediately terminate everyone\u2019s examination and close the session"
               ],
               "topics": []
             },
@@ -1235,7 +1236,7 @@
               "figure": "",
               "fcc": "[97.509]",
               "answers": [
-                "A. Revocation of the VE's amateur station license grant and the suspension of the VE's amateur operator license grant",
+                "A. Revocation of the VE\u2019s amateur station license grant and the suspension of the VE\u2019s amateur operator license grant",
                 "B. A fine of up to $1000 per occurrence",
                 "C. A sentence of up to one year in prison",
                 "D. All these choices are correct"
@@ -1289,7 +1290,7 @@
               "fcc": "[97.509(j)]",
               "answers": [
                 "A. Return the application document to the examinee",
-                "B. Maintain the application form with the VEC's records",
+                "B. Maintain the application form with the VEC\u2019s records",
                 "C. Send the application form to the FCC and inform the FCC of the grade",
                 "D. Destroy the application form"
               ],
@@ -1362,10 +1363,10 @@
               "figure": "",
               "fcc": "[97.315]",
               "answers": [
-                "A. It was purchased in used condition from an amateur operator and is sold to another amateur operator for use at that operator's station",
+                "A. It was purchased in used condition from an amateur operator and is sold to another amateur operator for use at that operator\u2019s station",
                 "B. The equipment dealer assembled it from a kit",
                 "C. It was imported from a manufacturer in a country that does not require certification of RF power amplifiers",
-                "D. It was imported from a manufacturer in another country and was certificated by that country's government"
+                "D. It was imported from a manufacturer in another country and was certificated by that country\u2019s government"
               ],
               "topics": [
                 "Miscellaneous rules: external RF power amplifiers",
@@ -1526,7 +1527,7 @@
                 "A. It must produce full legal output when driven by not more than 5 watts of mean RF input power",
                 "B. It must be capable of external RF switching between its input and output networks",
                 "C. It must exhibit a gain of 0 dB or less over its full output range",
-                "D. It must satisfy the FCC's spurious emission standards when operated at the lesser of 1500 watts or its full output power"
+                "D. It must satisfy the FCC\u2019s spurious emission standards when operated at the lesser of 1500 watts or its full output power"
               ],
               "topics": [
                 "Miscellaneous rules: external RF power amplifiers",
@@ -1620,14 +1621,14 @@
               "group": "A",
               "num": "04",
               "qid": "E2A04",
-              "text": "What is meant by the term \"mode\" as applied to an amateur radio satellite?",
+              "text": "What is meant by the term \u201cmode\u201d as applied to an amateur radio satellite?",
               "correct": "B",
               "figure": "",
               "fcc": "",
               "answers": [
                 "A. Whether the satellite is in a low earth or geostationary orbit",
-                "B. The satellite's uplink and downlink frequency bands",
-                "C. The satellite's orientation with respect to the Earth",
+                "B. The satellite\u2019s uplink and downlink frequency bands",
+                "C. The satellite\u2019s orientation with respect to the Earth",
                 "D. Whether the satellite is in a polar or equatorial orbit"
               ],
               "topics": [
@@ -1641,7 +1642,7 @@
               "group": "A",
               "num": "05",
               "qid": "E2A05",
-              "text": "What do the letters in a satellite's mode designator specify?",
+              "text": "What do the letters in a satellite\u2019s mode designator specify?",
               "correct": "D",
               "figure": "",
               "fcc": "",
@@ -1715,7 +1716,7 @@
               "group": "A",
               "num": "09",
               "qid": "E2A09",
-              "text": "What do the terms \"L band\" and \"S band\" specify regarding satellite communications?",
+              "text": "What do the terms \u201cL band\u201d and \u201cS band\u201d specify regarding satellite communications?",
               "correct": "A",
               "figure": "",
               "fcc": "",
@@ -2078,15 +2079,15 @@
               "group": "C",
               "num": "02",
               "qid": "E2C02",
-              "text": "Which of the following best describes the term \"self-spotting\" in connection with HF contest operating?",
+              "text": "Which of the following best describes the term \u201cself-spotting\u201d in connection with HF contest operating?",
               "correct": "A",
               "figure": "",
               "fcc": "",
               "answers": [
-                "A. The often-prohibited practice of posting one's own call sign and frequency on a spotting network",
+                "A. The often-prohibited practice of posting one\u2019s own call sign and frequency on a spotting network",
                 "B. The acceptable practice of manually posting the call signs of stations on a spotting network",
-                "C. A manual technique for rapidly zero beating or tuning to a station's frequency before calling that station",
-                "D. An automatic method for rapidly zero beating or tuning to a station's frequency before calling that station"
+                "C. A manual technique for rapidly zero beating or tuning to a station\u2019s frequency before calling that station",
+                "D. An automatic method for rapidly zero beating or tuning to a station\u2019s frequency before calling that station"
               ],
               "topics": [
                 "Operating methods: contest and DX operating"
@@ -2251,7 +2252,7 @@
                 "A. Send your full call sign once or twice",
                 "B. Send only the last two letters of your call sign until you make contact",
                 "C. Send your full call sign and grid square",
-                "D. Send the call sign of the DX station three times, the words \"this is,\" then your call sign three times"
+                "D. Send the call sign of the DX station three times, the words \u201cthis is,\u201d then your call sign three times"
               ],
               "topics": [
                 "Operating methods: contest and DX operating"
@@ -2471,7 +2472,7 @@
               "answers": [
                 "A. An APRS station with an emergency medical technician can automatically transmit medical data to the nearest hospital",
                 "B. APRS stations with General Personnel Scanners can automatically relay the participant numbers and time as they pass the check points",
-                "C. An APRS station with a Global Positioning System unit can automatically transmit information to show a mobile station's position during the event",
+                "C. An APRS station with a Global Positioning System unit can automatically transmit information to show a mobile station\u2019s position during the event",
                 "D. All these choices are correct"
               ],
               "topics": [
@@ -2900,7 +2901,7 @@
               "group": "A",
               "num": "08",
               "qid": "E3A08",
-              "text": "When a meteor strikes the Earth's atmosphere, a cylindrical region of free electrons is formed at what layer of the ionosphere?",
+              "text": "When a meteor strikes the Earth\u2019s atmosphere, a cylindrical region of free electrons is formed at what layer of the ionosphere?",
               "correct": "A",
               "figure": "",
               "fcc": "",
@@ -2989,7 +2990,7 @@
               "answers": [
                 "A. The interaction in the F2 layer between the solar wind and the Van Allen belt",
                 "B. An extreme low-pressure area in the polar regions",
-                "C. The interaction in the E layer of charged particles from the Sun with the Earth's magnetic field",
+                "C. The interaction in the E layer of charged particles from the Sun with the Earth\u2019s magnetic field",
                 "D. Meteor showers concentrated in the extreme northern and southern latitudes"
               ],
               "topics": []
@@ -3039,11 +3040,10 @@
         {
           "subelement": "E3",
           "group_id": "B",
-          "description": "Transequatorial propagation; long-path; grayline; ordinary and extraordinary waves; chordal hop; sporadic E mechanisms",
+          "description": "Transequatorial propagation; long-path; ordinary and extraordinary waves; chordal hop; sporadic E mechanisms",
           "topics": [
             "Transequatorial propagation",
             "long-path",
-            "grayline",
             "ordinary and extraordinary waves",
             "chordal hop",
             "sporadic E mechanisms"
@@ -3111,7 +3111,7 @@
               "group": "B",
               "num": "04",
               "qid": "E3B04",
-              "text": "What is meant by the terms \"extraordinary\" and \"ordinary\" waves?",
+              "text": "What is meant by the terms \u201cextraordinary\u201d and \u201cordinary\u201d waves?",
               "correct": "B",
               "figure": "",
               "fcc": "",
@@ -3181,23 +3181,6 @@
               "topics": [
                 "ordinary and extraordinary waves"
               ]
-            },
-            {
-              "subelement": "E3",
-              "group": "B",
-              "num": "08",
-              "qid": "E3B08",
-              "text": "What is the term for the long path opening that exists between two points on the Earth which are simultaneously near sunrise and sunset?",
-              "correct": "D",
-              "figure": "",
-              "fcc": "",
-              "answers": [
-                "A. Transequatorial",
-                "B. Sporadic E",
-                "C. Long-path",
-                "D. Grayline"
-              ],
-              "topics": []
             },
             {
               "subelement": "E3",
@@ -3297,13 +3280,13 @@
               "group": "C",
               "num": "01",
               "qid": "E3C01",
-              "text": "What does the radio communication term \"ray tracing\" describe?",
+              "text": "What does the radio communication term \u201cray tracing\u201d describe?",
               "correct": "B",
               "figure": "",
               "fcc": "",
               "answers": [
                 "A. The process in which an electronic display presents a pattern",
-                "B. Modeling a radio wave's path through the ionosphere",
+                "B. Modeling a radio wave\u2019s path through the ionosphere",
                 "C. Determining the radiation pattern from an array of antennas",
                 "D. Evaluating high voltage sources for x-rays"
               ],
@@ -3420,7 +3403,7 @@
               "group": "C",
               "num": "08",
               "qid": "E3C08",
-              "text": "What does the space weather term \"G5\" mean?",
+              "text": "What does the space weather term \u201cG5\u201d mean?",
               "correct": "A",
               "figure": "",
               "fcc": "",
@@ -3790,7 +3773,7 @@
                 "A. Loosely couple the analyzer near the antenna base",
                 "B. Connect the analyzer via a high-impedance transformer to the antenna",
                 "C. Loosely couple the antenna and a dummy load to the analyzer",
-                "D. Connect the antenna feed line directly to the analyzer's connector"
+                "D. Connect the antenna feed line directly to the analyzer\u2019s connector"
               ],
               "topics": [
                 "spectrum analyzers",
@@ -4038,13 +4021,13 @@
               "group": "C",
               "num": "01",
               "qid": "E4C01",
-              "text": "What is an effect of excessive phase noise in a receiver's local oscillator?",
+              "text": "What is an effect of excessive phase noise in a receiver\u2019s local oscillator?",
               "correct": "D",
               "figure": "",
               "fcc": "",
               "answers": [
-                "A. It limits the receiver's ability to receive strong signals",
-                "B. It can affect the receiver's frequency calibration",
+                "A. It limits the receiver\u2019s ability to receive strong signals",
+                "B. It can affect the receiver\u2019s frequency calibration",
                 "C. It decreases receiver third-order intercept point",
                 "D. It can combine with strong signals on nearby frequencies to generate interference"
               ],
@@ -4259,7 +4242,7 @@
               "group": "C",
               "num": "12",
               "qid": "E4C12",
-              "text": "Which of the following has the largest effect on an SDR receiver's dynamic range?",
+              "text": "Which of the following has the largest effect on an SDR receiver\u2019s dynamic range?",
               "correct": "D",
               "figure": "",
               "fcc": "",
@@ -4414,7 +4397,7 @@
               "fcc": "",
               "answers": [
                 "A. A band-pass filter in the feed line between the transmitter and receiver",
-                "B. A properly terminated circulator at the output of the repeater's transmitter",
+                "B. A properly terminated circulator at the output of the repeater\u2019s transmitter",
                 "C. Utilizing a Class C final amplifier",
                 "D. Utilizing a Class D final amplifier"
               ],
@@ -4671,8 +4654,8 @@
               "answers": [
                 "A. By installing filter capacitors in series with the DC power lead and a blocking capacitor in the field lead",
                 "B. By installing a noise suppression resistor and a blocking capacitor in both leads",
-                "C. By installing a high-pass filter in series with the radio's power lead and a low-pass filter in parallel with the field lead",
-                "D. By connecting the radio's power leads directly to the battery and by installing coaxial capacitors in line with the alternator leads"
+                "C. By installing a high-pass filter in series with the radio\u2019s power lead and a low-pass filter in parallel with the field lead",
+                "D. By connecting the radio\u2019s power leads directly to the battery and by installing coaxial capacitors in line with the alternator leads"
               ],
               "topics": [
                 "Noise suppression and interference: system noise",
@@ -4693,7 +4676,7 @@
               "figure": "",
               "fcc": "",
               "answers": [
-                "A. By installing a high-pass filter in series with the motor's power leads",
+                "A. By installing a high-pass filter in series with the motor\u2019s power leads",
                 "B. By installing a brute-force AC-line filter in series with the motor leads",
                 "C. By installing a bypass capacitor in series with the motor leads",
                 "D. By using a ground-fault current interrupter in the circuit used to power the motor"
@@ -5428,7 +5411,7 @@
               "figure": "",
               "fcc": "",
               "answers": [
-                "A. -jX",
+                "A. \u2013jX",
                 "B. +jX",
                 "C. Delta",
                 "D. Omega"
@@ -5519,7 +5502,7 @@
               "group": "C",
               "num": "06",
               "qid": "E5C06",
-              "text": "What does the impedance 50-j25 represent?",
+              "text": "What does the impedance 50\u2013j25 represent?",
               "correct": "B",
               "figure": "",
               "fcc": "",
@@ -6309,7 +6292,7 @@
               "text": "Which of the following is a common use of a Schottky diode?",
               "correct": "D",
               "figure": "",
-              "fcc": "",
+              "fcc": "WITHDRAWN do not use",
               "answers": [
                 "A. As a rectifier in high current power supplies",
                 "B. As a variable capacitance in an automatic frequency control circuit",
@@ -6449,7 +6432,7 @@
               "group": "C",
               "num": "02",
               "qid": "E6C02",
-              "text": "What happens when the level of a comparator's input signal crosses the threshold?",
+              "text": "What happens when the level of a comparator\u2019s input signal crosses the threshold?",
               "correct": "B",
               "figure": "",
               "fcc": "",
@@ -6854,8 +6837,8 @@
               "fcc": "",
               "answers": [
                 "A. The inductor windings are over-coupled",
-                "B. The inductor's voltage rating is exceeded causing a flashover",
-                "C. The ability of the inductor's core to store magnetic energy has been exceeded",
+                "B. The inductor\u2019s voltage rating is exceeded causing a flashover",
+                "C. The ability of the inductor\u2019s core to store magnetic energy has been exceeded",
                 "D. Adjacent inductors become over-coupled"
               ],
               "topics": []
@@ -7933,7 +7916,7 @@
               "group": "C",
               "num": "01",
               "qid": "E7C01",
-              "text": "How are the capacitors and inductors of a low-pass filter Pi-network arranged between the network's input and output?",
+              "text": "How are the capacitors and inductors of a low-pass filter Pi-network arranged between the network\u2019s input and output?",
               "correct": "D",
               "figure": "",
               "fcc": "",
@@ -8139,7 +8122,7 @@
               "group": "C",
               "num": "11",
               "qid": "E7C11",
-              "text": "Which of the following describes a receiving filter's ability to reject signals occupying an adjacent channel?",
+              "text": "Which of the following describes a receiving filter\u2019s ability to reject signals occupying an adjacent channel?",
               "correct": "C",
               "figure": "",
               "fcc": "",
@@ -8212,7 +8195,7 @@
               "answers": [
                 "A. The resistance of a control element is varied in direct proportion to the line voltage or load current",
                 "B. It is generally less efficient than a linear regulator",
-                "C. The controlled device's duty cycle is changed to produce a constant average output voltage",
+                "C. The controlled device\u2019s duty cycle is changed to produce a constant average output voltage",
                 "D. It gives a ramp voltage at its output"
               ],
               "topics": [
@@ -8584,7 +8567,7 @@
               "group": "E",
               "num": "07",
               "qid": "E7E07",
-              "text": "What is meant by the term \"baseband\" in radio communications?",
+              "text": "What is meant by the term \u201cbaseband\u201d in radio communications?",
               "correct": "B",
               "figure": "",
               "fcc": "",
@@ -8999,7 +8982,7 @@
               "group": "G",
               "num": "04",
               "qid": "E7G04",
-              "text": "What is meant by the term \"op-amp input offset voltage\"?",
+              "text": "What is meant by the term \u201cop-amp input offset voltage\u201d?",
               "correct": "C",
               "figure": "",
               "fcc": "",
@@ -9043,8 +9026,8 @@
               "answers": [
                 "A. The maximum frequency for a filter circuit using that type of amplifier",
                 "B. The frequency at which the open-loop gain of the amplifier equals one",
-                "C. The gain of the amplifier at a filter's cutoff frequency",
-                "D. The frequency at which the amplifier's offset voltage is zero"
+                "C. The gain of the amplifier at a filter\u2019s cutoff frequency",
+                "D. The frequency at which the amplifier\u2019s offset voltage is zero"
               ],
               "topics": [
                 "operational amplifiers"
@@ -9055,9 +9038,9 @@
               "group": "G",
               "num": "07",
               "qid": "E7G07",
-              "text": "What magnitude of voltage gain can be expected from the circuit in Figure E7-3 when R1 is 10 ohms and RF is 470 ohms?",
+              "text": "What magnitude of voltage gain can be expected from the circuit in Figure E73 when R1 is 10 ohms and RF is 470 ohms?",
               "correct": "C",
-              "figure": "E7-3",
+              "figure": "",
               "fcc": "",
               "answers": [
                 "A. 0.21",
@@ -9303,13 +9286,13 @@
               "group": "H",
               "num": "07",
               "qid": "E7H07",
-              "text": "How can an oscillator's microphonic responses be reduced?",
+              "text": "How can an oscillator\u2019s microphonic responses be reduced?",
               "correct": "D",
               "figure": "",
               "fcc": "",
               "answers": [
                 "A. Use NP0 capacitors",
-                "B. Reduce noise on the oscillator's power supply",
+                "B. Reduce noise on the oscillator\u2019s power supply",
                 "C. Increase the bias voltage",
                 "D. Mechanically isolate the oscillator circuitry from its enclosure"
               ],
@@ -9562,7 +9545,7 @@
               "group": "A",
               "num": "04",
               "qid": "E8A04",
-              "text": "What is \"dither\" with respect to analog-to-digital converters?",
+              "text": "What is \u201cdither\u201d with respect to analog-to-digital converters?",
               "correct": "B",
               "figure": "",
               "fcc": "",
@@ -10751,9 +10734,9 @@
               "group": "B",
               "num": "04",
               "qid": "E9B04",
-              "text": "What is the front-to-back ratio of the radiation pattern shown in Figure E9-2?",
+              "text": "What is the front-to-back ratio of the radiation pattern shown in Figure E92?",
               "correct": "B",
-              "figure": "E9-2",
+              "figure": "",
               "fcc": "",
               "answers": [
                 "A. 15 dB",
@@ -10943,7 +10926,7 @@
               "group": "C",
               "num": "02",
               "qid": "E9C02",
-              "text": "What is the radiation pattern of two 1/4 wavelength vertical antennas spaced 1/4 wavelength apart and fed 90 degrees out of phase?",
+              "text": "What is the radiation pattern of two 1/4-wavelength vertical antennas spaced 1/4-wavelength apart and fed 90 degrees out of phase?",
               "correct": "A",
               "figure": "",
               "fcc": "",
@@ -10963,7 +10946,7 @@
               "group": "C",
               "num": "03",
               "qid": "E9C03",
-              "text": "What is the radiation pattern of two 1/4-wavelength vertical antennas spaced 1/2 wavelength apart and fed in phase?",
+              "text": "What is the radiation pattern of two 1/4-wavelength vertical antennas spaced 1/2-wavelength apart and fed in phase?",
               "correct": "C",
               "figure": "",
               "fcc": "",
@@ -11093,7 +11076,7 @@
                 "A. A multi-band dipole antenna fed with coax and a balun through a selected length of open wire transmission line",
                 "B. A multi-band trap antenna",
                 "C. A phased array antenna consisting of multiple loops",
-                "D. A wide band dipole using shorted coaxial cable for the radiating elements and fed with a 4:1 balun"
+                "D. A wide band dipole using shorted coaxial cable for the radiating elements and fed with a\u00a04:1 balun"
               ],
               "topics": [
                 "Practical wire antennas",
@@ -11443,7 +11426,7 @@
               "group": "D",
               "num": "11",
               "qid": "E9D11",
-              "text": "Which of the following conductors would be best for minimizing losses in a station's RF ground system?",
+              "text": "Which of the following conductors would be best for minimizing losses in a station\u2019s RF ground system?",
               "correct": "B",
               "figure": "",
               "fcc": "",
@@ -11572,7 +11555,7 @@
               "group": "E",
               "num": "05",
               "qid": "E9E05",
-              "text": "How must an antenna's driven element be tuned to use a hairpin matching system?",
+              "text": "How must an antenna\u2019s driven element be tuned to use a hairpin matching system?",
               "correct": "A",
               "figure": "",
               "fcc": "",
@@ -12480,7 +12463,7 @@
               "group": "A",
               "num": "02",
               "qid": "E0A02",
-              "text": "When evaluating RF exposure levels from your station at a neighbor's home, what must you do?",
+              "text": "When evaluating RF exposure levels from your station at a neighbor\u2019s home, what must you do?",
               "correct": "B",
               "figure": "",
               "fcc": "",
@@ -12525,7 +12508,7 @@
               "answers": [
                 "A. Only the most powerful transmitter",
                 "B. Only commercial transmitters",
-                "C. Each transmitter that produces 5 percent or more of its MPE limit in areas where the total MPE limit is exceeded.",
+                "C. Each transmitter that produces 5 percent or more of its MPE limit in areas where the total MPE limit is exceeded",
                 "D. Each transmitter operating with a duty cycle greater than 50 percent"
               ],
               "topics": []

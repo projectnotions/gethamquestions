@@ -1,6 +1,6 @@
 ﻿{
-  "filename": "./temp/General Class Pool and Syllabus 2023-2027 Public Release with 2nd Errata April 15 2023.utf8.txt",
-  "timestamp": "2023-06-28 12:19:57.141666",
+  "filename": "./temp/element3.docx",
+  "timestamp": "2023-06-28 15:26:13.624556",
   "elem": "3",
   "elname": "General",
   "yrvalid": {
@@ -15,16 +15,16 @@
     {
       "elem": "3",
       "sub_el": "G1",
-      "description": "COMMISSION'S RULES",
+      "description": "COMMISSION\u2019S RULES",
       "numq": "5",
       "numg": "5",
       "groups": [
         {
           "subelement": "G1",
           "group_id": "A",
-          "description": "General class control operator frequency privileges; primary and secondary allocations",
+          "description": "\u2013 General class control operator frequency privileges; primary and secondary allocations",
           "topics": [
-            "General class control operator frequency privileges",
+            "\u2013 General class control operator frequency privileges",
             "primary and secondary allocations"
           ],
           "questions": [
@@ -44,7 +44,7 @@
                 "D. 80 meters, 20 meters, 15 meters, and 10 meters"
               ],
               "topics": [
-                "General class control operator frequency privileges"
+                "\u2013 General class control operator frequency privileges"
               ]
             },
             {
@@ -97,7 +97,7 @@
                 "D. 60 meters"
               ],
               "topics": [
-                "General class control operator frequency privileges"
+                "\u2013 General class control operator frequency privileges"
               ]
             },
             {
@@ -116,7 +116,7 @@
                 "D. All of the above"
               ],
               "topics": [
-                "General class control operator frequency privileges"
+                "\u2013 General class control operator frequency privileges"
               ]
             },
             {
@@ -154,7 +154,7 @@
                 "D. The entire band"
               ],
               "topics": [
-                "General class control operator frequency privileges"
+                "\u2013 General class control operator frequency privileges"
               ]
             },
             {
@@ -190,7 +190,7 @@
                 "D. 24900 kHz"
               ],
               "topics": [
-                "General class control operator frequency privileges"
+                "\u2013 General class control operator frequency privileges"
               ]
             },
             {
@@ -226,7 +226,7 @@
                 "D. The upper frequency portion on frequencies below 7.3 MHz, and the lower portion on frequencies above 14.150 MHz"
               ],
               "topics": [
-                "General class control operator frequency privileges"
+                "\u2013 General class control operator frequency privileges"
               ]
             }
           ]
@@ -234,9 +234,9 @@
         {
           "subelement": "G1",
           "group_id": "B",
-          "description": "Antenna structure limitations; good engineering and good amateur practice; beacon operation; prohibited transmissions; retransmitting radio signals",
+          "description": "\u2013 Antenna structure limitations; good engineering and good amateur practice; beacon operation; prohibited transmissions; retransmitting radio signals",
           "topics": [
-            "Antenna structure limitations",
+            "\u2013 Antenna structure limitations",
             "good engineering and good amateur practice",
             "beacon operation",
             "prohibited transmissions",
@@ -259,7 +259,7 @@
                 "D. 250 feet"
               ],
               "topics": [
-                "Antenna structure limitations"
+                "\u2013 Antenna structure limitations"
               ]
             },
             {
@@ -355,7 +355,7 @@
                 "D. Amateur Service communications must be reasonably accommodated, and regulations must constitute the minimum practical to accommodate a legitimate purpose of the state or local entity"
               ],
               "topics": [
-                "Antenna structure limitations",
+                "\u2013 Antenna structure limitations",
                 "good engineering and good amateur practice",
                 "retransmitting radio signals"
               ]
@@ -370,7 +370,7 @@
               "figure": "",
               "fcc": "[97.113(a)(4)]",
               "answers": [
-                "A. Only \"Q\" signals are permitted",
+                "A. Only \u201cQ\u201d signals are permitted",
                 "B. They may be used if they do not obscure the meaning of a message",
                 "C. They are not permitted",
                 "D. They are limited to those expressly listed in Part 97 of the FCC rules"
@@ -440,7 +440,7 @@
               "group": "B",
               "num": "11",
               "qid": "G1B11",
-              "text": "Who or what determines \"good engineering and good amateur practice,\" as applied to the operation of an amateur station in all respects not covered by the Part 97 rules?",
+              "text": "Who or what determines \u201cgood engineering and good amateur practice,\u201d as applied to the operation of an amateur station in all respects not covered by the Part 97 rules?",
               "correct": "A",
               "figure": "",
               "fcc": "[97.101(a)]",
@@ -460,9 +460,9 @@
         {
           "subelement": "G1",
           "group_id": "C",
-          "description": "Transmitter power regulations; data emission standards; 60-meter operation requirements",
+          "description": "\u2013 Transmitter power regulations; data emission standards; 60-meter operation requirements",
           "topics": [
-            "Transmitter power regulations",
+            "\u2013 Transmitter power regulations",
             "data emission standards",
             "60-meter operation requirements"
           ],
@@ -483,7 +483,7 @@
                 "D. 2000 watts PEP output"
               ],
               "topics": [
-                "Transmitter power regulations"
+                "\u2013 Transmitter power regulations"
               ]
             },
             {
@@ -502,7 +502,7 @@
                 "D. An effective radiated power equivalent to 100 watts from a half-wave dipole"
               ],
               "topics": [
-                "Transmitter power regulations"
+                "\u2013 Transmitter power regulations"
               ]
             },
             {
@@ -559,7 +559,7 @@
                 "D. 2000 watts PEP output"
               ],
               "topics": [
-                "Transmitter power regulations"
+                "\u2013 Transmitter power regulations"
               ]
             },
             {
@@ -578,7 +578,7 @@
                 "D. 1500 watts PEP output"
               ],
               "topics": [
-                "Transmitter power regulations"
+                "\u2013 Transmitter power regulations"
               ]
             },
             {
@@ -633,7 +633,7 @@
                 "D. ERP of 100 watts PEP with respect to an isotropic antenna"
               ],
               "topics": [
-                "Transmitter power regulations",
+                "\u2013 Transmitter power regulations",
                 "60-meter operation requirements"
               ]
             },
@@ -672,7 +672,7 @@
                 "D. PEP output from the transmitter"
               ],
               "topics": [
-                "Transmitter power regulations"
+                "\u2013 Transmitter power regulations"
               ]
             }
           ]
@@ -680,9 +680,9 @@
         {
           "subelement": "G1",
           "group_id": "D",
-          "description": "Volunteer Examiners and Volunteer Examiner Coordinators; temporary identification; element credit; remote operation",
+          "description": "\u2013 Volunteer Examiners and Volunteer Examiner Coordinators; temporary identification; element credit; remote operation",
           "topics": [
-            "Volunteer Examiners and Volunteer Examiner Coordinators",
+            "\u2013 Volunteer Examiners and Volunteer Examiner Coordinators",
             "temporary identification",
             "element credit",
             "remote operation"
@@ -723,7 +723,7 @@
                 "D. Amateur Extra, General, and Technician"
               ],
               "topics": [
-                "Volunteer Examiners and Volunteer Examiner Coordinators"
+                "\u2013 Volunteer Examiners and Volunteer Examiner Coordinators"
               ]
             },
             {
@@ -784,7 +784,7 @@
               "group": "D",
               "num": "06",
               "qid": "G1D06",
-              "text": "Until an upgrade to General class is shown in the FCC database, when must a Technician licensee identify with \"AG\" after their call sign?",
+              "text": "Until an upgrade to General class is shown in the FCC database, when must a Technician licensee identify with \u201cAG\u201d after their call sign?",
               "correct": "A",
               "figure": "",
               "fcc": "[97.119(f)(2)]",
@@ -812,7 +812,7 @@
                 "D. The Wireless Telecommunications Bureau"
               ],
               "topics": [
-                "Volunteer Examiners and Volunteer Examiner Coordinators"
+                "\u2013 Volunteer Examiners and Volunteer Examiner Coordinators"
               ]
             },
             {
@@ -827,11 +827,11 @@
               "answers": [
                 "A. The person must be a resident of the US for a minimum of 5 years",
                 "B. The person must hold an FCC granted amateur radio license of General class or above",
-                "C. The person's home citizenship must be in ITU region 2",
+                "C. The person\u2019s home citizenship must be in ITU region 2",
                 "D. None of these choices is correct; a non-US citizen cannot be a Volunteer Examiner"
               ],
               "topics": [
-                "Volunteer Examiners and Volunteer Examiner Coordinators"
+                "\u2013 Volunteer Examiners and Volunteer Examiner Coordinators"
               ]
             },
             {
@@ -869,7 +869,7 @@
                 "D. There is no age limit"
               ],
               "topics": [
-                "Volunteer Examiners and Volunteer Examiner Coordinators"
+                "\u2013 Volunteer Examiners and Volunteer Examiner Coordinators"
               ]
             },
             {
@@ -899,9 +899,9 @@
               "figure": "",
               "fcc": "[97.507]",
               "answers": [
-                "A. Those of both the remote station's country and the FCC",
-                "B. Those of the remote station's country and the FCC's third-party regulations",
-                "C. Only those of the remote station's country",
+                "A. Those of both the remote station\u2019s country and the FCC",
+                "B. Those of the remote station\u2019s country and the FCC\u2019s third-party regulations",
+                "C. Only those of the remote station\u2019s country",
                 "D. Only those of the FCC"
               ],
               "topics": [
@@ -913,9 +913,9 @@
         {
           "subelement": "G1",
           "group_id": "E",
-          "description": "Control categories; repeater regulations; third-party rules; ITU regions; automatically controlled digital station",
+          "description": "\u2013 Control categories; repeater regulations; third-party rules; ITU regions; automatically controlled digital station",
           "topics": [
-            "Control categories",
+            "\u2013 Control categories",
             "repeater regulations",
             "third-party rules",
             "ITU regions",
@@ -932,7 +932,7 @@
               "figure": "",
               "fcc": "[97.115(b)(2)]",
               "answers": [
-                "A. The third party's amateur license has been revoked and not reinstated",
+                "A. The third party\u2019s amateur license has been revoked and not reinstated",
                 "B. The third party is not a US citizen",
                 "C. The third party is speaking in a language other than English",
                 "D. All these choices are correct"
@@ -957,7 +957,7 @@
                 "D. Only if the 10-meter repeater control operator holds at least a General class license"
               ],
               "topics": [
-                "Control categories",
+                "\u2013 Control categories",
                 "repeater regulations",
                 "automatically controlled digital station"
               ]
@@ -978,7 +978,7 @@
                 "D. The control operator of the interrogating station must hold an Amateur Extra class license"
               ],
               "topics": [
-                "Control categories",
+                "\u2013 Control categories",
                 "automatically controlled digital station"
               ]
             },
@@ -1145,7 +1145,7 @@
                 "D. Only when the message is intended for third parties in areas where licensing is controlled by the FCC"
               ],
               "topics": [
-                "Control categories",
+                "\u2013 Control categories",
                 "third-party rules"
               ]
             }
@@ -1163,9 +1163,9 @@
         {
           "subelement": "G2",
           "group_id": "A",
-          "description": "Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation; answering DX stations",
+          "description": "\u2013 Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation; answering DX stations",
           "topics": [
-            "Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation",
+            "\u2013 Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation",
             "answering DX stations"
           ],
           "questions": [
@@ -1185,7 +1185,7 @@
                 "D. Double sideband"
               ],
               "topics": [
-                "Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation"
+                "\u2013 Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation"
               ]
             },
             {
@@ -1204,7 +1204,7 @@
                 "D. Double sideband"
               ],
               "topics": [
-                "Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation"
+                "\u2013 Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation"
               ]
             },
             {
@@ -1223,7 +1223,7 @@
                 "D. Double sideband"
               ],
               "topics": [
-                "Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation"
+                "\u2013 Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation"
               ]
             },
             {
@@ -1242,7 +1242,7 @@
                 "D. Double sideband"
               ],
               "topics": [
-                "Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation"
+                "\u2013 Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation"
               ]
             },
             {
@@ -1261,7 +1261,7 @@
                 "D. Single phase modulation"
               ],
               "topics": [
-                "Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation"
+                "\u2013 Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation"
               ]
             },
             {
@@ -1280,7 +1280,7 @@
                 "D. Less bandwidth used and greater power efficiency"
               ],
               "topics": [
-                "Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation"
+                "\u2013 Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation"
               ]
             },
             {
@@ -1310,13 +1310,13 @@
               "figure": "",
               "fcc": "",
               "answers": [
-                "A. Say \"QRZ\" several times, followed by your call sign",
+                "A. Say \u201cQRZ\u201d several times, followed by your call sign",
                 "B. Say your call sign once",
-                "C. Say \"Breaker Breaker\"",
-                "D. Say \"CQ\" followed by the call sign of either station"
+                "C. Say \u201cBreaker Breaker\u201d",
+                "D. Say \u201cCQ\u201d followed by the call sign of either station"
               ],
               "topics": [
-                "Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation"
+                "\u2013 Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation"
               ]
             },
             {
@@ -1349,12 +1349,12 @@
               "fcc": "",
               "answers": [
                 "A. The received signal is more natural sounding",
-                "B. It allows \"hands free\" operation",
+                "B. It allows \u201chands free\u201d operation",
                 "C. It occupies less bandwidth",
                 "D. It provides more power output"
               ],
               "topics": [
-                "Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation"
+                "\u2013 Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation"
               ]
             },
             {
@@ -1362,7 +1362,7 @@
               "group": "A",
               "num": "11",
               "qid": "G2A11",
-              "text": "Generally, who should respond to a station in the contiguous 48 states calling \"CQ DX\"?",
+              "text": "Generally, who should respond to a station in the contiguous 48 states calling \u201cCQ DX\u201d?",
               "correct": "C",
               "figure": "",
               "fcc": "",
@@ -1392,7 +1392,7 @@
                 "D. Attenuator level"
               ],
               "topics": [
-                "Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation"
+                "\u2013 Phone operating procedures: USB/LSB conventions, breaking into a contact, transmitter setup for voice operation"
               ]
             }
           ]
@@ -1400,9 +1400,9 @@
         {
           "subelement": "G2",
           "group_id": "B",
-          "description": "Operating effectively; band plans; drills and emergencies; RACES operation",
+          "description": "\u2013 Operating effectively; band plans; drills and emergencies; RACES operation",
           "topics": [
-            "Operating effectively",
+            "\u2013 Operating effectively",
             "band plans",
             "drills and emergencies",
             "RACES operation"
@@ -1503,10 +1503,10 @@
               "figure": "",
               "fcc": "",
               "answers": [
-                "A. Send \"QRL?\" on CW, followed by your call sign; or, if using phone, ask if the frequency is in use, followed by your call sign",
+                "A. Send \u201cQRL?\u201d on CW, followed by your call sign; or, if using phone, ask if the frequency is in use, followed by your call sign",
                 "B. Listen for 2 minutes before calling CQ",
-                "C. Send the letter \"V\" in Morse code several times and listen for a response, or say \"test\" several times and listen for a response",
-                "D. Send \"QSY\" on CW or if using phone, announce \"the frequency is in use,\" then give your call sign and listen for a response"
+                "C. Send the letter \u201cV\u201d in Morse code several times and listen for a response, or say \u201ctest\u201d several times and listen for a response",
+                "D. Send \u201cQSY\u201d on CW or if using phone, announce \u201cthe frequency is in use,\u201d then give your call sign and listen for a response"
               ],
               "topics": []
             },
@@ -1607,9 +1607,9 @@
         {
           "subelement": "G2",
           "group_id": "C",
-          "description": "CW operating procedures and procedural signals; Q signals; full break-in",
+          "description": "\u2013 CW operating procedures and procedural signals; Q signals; full break-in",
           "topics": [
-            "CW operating procedures and procedural signals",
+            "\u2013 CW operating procedures and procedural signals",
             "Q signals",
             "full break-in"
           ],
@@ -1624,13 +1624,13 @@
               "figure": "",
               "fcc": "",
               "answers": [
-                "A. Breaking stations send the Morse code prosign \"BK\"",
+                "A. Breaking stations send the Morse code prosign \u201cBK\u201d",
                 "B. Automatic keyers, instead of hand keys, are used to send Morse code",
                 "C. An operator must activate a manual send/receive switch before and after every transmission",
                 "D. Transmitting stations can receive between code characters and elements"
               ],
               "topics": [
-                "CW operating procedures and procedural signals",
+                "\u2013 CW operating procedures and procedural signals",
                 "full break-in"
               ]
             },
@@ -1639,7 +1639,7 @@
               "group": "C",
               "num": "02",
               "qid": "G2C02",
-              "text": "What should you do if a CW station sends \"QRS?\"",
+              "text": "What should you do if a CW station sends \u201cQRS?\u201d",
               "correct": "A",
               "figure": "",
               "fcc": "",
@@ -1650,7 +1650,7 @@
                 "D. Repeat everything twice"
               ],
               "topics": [
-                "CW operating procedures and procedural signals"
+                "\u2013 CW operating procedures and procedural signals"
               ]
             },
             {
@@ -1658,7 +1658,7 @@
               "group": "C",
               "num": "03",
               "qid": "G2C03",
-              "text": "What does it mean when a CW operator sends \"KN\" at the end of a transmission?",
+              "text": "What does it mean when a CW operator sends \u201cKN\u201d at the end of a transmission?",
               "correct": "C",
               "figure": "",
               "fcc": "",
@@ -1669,7 +1669,7 @@
                 "D. Closing station now"
               ],
               "topics": [
-                "CW operating procedures and procedural signals"
+                "\u2013 CW operating procedures and procedural signals"
               ]
             },
             {
@@ -1677,18 +1677,18 @@
               "group": "C",
               "num": "04",
               "qid": "G2C04",
-              "text": "What does the Q signal \"QRL?\" mean?",
+              "text": "What does the Q signal \u201cQRL?\u201d mean?",
               "correct": "D",
               "figure": "",
               "fcc": "",
               "answers": [
-                "A. \"Will you keep the frequency clear?\"",
-                "B. \"Are you operating full break-in?\" or \"Can you operate full break-in?\"",
-                "C. \"Are you listening only for a specific station?\"",
-                "D. \"Are you busy?\" or \"Is this frequency in use?\""
+                "A. \u201cWill you keep the frequency clear?\u201d",
+                "B. \u201cAre you operating full break-in?\u201d or \u201cCan you operate full break-in?\u201d",
+                "C. \u201cAre you listening only for a specific station?\u201d",
+                "D. \u201cAre you busy?\u201d or \u201cIs this frequency in use?\u201d"
               ],
               "topics": [
-                "CW operating procedures and procedural signals",
+                "\u2013 CW operating procedures and procedural signals",
                 "Q signals"
               ]
             },
@@ -1714,7 +1714,7 @@
               "group": "C",
               "num": "06",
               "qid": "G2C06",
-              "text": "What does the term \"zero beat\" mean in CW operation?",
+              "text": "What does the term \u201czero beat\u201d mean in CW operation?",
               "correct": "D",
               "figure": "",
               "fcc": "",
@@ -1725,7 +1725,7 @@
                 "D. Matching the transmit frequency to the frequency of a received signal"
               ],
               "topics": [
-                "CW operating procedures and procedural signals"
+                "\u2013 CW operating procedures and procedural signals"
               ]
             },
             {
@@ -1733,7 +1733,7 @@
               "group": "C",
               "num": "07",
               "qid": "G2C07",
-              "text": "When sending CW, what does a \"C\" mean when added to the RST report?",
+              "text": "When sending CW, what does a \u201cC\u201d mean when added to the RST report?",
               "correct": "A",
               "figure": "",
               "fcc": "",
@@ -1761,7 +1761,7 @@
                 "D. KN"
               ],
               "topics": [
-                "CW operating procedures and procedural signals"
+                "\u2013 CW operating procedures and procedural signals"
               ]
             },
             {
@@ -1769,7 +1769,7 @@
               "group": "C",
               "num": "09",
               "qid": "G2C09",
-              "text": "What does the Q signal \"QSL\" mean?",
+              "text": "What does the Q signal \u201cQSL\u201d mean?",
               "correct": "C",
               "figure": "",
               "fcc": "",
@@ -1780,7 +1780,7 @@
                 "D. We have worked before"
               ],
               "topics": [
-                "CW operating procedures and procedural signals",
+                "\u2013 CW operating procedures and procedural signals",
                 "Q signals"
               ]
             },
@@ -1789,7 +1789,7 @@
               "group": "C",
               "num": "10",
               "qid": "G2C10",
-              "text": "What does the Q signal \"QRN\" mean?",
+              "text": "What does the Q signal \u201cQRN\u201d mean?",
               "correct": "D",
               "figure": "",
               "fcc": "",
@@ -1800,7 +1800,7 @@
                 "D. I am troubled by static"
               ],
               "topics": [
-                "CW operating procedures and procedural signals",
+                "\u2013 CW operating procedures and procedural signals",
                 "Q signals"
               ]
             },
@@ -1809,7 +1809,7 @@
               "group": "C",
               "num": "11",
               "qid": "G2C11",
-              "text": "What does the Q signal \"QRV\" mean?",
+              "text": "What does the Q signal \u201cQRV\u201d mean?",
               "correct": "D",
               "figure": "",
               "fcc": "",
@@ -1820,7 +1820,7 @@
                 "D. I am ready to receive"
               ],
               "topics": [
-                "CW operating procedures and procedural signals",
+                "\u2013 CW operating procedures and procedural signals",
                 "Q signals"
               ]
             }
@@ -1829,9 +1829,9 @@
         {
           "subelement": "G2",
           "group_id": "D",
-          "description": "Volunteer Monitor Program; HF operations",
+          "description": "\u2013 Volunteer Monitor Program; HF operations",
           "topics": [
-            "Volunteer Monitor Program",
+            "\u2013 Volunteer Monitor Program",
             "HF operations"
           ],
           "questions": [
@@ -1851,7 +1851,7 @@
                 "D. Amateur volunteers who use their station equipment to help civil defense organizations in times of emergency"
               ],
               "topics": [
-                "Volunteer Monitor Program"
+                "\u2013 Volunteer Monitor Program"
               ]
             },
             {
@@ -1870,7 +1870,7 @@
                 "D. To encourage amateur radio operators to self-regulate and comply with the rules"
               ],
               "topics": [
-                "Volunteer Monitor Program"
+                "\u2013 Volunteer Monitor Program"
               ]
             },
             {
@@ -1889,7 +1889,7 @@
                 "D. All these choices are correct"
               ],
               "topics": [
-                "Volunteer Monitor Program"
+                "\u2013 Volunteer Monitor Program"
               ]
             },
             {
@@ -1919,10 +1919,10 @@
               "figure": "",
               "fcc": "",
               "answers": [
-                "A. Sign your call sign once, followed by the words \"listening for a call\" -- if no answer, change frequency and repeat",
-                "B. Say \"QTC\" followed by \"this is\" and your call sign -- if no answer, change frequency and repeat",
-                "C. Repeat \"CQ\" a few times, followed by \"this is,\" then your call sign a few times, then pause to listen, repeat as necessary",
-                "D. Transmit an unmodulated carried for approximately 10 seconds, followed by \"this is\" and your call sign, and pause to listen -- repeat as necessary"
+                "A. Sign your call sign once, followed by the words \u201clistening for a call\u201d -- if no answer, change frequency and repeat",
+                "B. Say \u201cQTC\u201d followed by \u201cthis is\u201d and your call sign -- if no answer, change frequency and repeat",
+                "C. Repeat \u201cCQ\u201d a few times, followed by \u201cthis is,\u201d then your call sign a few times, then pause to listen, repeat as necessary",
+                "D. Transmit an unmodulated carried for approximately 10 seconds, followed by \u201cthis is\u201d and your call sign, and pause to listen -- repeat as necessary"
               ],
               "topics": [
                 "HF operations"
@@ -1933,14 +1933,14 @@
               "group": "D",
               "num": "06",
               "qid": "G2D06",
-              "text": "How is a directional antenna pointed when making a \"long-path\" contact with another station?",
+              "text": "How is a directional antenna pointed when making a \u201clong-path\u201d contact with another station?",
               "correct": "C",
               "figure": "",
               "fcc": "",
               "answers": [
                 "A. Toward the rising sun",
                 "B. Along the gray line",
-                "C. 180 degrees from the station's short-path heading",
+                "C. 180 degrees from the station\u2019s short-path heading",
                 "D. Toward the north"
               ],
               "topics": []
@@ -2041,9 +2041,9 @@
         {
           "subelement": "G2",
           "group_id": "E",
-          "description": "Digital mode operating procedures",
+          "description": "\u2013 Digital mode operating procedures",
           "topics": [
-            "Digital mode operating procedures"
+            "\u2013 Digital mode operating procedures"
           ],
           "questions": [
             {
@@ -2062,7 +2062,7 @@
                 "D. LSB"
               ],
               "topics": [
-                "Digital mode operating procedures"
+                "\u2013 Digital mode operating procedures"
               ]
             },
             {
@@ -2109,8 +2109,8 @@
               "figure": "",
               "fcc": "",
               "answers": [
-                "A. Always call on the station's frequency",
-                "B. Call on any frequency in the waterfall except the station's frequency",
+                "A. Always call on the station\u2019s frequency",
+                "B. Call on any frequency in the waterfall except the station\u2019s frequency",
                 "C. Find a clear frequency during the same time slot as the calling station",
                 "D. Find a clear frequency during the alternate time slot to the calling station"
               ],
@@ -2132,7 +2132,7 @@
                 "D. SSB"
               ],
               "topics": [
-                "Digital mode operating procedures"
+                "\u2013 Digital mode operating procedures"
               ]
             },
             {
@@ -2185,7 +2185,7 @@
                 "D. Between 14.070 MHz and 14.100 MHz"
               ],
               "topics": [
-                "Digital mode operating procedures"
+                "\u2013 Digital mode operating procedures"
               ]
             },
             {
@@ -2218,10 +2218,10 @@
                 "A. Send an email to the system control operator",
                 "B. Send QRL in Morse code",
                 "C. Respond when the station broadcasts its SSID",
-                "D. Transmit a connect message on the station's published frequency"
+                "D. Transmit a connect message on the station\u2019s published frequency"
               ],
               "topics": [
-                "Digital mode operating procedures"
+                "\u2013 Digital mode operating procedures"
               ]
             },
             {
@@ -2323,9 +2323,9 @@
         {
           "subelement": "G3",
           "group_id": "A",
-          "description": "Sunspots and solar radiation; geomagnetic field and stability indices",
+          "description": "\u2013 Sunspots and solar radiation; geomagnetic field and stability indices",
           "topics": [
-            "Sunspots and solar radiation",
+            "\u2013 Sunspots and solar radiation",
             "geomagnetic field and stability indices"
           ],
           "questions": [
@@ -2345,7 +2345,7 @@
                 "D. A zero sunspot number indicates undisturbed conditions"
               ],
               "topics": [
-                "Sunspots and solar radiation"
+                "\u2013 Sunspots and solar radiation"
               ]
             },
             {
@@ -2381,7 +2381,7 @@
                 "D. 20 to 40 hours"
               ],
               "topics": [
-                "Sunspots and solar radiation"
+                "\u2013 Sunspots and solar radiation"
               ]
             },
             {
@@ -2400,7 +2400,7 @@
                 "D. 15 meters, 12 meters, and 10 meters"
               ],
               "topics": [
-                "Sunspots and solar radiation"
+                "\u2013 Sunspots and solar radiation"
               ]
             },
             {
@@ -2419,7 +2419,7 @@
                 "D. A measure of solar radiation with a wavelength of 10.7 centimeters"
               ],
               "topics": [
-                "Sunspots and solar radiation"
+                "\u2013 Sunspots and solar radiation"
               ]
             },
             {
@@ -2435,7 +2435,7 @@
                 "A. A sudden drop in the solar flux index",
                 "B. A thunderstorm that affects radio propagation",
                 "C. Ripples in the geomagnetic force",
-                "D. A temporary disturbance in Earth's geomagnetic field"
+                "D. A temporary disturbance in Earth\u2019s geomagnetic field"
               ],
               "topics": [
                 "geomagnetic field and stability indices"
@@ -2457,7 +2457,7 @@
                 "D. At any point"
               ],
               "topics": [
-                "Sunspots and solar radiation"
+                "\u2013 Sunspots and solar radiation"
               ]
             },
             {
@@ -2509,8 +2509,8 @@
               "fcc": "",
               "answers": [
                 "A. Long term oscillations in the upper atmosphere",
-                "B. Cyclic variation in Earth's radiation belts",
-                "C. Rotation of the Sun's surface layers around its axis",
+                "B. Cyclic variation in Earth\u2019s radiation belts",
+                "C. Rotation of the Sun\u2019s surface layers around its axis",
                 "D. The position of the Moon in its orbit"
               ],
               "topics": []
@@ -2543,8 +2543,8 @@
               "fcc": "",
               "answers": [
                 "A. The relative position of sunspots on the surface of the Sun",
-                "B. The short-term stability of Earth's geomagnetic field",
-                "C. The short-term stability of the Sun's magnetic field",
+                "B. The short-term stability of Earth\u2019s geomagnetic field",
+                "C. The short-term stability of the Sun\u2019s magnetic field",
                 "D. The solar radio flux at Boulder, Colorado"
               ],
               "topics": []
@@ -2560,8 +2560,8 @@
               "fcc": "",
               "answers": [
                 "A. The relative position of sunspots on the surface of the Sun",
-                "B. The amount of polarization of the Sun's electric field",
-                "C. The long-term stability of Earth's geomagnetic field",
+                "B. The amount of polarization of the Sun\u2019s electric field",
+                "C. The long-term stability of Earth\u2019s geomagnetic field",
                 "D. The solar radio flux at Boulder, Colorado"
               ],
               "topics": []
@@ -2582,7 +2582,7 @@
                 "D. VHF/UHF ducting is disturbed"
               ],
               "topics": [
-                "Sunspots and solar radiation"
+                "\u2013 Sunspots and solar radiation"
               ]
             }
           ]
@@ -2590,9 +2590,9 @@
         {
           "subelement": "G3",
           "group_id": "B",
-          "description": "Maximum Usable Frequency; Lowest Usable Frequency; short path and long path propagation; determining propagation conditions; ionospheric refraction",
+          "description": "\u2013 Maximum Usable Frequency; Lowest Usable Frequency; short path and long path propagation; determining propagation conditions; ionospheric refraction",
           "topics": [
-            "Maximum Usable Frequency",
+            "\u2013 Maximum Usable Frequency",
             "Lowest Usable Frequency",
             "short path and long path propagation",
             "determining propagation conditions",
@@ -2652,7 +2652,7 @@
                 "D. Just above the critical frequency"
               ],
               "topics": [
-                "Maximum Usable Frequency",
+                "\u2013 Maximum Usable Frequency",
                 "Lowest Usable Frequency",
                 "short path and long path propagation",
                 "determining propagation conditions"
@@ -2751,7 +2751,7 @@
               "group": "B",
               "num": "09",
               "qid": "G3B09",
-              "text": "What is the approximate maximum distance along the Earth's surface normally covered in one hop using the F2 region?",
+              "text": "What is the approximate maximum distance along the Earth\u2019s surface normally covered in one hop using the F2 region?",
               "correct": "C",
               "figure": "",
               "fcc": "",
@@ -2762,7 +2762,7 @@
                 "D. 12,000 miles"
               ],
               "topics": [
-                "Maximum Usable Frequency"
+                "\u2013 Maximum Usable Frequency"
               ]
             },
             {
@@ -2770,7 +2770,7 @@
               "group": "B",
               "num": "10",
               "qid": "G3B10",
-              "text": "What is the approximate maximum distance along the Earth's surface normally covered in one hop using the E region?",
+              "text": "What is the approximate maximum distance along the Earth\u2019s surface normally covered in one hop using the E region?",
               "correct": "B",
               "figure": "",
               "fcc": "",
@@ -2781,7 +2781,7 @@
                 "D. 12,000 miles"
               ],
               "topics": [
-                "Maximum Usable Frequency"
+                "\u2013 Maximum Usable Frequency"
               ]
             },
             {
@@ -2826,9 +2826,9 @@
         {
           "subelement": "G3",
           "group_id": "C",
-          "description": "Ionospheric regions; critical angle and frequency; HF scatter; near vertical incidence skywave (NVIS)",
+          "description": "\u2013 Ionospheric regions; critical angle and frequency; HF scatter; near vertical incidence skywave (NVIS)",
           "topics": [
-            "Ionospheric regions",
+            "\u2013 Ionospheric regions",
             "critical angle and frequency",
             "HF scatter",
             "near vertical incidence skywave (NVIS)"
@@ -2850,7 +2850,7 @@
                 "D. The F2 region"
               ],
               "topics": [
-                "Ionospheric regions"
+                "\u2013 Ionospheric regions"
               ]
             },
             {
@@ -2858,7 +2858,7 @@
               "group": "C",
               "num": "02",
               "qid": "G3C02",
-              "text": "What is meant by the term \"critical frequency\" at a given incidence angle?",
+              "text": "What is meant by the term \u201ccritical frequency\u201d at a given incidence angle?",
               "correct": "A",
               "figure": "",
               "fcc": "",
@@ -2889,7 +2889,7 @@
                 "D. Because of temperature inversions"
               ],
               "topics": [
-                "Ionospheric regions"
+                "\u2013 Ionospheric regions"
               ]
             },
             {
@@ -2897,7 +2897,7 @@
               "group": "C",
               "num": "04",
               "qid": "G3C04",
-              "text": "What does the term \"critical angle\" mean, as applied to radio wave propagation?",
+              "text": "What does the term \u201ccritical angle\u201d mean, as applied to radio wave propagation?",
               "correct": "D",
               "figure": "",
               "fcc": "",
@@ -2988,7 +2988,7 @@
               "group": "C",
               "num": "09",
               "qid": "G3C09",
-              "text": "What type of propagation allows signals to be heard in the transmitting station's skip zone?",
+              "text": "What type of propagation allows signals to be heard in the transmitting station\u2019s skip zone?",
               "correct": "B",
               "figure": "",
               "fcc": "",
@@ -3035,7 +3035,7 @@
                 "D. The D region"
               ],
               "topics": [
-                "Ionospheric regions"
+                "\u2013 Ionospheric regions"
               ]
             }
           ]
@@ -3052,9 +3052,9 @@
         {
           "subelement": "G4",
           "group_id": "A",
-          "description": "Station configuration and operation",
+          "description": "\u2013 Station configuration and operation",
           "topics": [
-            "Station configuration and operation"
+            "\u2013 Station configuration and operation"
           ],
           "questions": [
             {
@@ -3079,7 +3079,7 @@
               "group": "A",
               "num": "02",
               "qid": "G4A02",
-              "text": "What is the benefit of using the opposite or \"reverse\" sideband when receiving CW?",
+              "text": "What is the benefit of using the opposite or \u201creverse\u201d sideband when receiving CW?",
               "correct": "C",
               "figure": "",
               "fcc": "",
@@ -3113,7 +3113,7 @@
               "group": "A",
               "num": "04",
               "qid": "G4A04",
-              "text": "What is the effect on plate current of the correct setting of a vacuum-tube RF power amplifier's TUNE control?",
+              "text": "What is the effect on plate current of the correct setting of a vacuum-tube RF power amplifier\u2019s TUNE control?",
               "correct": "B",
               "figure": "",
               "fcc": "",
@@ -3164,7 +3164,7 @@
               "group": "A",
               "num": "07",
               "qid": "G4A07",
-              "text": "What happens as a receiver's noise reduction control level is increased?",
+              "text": "What happens as a receiver\u2019s noise reduction control level is increased?",
               "correct": "A",
               "figure": "",
               "fcc": "",
@@ -3198,7 +3198,7 @@
               "group": "A",
               "num": "09",
               "qid": "G4A09",
-              "text": "What is the purpose of delaying RF output after activating a transmitter's keying line to an external amplifier?",
+              "text": "What is the purpose of delaying RF output after activating a transmitter\u2019s keying line to an external amplifier?",
               "correct": "C",
               "figure": "",
               "fcc": "",
@@ -3283,9 +3283,9 @@
         {
           "subelement": "G4",
           "group_id": "B",
-          "description": "Tests and test equipment",
+          "description": "\u2013 Tests and test equipment",
           "topics": [
-            "Tests and test equipment"
+            "\u2013 Tests and test equipment"
           ],
           "questions": [
             {
@@ -3304,7 +3304,7 @@
                 "D. An oscilloscope"
               ],
               "topics": [
-                "Tests and test equipment"
+                "\u2013 Tests and test equipment"
               ]
             },
             {
@@ -3408,7 +3408,7 @@
                 "D. Two audio frequency range square wave signals of equal amplitude"
               ],
               "topics": [
-                "Tests and test equipment"
+                "\u2013 Tests and test equipment"
               ]
             },
             {
@@ -3427,7 +3427,7 @@
                 "D. Percentage of carrier phase shift"
               ],
               "topics": [
-                "Tests and test equipment"
+                "\u2013 Tests and test equipment"
               ]
             },
             {
@@ -3520,9 +3520,9 @@
         {
           "subelement": "G4",
           "group_id": "C",
-          "description": "Interference to consumer electronics; grounding and bonding",
+          "description": "\u2013 Interference to consumer electronics; grounding and bonding",
           "topics": [
-            "Interference to consumer electronics",
+            "\u2013 Interference to consumer electronics",
             "grounding and bonding"
           ],
           "questions": [
@@ -3542,7 +3542,7 @@
                 "D. Reverse-biased diode"
               ],
               "topics": [
-                "Interference to consumer electronics"
+                "\u2013 Interference to consumer electronics"
               ]
             },
             {
@@ -3556,12 +3556,12 @@
               "fcc": "",
               "answers": [
                 "A. Not using a balun or line isolator to feed balanced antennas",
-                "B. Lack of rectification of the transmitter's signal in power conductors",
+                "B. Lack of rectification of the transmitter\u2019s signal in power conductors",
                 "C. Arcing at a poor electrical connection",
                 "D. Using a balun to feed an unbalanced antenna"
               ],
               "topics": [
-                "Interference to consumer electronics"
+                "\u2013 Interference to consumer electronics"
               ]
             },
             {
@@ -3580,7 +3580,7 @@
                 "D. Clearly audible speech"
               ],
               "topics": [
-                "Interference to consumer electronics"
+                "\u2013 Interference to consumer electronics"
               ]
             },
             {
@@ -3599,7 +3599,7 @@
                 "D. Severely distorted audio"
               ],
               "topics": [
-                "Interference to consumer electronics"
+                "\u2013 Interference to consumer electronics"
               ]
             },
             {
@@ -3669,7 +3669,7 @@
                 "D. Add an additional insulating jacket to the cable"
               ],
               "topics": [
-                "Interference to consumer electronics"
+                "\u2013 Interference to consumer electronics"
               ]
             },
             {
@@ -3694,12 +3694,12 @@
               "group": "C",
               "num": "10",
               "qid": "G4C10",
-              "text": "What could be a symptom caused by a ground loop in your station's audio connections?",
+              "text": "What could be a symptom caused by a ground loop in your station\u2019s audio connections?",
               "correct": "A",
               "figure": "",
               "fcc": "",
               "answers": [
-                "A. You receive reports of \"hum\" on your station's transmitted signal",
+                "A. You receive reports of \u201chum\u201d on your station\u2019s transmitted signal",
                 "B. The SWR reading for one or more antennas is suddenly very high",
                 "C. An item of station equipment starts to draw excessive amounts of current",
                 "D. You receive reports of harmonic interference from your station"
@@ -3711,7 +3711,7 @@
               "group": "C",
               "num": "11",
               "qid": "G4C11",
-              "text": "What technique helps to minimize RF \"hot spots\" in an amateur station?",
+              "text": "What technique helps to minimize RF \u201chot spots\u201d in an amateur station?",
               "correct": "C",
               "figure": "",
               "fcc": "",
@@ -3722,7 +3722,7 @@
                 "D. Placing low-pass filters on all feed lines"
               ],
               "topics": [
-                "Interference to consumer electronics"
+                "\u2013 Interference to consumer electronics"
               ]
             },
             {
@@ -3747,9 +3747,9 @@
         {
           "subelement": "G4",
           "group_id": "D",
-          "description": "Speech processors; S meters; sideband operation near band edges",
+          "description": "\u2013 Speech processors; S meters; sideband operation near band edges",
           "topics": [
-            "Speech processors",
+            "\u2013 Speech processors",
             "S meters",
             "sideband operation near band edges"
           ],
@@ -3770,7 +3770,7 @@
                 "D. Decrease high-frequency voice output to prevent out-of-band operation"
               ],
               "topics": [
-                "Speech processors"
+                "\u2013 Speech processors"
               ]
             },
             {
@@ -3789,7 +3789,7 @@
                 "D. It reduces intermodulation distortion"
               ],
               "topics": [
-                "Speech processors",
+                "\u2013 Speech processors",
                 "sideband operation near band edges"
               ]
             },
@@ -3809,7 +3809,7 @@
                 "D. All these choices are correct"
               ],
               "topics": [
-                "Speech processors"
+                "\u2013 Speech processors"
               ]
             },
             {
@@ -3927,7 +3927,7 @@
               "group": "D",
               "num": "10",
               "qid": "G4D10",
-              "text": "How close to the lower edge of a band's phone segment should your displayed carrier frequency be when using 3 kHz wide LSB?",
+              "text": "How close to the lower edge of a band\u2019s phone segment should your displayed carrier frequency be when using 3 kHz wide LSB?",
               "correct": "A",
               "figure": "",
               "fcc": "",
@@ -3946,7 +3946,7 @@
               "group": "D",
               "num": "11",
               "qid": "G4D11",
-              "text": "How close to the upper edge of a band's phone segment should your displayed carrier frequency be when using 3 kHz wide USB?",
+              "text": "How close to the upper edge of a band\u2019s phone segment should your displayed carrier frequency be when using 3 kHz wide USB?",
               "correct": "B",
               "figure": "",
               "fcc": "",
@@ -3965,9 +3965,9 @@
         {
           "subelement": "G4",
           "group_id": "E",
-          "description": "Mobile and portable HF stations; alternative energy source operation",
+          "description": "\u2013 Mobile and portable HF stations; alternative energy source operation",
           "topics": [
-            "Mobile and portable HF stations",
+            "\u2013 Mobile and portable HF stations",
             "alternative energy source operation"
           ],
           "questions": [
@@ -3987,7 +3987,7 @@
                 "D. To lower the radiation angle"
               ],
               "topics": [
-                "Mobile and portable HF stations"
+                "\u2013 Mobile and portable HF stations"
               ]
             },
             {
@@ -4001,12 +4001,12 @@
               "fcc": "",
               "answers": [
                 "A. To narrow the operating bandwidth of the antenna",
-                "B. To increase the \"Q\" of the antenna",
+                "B. To increase the \u201cQ\u201d of the antenna",
                 "C. To reduce the chance of damage if the antenna should strike an object",
                 "D. To reduce RF voltage discharge from the tip of the antenna while transmitting"
               ],
               "topics": [
-                "Mobile and portable HF stations"
+                "\u2013 Mobile and portable HF stations"
               ]
             },
             {
@@ -4025,7 +4025,7 @@
                 "D. To the alternator or generator using insulated heavy duty balanced transmission line"
               ],
               "topics": [
-                "Mobile and portable HF stations"
+                "\u2013 Mobile and portable HF stations"
               ]
             },
             {
@@ -4033,18 +4033,18 @@
               "group": "E",
               "num": "04",
               "qid": "G4E04",
-              "text": "Why should DC power for a 100-watt HF transceiver not be supplied by a vehicle's auxiliary power socket?",
+              "text": "Why should DC power for a 100-watt HF transceiver not be supplied by a vehicle\u2019s auxiliary power socket?",
               "correct": "B",
               "figure": "",
               "fcc": "",
               "answers": [
                 "A. The socket is not wired with an RF-shielded power cable",
-                "B. The socket's wiring may be inadequate for the current drawn by the transceiver",
+                "B. The socket\u2019s wiring may be inadequate for the current drawn by the transceiver",
                 "C. The DC polarity of the socket is reversed from the polarity of modern HF transceivers",
                 "D. Drawing more than 50 watts from this socket could cause the engine to overheat"
               ],
               "topics": [
-                "Mobile and portable HF stations"
+                "\u2013 Mobile and portable HF stations"
               ]
             },
             {
@@ -4057,13 +4057,13 @@
               "figure": "",
               "fcc": "",
               "answers": [
-                "A. \"Picket fencing\"",
+                "A. \u201cPicket fencing\u201d",
                 "B. The wire gauge of the DC power line to the transceiver",
                 "C. Efficiency of the electrically short antenna",
                 "D. FCC rules limiting mobile output power on the 75-meter band"
               ],
               "topics": [
-                "Mobile and portable HF stations"
+                "\u2013 Mobile and portable HF stations"
               ]
             },
             {
@@ -4082,7 +4082,7 @@
                 "D. Harmonic radiation may increase"
               ],
               "topics": [
-                "Mobile and portable HF stations"
+                "\u2013 Mobile and portable HF stations"
               ]
             },
             {
@@ -4101,7 +4101,7 @@
                 "D. All these choices are correct"
               ],
               "topics": [
-                "Mobile and portable HF stations"
+                "\u2013 Mobile and portable HF stations"
               ]
             },
             {
@@ -4186,9 +4186,9 @@
         {
           "subelement": "G5",
           "group_id": "A",
-          "description": "Reactance; inductance; capacitance; impedance; impedance transformation; resonance",
+          "description": "\u2013 Reactance; inductance; capacitance; impedance; impedance transformation; resonance",
           "topics": [
-            "Reactance",
+            "\u2013 Reactance",
             "inductance",
             "capacitance",
             "impedance",
@@ -4212,7 +4212,7 @@
                 "D. Impedance is equal to the arithmetic mean of the inductance and capacitance"
               ],
               "topics": [
-                "Reactance"
+                "\u2013 Reactance"
               ]
             },
             {
@@ -4231,7 +4231,7 @@
                 "D. Reinforcement of the flow of alternating current caused by capacitance or inductance"
               ],
               "topics": [
-                "Reactance"
+                "\u2013 Reactance"
               ]
             },
             {
@@ -4356,7 +4356,7 @@
                 "D. Siemens"
               ],
               "topics": [
-                "Reactance"
+                "\u2013 Reactance"
               ]
             },
             {
@@ -4394,7 +4394,7 @@
                 "D. Y"
               ],
               "topics": [
-                "Reactance"
+                "\u2013 Reactance"
               ]
             },
             {
@@ -4421,9 +4421,9 @@
         {
           "subelement": "G5",
           "group_id": "B",
-          "description": "The decibel; current and voltage dividers; electrical power calculations; sine wave root-mean-square (RMS) values; PEP calculations",
+          "description": "\u2013 The decibel; current and voltage dividers; electrical power calculations; sine wave root-mean-square (RMS) values; PEP calculations",
           "topics": [
-            "The decibel",
+            "\u2013 The decibel",
             "current and voltage dividers",
             "electrical power calculations",
             "sine wave root-mean-square (RMS) values",
@@ -4707,9 +4707,9 @@
         {
           "subelement": "G5",
           "group_id": "C",
-          "description": "Resistors, capacitors, and inductors in series and parallel; transformers",
+          "description": "\u2013 Resistors, capacitors, and inductors in series and parallel; transformers",
           "topics": [
-            "Resistors, capacitors, and inductors in series and parallel",
+            "\u2013 Resistors, capacitors, and inductors in series and parallel",
             "transformers"
           ],
           "questions": [
@@ -4767,7 +4767,7 @@
                 "D. 80 ohms"
               ],
               "topics": [
-                "Resistors, capacitors, and inductors in series and parallel"
+                "\u2013 Resistors, capacitors, and inductors in series and parallel"
               ]
             },
             {
@@ -4786,7 +4786,7 @@
                 "D. 67 ohms"
               ],
               "topics": [
-                "Resistors, capacitors, and inductors in series and parallel"
+                "\u2013 Resistors, capacitors, and inductors in series and parallel"
               ]
             },
             {
@@ -4832,7 +4832,7 @@
               "group": "C",
               "num": "07",
               "qid": "G5C07",
-              "text": "What transformer turns ratio matches an antenna's 600-ohm feed point impedance to a 50-ohm coaxial cable?",
+              "text": "What transformer turns ratio matches an antenna\u2019s 600-ohm feed point impedance to a 50-ohm coaxial cable?",
               "correct": "A",
               "figure": "",
               "fcc": "",
@@ -4862,7 +4862,7 @@
                 "D. 10.750 nanofarads"
               ],
               "topics": [
-                "Resistors, capacitors, and inductors in series and parallel"
+                "\u2013 Resistors, capacitors, and inductors in series and parallel"
               ]
             },
             {
@@ -4881,7 +4881,7 @@
                 "D. 300 microfarads"
               ],
               "topics": [
-                "Resistors, capacitors, and inductors in series and parallel"
+                "\u2013 Resistors, capacitors, and inductors in series and parallel"
               ]
             },
             {
@@ -4900,7 +4900,7 @@
                 "D. 30 millihenries"
               ],
               "topics": [
-                "Resistors, capacitors, and inductors in series and parallel"
+                "\u2013 Resistors, capacitors, and inductors in series and parallel"
               ]
             },
             {
@@ -4919,7 +4919,7 @@
                 "D. 1,000 millihenries"
               ],
               "topics": [
-                "Resistors, capacitors, and inductors in series and parallel"
+                "\u2013 Resistors, capacitors, and inductors in series and parallel"
               ]
             },
             {
@@ -4938,7 +4938,7 @@
                 "D. 1,000 microfarads"
               ],
               "topics": [
-                "Resistors, capacitors, and inductors in series and parallel"
+                "\u2013 Resistors, capacitors, and inductors in series and parallel"
               ]
             },
             {
@@ -4974,7 +4974,7 @@
                 "D. An inductor in series"
               ],
               "topics": [
-                "Resistors, capacitors, and inductors in series and parallel"
+                "\u2013 Resistors, capacitors, and inductors in series and parallel"
               ]
             }
           ]
@@ -4991,9 +4991,9 @@
         {
           "subelement": "G6",
           "group_id": "A",
-          "description": "Resistors; capacitors; inductors; rectifiers; solid-state diodes and transistors; vacuum tubes; batteries",
+          "description": "\u2013 Resistors; capacitors; inductors; rectifiers; solid-state diodes and transistors; vacuum tubes; batteries",
           "topics": [
-            "Resistors",
+            "\u2013 Resistors",
             "capacitors",
             "inductors",
             "rectifiers",
@@ -5105,13 +5105,13 @@
               "figure": "",
               "fcc": "",
               "answers": [
-                "A. The resistor's tolerance value would not be adequate",
-                "B. The resistor's inductance could make circuit performance unpredictable",
+                "A. The resistor\u2019s tolerance value would not be adequate",
+                "B. The resistor\u2019s inductance could make circuit performance unpredictable",
                 "C. The resistor could overheat",
-                "D. The resistor's internal capacitance would detune the circuit"
+                "D. The resistor\u2019s internal capacitance would detune the circuit"
               ],
               "topics": [
-                "Resistors"
+                "\u2013 Resistors"
               ]
             },
             {
@@ -5231,9 +5231,9 @@
         {
           "subelement": "G6",
           "group_id": "B",
-          "description": "Analog and digital integrated circuits (ICs); microwave ICs (MMICs); display devices; RF connectors; ferrite cores",
+          "description": "\u2013 Analog and digital integrated circuits (ICs); microwave ICs (MMICs); display devices; RF connectors; ferrite cores",
           "topics": [
-            "Analog and digital integrated circuits (ICs)",
+            "\u2013 Analog and digital integrated circuits (ICs)",
             "microwave ICs (MMICs)",
             "display devices",
             "RF connectors",
@@ -5252,7 +5252,7 @@
               "answers": [
                 "A. Its conductivity",
                 "B. Its thickness",
-                "C. The composition, or \"mix,\" of materials used",
+                "C. The composition, or \u201cmix,\u201d of materials used",
                 "D. The ratio of outer diameter to inner diameter"
               ],
               "topics": [
@@ -5292,7 +5292,7 @@
                 "D. Better suited for power supply regulation"
               ],
               "topics": [
-                "Analog and digital integrated circuits (ICs)"
+                "\u2013 Analog and digital integrated circuits (ICs)"
               ]
             },
             {
@@ -5349,7 +5349,7 @@
                 "D. Analog"
               ],
               "topics": [
-                "Analog and digital integrated circuits (ICs)",
+                "\u2013 Analog and digital integrated circuits (ICs)",
                 "display devices"
               ]
             },
@@ -5399,7 +5399,7 @@
               "figure": "",
               "fcc": "",
               "answers": [
-                "A. By creating an impedance in the current's path",
+                "A. By creating an impedance in the current\u2019s path",
                 "B. It converts common-mode current to differential mode current",
                 "C. By creating an out-of-phase current to cancel the common-mode current",
                 "D. Ferrites expel magnetic fields"
@@ -5461,9 +5461,9 @@
         {
           "subelement": "G7",
           "group_id": "A",
-          "description": "Power supplies; schematic symbols",
+          "description": "\u2013 Power supplies; schematic symbols",
           "topics": [
-            "Power supplies",
+            "\u2013 Power supplies",
             "schematic symbols"
           ],
           "questions": [
@@ -5483,7 +5483,7 @@
                 "D. It eliminates ground loop current"
               ],
               "topics": [
-                "Power supplies"
+                "\u2013 Power supplies"
               ]
             },
             {
@@ -5502,7 +5502,7 @@
                 "D. All these choices are correct"
               ],
               "topics": [
-                "Power supplies"
+                "\u2013 Power supplies"
               ]
             },
             {
@@ -5538,7 +5538,7 @@
                 "D. The output voltage is two times the peak input voltage"
               ],
               "topics": [
-                "Power supplies"
+                "\u2013 Power supplies"
               ]
             },
             {
@@ -5608,7 +5608,7 @@
                 "D. Inherently more stable"
               ],
               "topics": [
-                "Power supplies"
+                "\u2013 Power supplies"
               ]
             },
             {
@@ -5711,9 +5711,9 @@
         {
           "subelement": "G7",
           "group_id": "B",
-          "description": "Digital circuits; amplifiers and oscillators",
+          "description": "\u2013 Digital circuits; amplifiers and oscillators",
           "topics": [
-            "Digital circuits",
+            "\u2013 Digital circuits",
             "amplifiers and oscillators"
           ],
           "questions": [
@@ -5921,9 +5921,9 @@
         {
           "subelement": "G7",
           "group_id": "C",
-          "description": "Transceiver design; filters; oscillators; digital signal processing (DSP)",
+          "description": "\u2013 Transceiver design; filters; oscillators; digital signal processing (DSP)",
           "topics": [
-            "Transceiver design",
+            "\u2013 Transceiver design",
             "filters",
             "oscillators",
             "digital signal processing (DSP)"
@@ -6040,7 +6040,7 @@
               "group": "C",
               "num": "07",
               "qid": "G7C07",
-              "text": "What term specifies a filter's attenuation inside its passband?",
+              "text": "What term specifies a filter\u2019s attenuation inside its passband?",
               "correct": "A",
               "figure": "",
               "fcc": "",
@@ -6125,7 +6125,7 @@
               "group": "C",
               "num": "12",
               "qid": "G7C12",
-              "text": "What is the frequency above which a low-pass filter's output power is less than half the input power?",
+              "text": "What is the frequency above which a low-pass filter\u2019s output power is less than half the input power?",
               "correct": "C",
               "figure": "",
               "fcc": "",
@@ -6142,7 +6142,7 @@
               "group": "C",
               "num": "13",
               "qid": "G7C13",
-              "text": "What term specifies a filter's maximum ability to reject signals outside its passband?",
+              "text": "What term specifies a filter\u2019s maximum ability to reject signals outside its passband?",
               "correct": "D",
               "figure": "",
               "fcc": "",
@@ -6187,9 +6187,9 @@
         {
           "subelement": "G8",
           "group_id": "A",
-          "description": "Carriers and modulation: AM, FM, and single sideband; modulation envelope; digital modulation; overmodulation; link budgets and link margins",
+          "description": "\u2013 Carriers and modulation: AM, FM, and single sideband; modulation envelope; digital modulation; overmodulation; link budgets and link margins",
           "topics": [
-            "Carriers and modulation: AM, FM, and single sideband",
+            "\u2013 Carriers and modulation: AM, FM, and single sideband",
             "modulation envelope",
             "digital modulation",
             "overmodulation",
@@ -6207,8 +6207,8 @@
               "fcc": "",
               "answers": [
                 "A. By keying an FM transmitter with a sub-audible tone",
-                "B. By changing an oscillator's frequency directly with a digital control signal",
-                "C. By using a transceiver's computer data interface protocol to change frequencies",
+                "B. By changing an oscillator\u2019s frequency directly with a digital control signal",
+                "C. By using a transceiver\u2019s computer data interface protocol to change frequencies",
                 "D. By reconfiguring the CW keying input to act as a tone generator"
               ],
               "topics": [
@@ -6365,15 +6365,15 @@
               "group": "A",
               "num": "10",
               "qid": "G8A10",
-              "text": "What is meant by the term \"flat-topping,\" when referring to an amplitude-modulated phone signal?",
+              "text": "What is meant by the term \u201cflat-topping,\u201d when referring to an amplitude-modulated phone signal?",
               "correct": "C",
               "figure": "",
               "fcc": "",
               "answers": [
                 "A. Signal distortion caused by insufficient collector current",
-                "B. The transmitter's automatic level control (ALC) is properly adjusted",
+                "B. The transmitter\u2019s automatic level control (ALC) is properly adjusted",
                 "C. Signal distortion caused by excessive drive or speech levels",
-                "D. The transmitter's carrier is properly suppressed"
+                "D. The transmitter\u2019s carrier is properly suppressed"
               ],
               "topics": []
             },
@@ -6460,9 +6460,9 @@
         {
           "subelement": "G8",
           "group_id": "B",
-          "description": "Frequency changing; bandwidths of various modes; deviation; intermodulation",
+          "description": "\u2013 Frequency changing; bandwidths of various modes; deviation; intermodulation",
           "topics": [
-            "Frequency changing",
+            "\u2013 Frequency changing",
             "bandwidths of various modes",
             "deviation",
             "intermodulation"
@@ -6484,7 +6484,7 @@
                 "D. Beat frequency oscillator"
               ],
               "topics": [
-                "Frequency changing"
+                "\u2013 Frequency changing"
               ]
             },
             {
@@ -6503,7 +6503,7 @@
                 "D. Intermediate interference"
               ],
               "topics": [
-                "Frequency changing"
+                "\u2013 Frequency changing"
               ]
             },
             {
@@ -6539,7 +6539,7 @@
                 "D. Multiplier"
               ],
               "topics": [
-                "Frequency changing"
+                "\u2013 Frequency changing"
               ]
             },
             {
@@ -6610,7 +6610,7 @@
               "fcc": "",
               "answers": [
                 "A. To aid in tuning your transmitter",
-                "B. Some modes have high duty cycles that could exceed the transmitter's average power rating",
+                "B. Some modes have high duty cycles that could exceed the transmitter\u2019s average power rating",
                 "C. To allow time for the other station to break in during a transmission",
                 "D. To prevent overmodulation"
               ],
@@ -6661,7 +6661,7 @@
               "group": "B",
               "num": "11",
               "qid": "G8B11",
-              "text": "What combination of a mixer's Local Oscillator (LO) and RF input frequencies is found in the output?",
+              "text": "What combination of a mixer\u2019s Local Oscillator (LO) and RF input frequencies is found in the output?",
               "correct": "C",
               "figure": "",
               "fcc": "",
@@ -6714,9 +6714,9 @@
         {
           "subelement": "G8",
           "group_id": "C",
-          "description": "Digital emission modes",
+          "description": "\u2013 Digital emission modes",
           "topics": [
-            "Digital emission modes"
+            "\u2013 Digital emission modes"
           ],
           "questions": [
             {
@@ -6752,7 +6752,7 @@
                 "D. SSB-SC"
               ],
               "topics": [
-                "Digital emission modes"
+                "\u2013 Digital emission modes"
               ]
             },
             {
@@ -6822,7 +6822,7 @@
                 "D. Encoding reverts to the default character set"
               ],
               "topics": [
-                "Digital emission modes"
+                "\u2013 Digital emission modes"
               ]
             },
             {
@@ -6841,7 +6841,7 @@
                 "D. MFSK32"
               ],
               "topics": [
-                "Digital emission modes"
+                "\u2013 Digital emission modes"
               ]
             },
             {
@@ -6945,7 +6945,7 @@
                 "D. Overmodulation"
               ],
               "topics": [
-                "Digital emission modes"
+                "\u2013 Digital emission modes"
               ]
             },
             {
@@ -6998,7 +6998,7 @@
                 "D. DMR, D-STAR, and SystemFusion"
               ],
               "topics": [
-                "Digital emission modes"
+                "\u2013 Digital emission modes"
               ]
             }
           ]
@@ -7015,9 +7015,9 @@
         {
           "subelement": "G9",
           "group_id": "A",
-          "description": "Feed lines: characteristic impedance and attenuation; standing wave ratio (SWR) calculation, measurement, and effects; antenna feed point matching",
+          "description": "\u2013 Feed lines: characteristic impedance and attenuation; standing wave ratio (SWR) calculation, measurement, and effects; antenna feed point matching",
           "topics": [
-            "Feed lines: characteristic impedance and attenuation",
+            "\u2013 Feed lines: characteristic impedance and attenuation",
             "standing wave ratio (SWR) calculation, measurement, and effects",
             "antenna feed point matching"
           ],
@@ -7038,7 +7038,7 @@
                 "D. The frequency of the signal and the length of the line"
               ],
               "topics": [
-                "Feed lines: characteristic impedance and attenuation",
+                "\u2013 Feed lines: characteristic impedance and attenuation",
                 "antenna feed point matching"
               ]
             },
@@ -7066,7 +7066,7 @@
               "group": "A",
               "num": "03",
               "qid": "G9A03",
-              "text": "What is the nominal characteristic impedance of \"window line\" transmission line?",
+              "text": "What is the nominal characteristic impedance of \u201cwindow line\u201d transmission line?",
               "correct": "D",
               "figure": "",
               "fcc": "",
@@ -7077,7 +7077,7 @@
                 "D. 450 ohms"
               ],
               "topics": [
-                "Feed lines: characteristic impedance and attenuation"
+                "\u2013 Feed lines: characteristic impedance and attenuation"
               ]
             },
             {
@@ -7085,7 +7085,7 @@
               "group": "A",
               "num": "04",
               "qid": "G9A04",
-              "text": "What causes reflected power at an antenna's feed point?",
+              "text": "What causes reflected power at an antenna\u2019s feed point?",
               "correct": "C",
               "figure": "",
               "fcc": "",
@@ -7096,7 +7096,7 @@
                 "D. Feeding the antenna with unbalanced feed line"
               ],
               "topics": [
-                "Feed lines: characteristic impedance and attenuation",
+                "\u2013 Feed lines: characteristic impedance and attenuation",
                 "antenna feed point matching"
               ]
             },
@@ -7113,10 +7113,10 @@
                 "A. Attenuation is independent of frequency",
                 "B. Attenuation increases",
                 "C. Attenuation decreases",
-                "D. Attenuation follows Marconi's Law of Attenuation"
+                "D. Attenuation follows Marconi\u2019s Law of Attenuation"
               ],
               "topics": [
-                "Feed lines: characteristic impedance and attenuation"
+                "\u2013 Feed lines: characteristic impedance and attenuation"
               ]
             },
             {
@@ -7135,7 +7135,7 @@
                 "D. Decibels per 100 feet"
               ],
               "topics": [
-                "Feed lines: characteristic impedance and attenuation",
+                "\u2013 Feed lines: characteristic impedance and attenuation",
                 "antenna feed point matching"
               ]
             },
@@ -7155,7 +7155,7 @@
                 "D. The antenna feed point impedance must be matched to the characteristic impedance of the feed line"
               ],
               "topics": [
-                "Feed lines: characteristic impedance and attenuation",
+                "\u2013 Feed lines: characteristic impedance and attenuation",
                 "standing wave ratio (SWR) calculation, measurement, and effects",
                 "antenna feed point matching"
               ]
@@ -7176,7 +7176,7 @@
                 "D. Between 1:1 and 5:1 depending on the reflected power at the transmitter"
               ],
               "topics": [
-                "Feed lines: characteristic impedance and attenuation",
+                "\u2013 Feed lines: characteristic impedance and attenuation",
                 "antenna feed point matching"
               ]
             },
@@ -7196,7 +7196,7 @@
                 "D. 1:2"
               ],
               "topics": [
-                "Feed lines: characteristic impedance and attenuation",
+                "\u2013 Feed lines: characteristic impedance and attenuation",
                 "standing wave ratio (SWR) calculation, measurement, and effects",
                 "antenna feed point matching"
               ]
@@ -7217,7 +7217,7 @@
                 "D. 5:1"
               ],
               "topics": [
-                "Feed lines: characteristic impedance and attenuation",
+                "\u2013 Feed lines: characteristic impedance and attenuation",
                 "standing wave ratio (SWR) calculation, measurement, and effects",
                 "antenna feed point matching"
               ]
@@ -7246,9 +7246,9 @@
         {
           "subelement": "G9",
           "group_id": "B",
-          "description": "Basic dipole and monopole antennas",
+          "description": "\u2013 Basic dipole and monopole antennas",
           "topics": [
-            "Basic dipole and monopole antennas"
+            "\u2013 Basic dipole and monopole antennas"
           ],
           "questions": [
             {
@@ -7267,7 +7267,7 @@
                 "D. It is more effective on the lower HF bands than on the higher bands"
               ],
               "topics": [
-                "Basic dipole and monopole antennas"
+                "\u2013 Basic dipole and monopole antennas"
               ]
             },
             {
@@ -7286,7 +7286,7 @@
                 "D. Coil the radials"
               ],
               "topics": [
-                "Basic dipole and monopole antennas"
+                "\u2013 Basic dipole and monopole antennas"
               ]
             },
             {
@@ -7305,7 +7305,7 @@
                 "D. Omnidirectional in azimuth"
               ],
               "topics": [
-                "Basic dipole and monopole antennas"
+                "\u2013 Basic dipole and monopole antennas"
               ]
             },
             {
@@ -7324,7 +7324,7 @@
                 "D. It has a pair of lobes on one side of the antenna and a single lobe on the other side"
               ],
               "topics": [
-                "Basic dipole and monopole antennas"
+                "\u2013 Basic dipole and monopole antennas"
               ]
             },
             {
@@ -7343,7 +7343,7 @@
                 "D. If the antenna is less than 1/2 wavelength high, radiation off the ends of the wire is eliminated"
               ],
               "topics": [
-                "Basic dipole and monopole antennas"
+                "\u2013 Basic dipole and monopole antennas"
               ]
             },
             {
@@ -7362,7 +7362,7 @@
                 "D. At the center of the antenna"
               ],
               "topics": [
-                "Basic dipole and monopole antennas"
+                "\u2013 Basic dipole and monopole antennas"
               ]
             },
             {
@@ -7381,7 +7381,7 @@
                 "D. It is unaffected by the height above ground"
               ],
               "topics": [
-                "Basic dipole and monopole antennas"
+                "\u2013 Basic dipole and monopole antennas"
               ]
             },
             {
@@ -7400,7 +7400,7 @@
                 "D. It is unaffected by the location of the feed point"
               ],
               "topics": [
-                "Basic dipole and monopole antennas"
+                "\u2013 Basic dipole and monopole antennas"
               ]
             },
             {
@@ -7419,7 +7419,7 @@
                 "D. Lower radiation resistance"
               ],
               "topics": [
-                "Basic dipole and monopole antennas"
+                "\u2013 Basic dipole and monopole antennas"
               ]
             },
             {
@@ -7438,7 +7438,7 @@
                 "D. 33 feet"
               ],
               "topics": [
-                "Basic dipole and monopole antennas"
+                "\u2013 Basic dipole and monopole antennas"
               ]
             },
             {
@@ -7457,7 +7457,7 @@
                 "D. 263 feet"
               ],
               "topics": [
-                "Basic dipole and monopole antennas"
+                "\u2013 Basic dipole and monopole antennas"
               ]
             },
             {
@@ -7476,7 +7476,7 @@
                 "D. 21 feet"
               ],
               "topics": [
-                "Basic dipole and monopole antennas"
+                "\u2013 Basic dipole and monopole antennas"
               ]
             }
           ]
@@ -7484,9 +7484,9 @@
         {
           "subelement": "G9",
           "group_id": "C",
-          "description": "Directional antennas",
+          "description": "\u2013 Directional antennas",
           "topics": [
-            "Directional antennas"
+            "\u2013 Directional antennas"
           ],
           "questions": [
             {
@@ -7505,7 +7505,7 @@
                 "D. Tapered-diameter elements"
               ],
               "topics": [
-                "Directional antennas"
+                "\u2013 Directional antennas"
               ]
             },
             {
@@ -7524,7 +7524,7 @@
                 "D. 1 wavelength"
               ],
               "topics": [
-                "Directional antennas"
+                "\u2013 Directional antennas"
               ]
             },
             {
@@ -7560,7 +7560,7 @@
                 "D. Gain in dBd is 1.25 dBd higher"
               ],
               "topics": [
-                "Directional antennas"
+                "\u2013 Directional antennas"
               ]
             },
             {
@@ -7579,7 +7579,7 @@
                 "D. Resonant frequency is lower"
               ],
               "topics": [
-                "Directional antennas"
+                "\u2013 Directional antennas"
               ]
             },
             {
@@ -7587,7 +7587,7 @@
               "group": "C",
               "num": "07",
               "qid": "G9C07",
-              "text": "What does \"front-to-back ratio\" mean in reference to a Yagi antenna?",
+              "text": "What does \u201cfront-to-back ratio\u201d mean in reference to a Yagi antenna?",
               "correct": "C",
               "figure": "",
               "fcc": "",
@@ -7598,7 +7598,7 @@
                 "D. The ratio of forward gain to dipole gain"
               ],
               "topics": [
-                "Directional antennas"
+                "\u2013 Directional antennas"
               ]
             },
             {
@@ -7606,7 +7606,7 @@
               "group": "C",
               "num": "08",
               "qid": "G9C08",
-              "text": "What is meant by the \"main lobe\" of a directive antenna?",
+              "text": "What is meant by the \u201cmain lobe\u201d of a directive antenna?",
               "correct": "D",
               "figure": "",
               "fcc": "",
@@ -7617,7 +7617,7 @@
                 "D. The direction of maximum radiated field strength from the antenna"
               ],
               "topics": [
-                "Directional antennas"
+                "\u2013 Directional antennas"
               ]
             },
             {
@@ -7636,7 +7636,7 @@
                 "D. Approximately 9 dB higher"
               ],
               "topics": [
-                "Directional antennas"
+                "\u2013 Directional antennas"
               ]
             },
             {
@@ -7655,7 +7655,7 @@
                 "D. All these choices are correct"
               ],
               "topics": [
-                "Directional antennas"
+                "\u2013 Directional antennas"
               ]
             },
             {
@@ -7691,7 +7691,7 @@
                 "D. All these choices are correct"
               ],
               "topics": [
-                "Directional antennas"
+                "\u2013 Directional antennas"
               ]
             }
           ]
@@ -7699,9 +7699,9 @@
         {
           "subelement": "G9",
           "group_id": "D",
-          "description": "Specialized antenna types and applications",
+          "description": "\u2013 Specialized antenna types and applications",
           "topics": [
-            "Specialized antenna types and applications"
+            "\u2013 Specialized antenna types and applications"
           ],
           "questions": [
             {
@@ -7720,7 +7720,7 @@
                 "D. A vertical dipole placed at approximately 1/2 wavelength above the ground"
               ],
               "topics": [
-                "Specialized antenna types and applications"
+                "\u2013 Specialized antenna types and applications"
               ]
             },
             {
@@ -7739,7 +7739,7 @@
                 "D. Very high"
               ],
               "topics": [
-                "Specialized antenna types and applications"
+                "\u2013 Specialized antenna types and applications"
               ]
             },
             {
@@ -7747,7 +7747,7 @@
               "group": "D",
               "num": "03",
               "qid": "G9D03",
-              "text": "In which direction is the maximum radiation from a VHF/UHF \"halo\" antenna?",
+              "text": "In which direction is the maximum radiation from a VHF/UHF \u201chalo\u201d antenna?",
               "correct": "C",
               "figure": "",
               "fcc": "",
@@ -7758,7 +7758,7 @@
                 "D. On the same side as the feed point"
               ],
               "topics": [
-                "Specialized antenna types and applications"
+                "\u2013 Specialized antenna types and applications"
               ]
             },
             {
@@ -7777,7 +7777,7 @@
                 "D. To prevent out-of-band operation"
               ],
               "topics": [
-                "Specialized antenna types and applications"
+                "\u2013 Specialized antenna types and applications"
               ]
             },
             {
@@ -7813,7 +7813,7 @@
                 "D. Polarization diversity"
               ],
               "topics": [
-                "Specialized antenna types and applications"
+                "\u2013 Specialized antenna types and applications"
               ]
             },
             {
@@ -7832,7 +7832,7 @@
                 "D. SWR varies periodically as a function of boom length"
               ],
               "topics": [
-                "Specialized antenna types and applications"
+                "\u2013 Specialized antenna types and applications"
               ]
             },
             {
@@ -7840,7 +7840,7 @@
               "group": "D",
               "num": "08",
               "qid": "G9D08",
-              "text": "How does a \"screwdriver\" mobile antenna adjust its feed point impedance?",
+              "text": "How does a \u201cscrewdriver\u201d mobile antenna adjust its feed point impedance?",
               "correct": "B",
               "figure": "",
               "fcc": "",
@@ -7851,7 +7851,7 @@
                 "D. By deploying a capacitance hat"
               ],
               "topics": [
-                "Specialized antenna types and applications"
+                "\u2013 Specialized antenna types and applications"
               ]
             },
             {
@@ -7870,7 +7870,7 @@
                 "D. Portable direction finding at lower HF frequencies"
               ],
               "topics": [
-                "Specialized antenna types and applications"
+                "\u2013 Specialized antenna types and applications"
               ]
             },
             {
@@ -7938,9 +7938,9 @@
         {
           "subelement": "G0",
           "group_id": "A",
-          "description": "RF safety principles, rules, and guidelines; routine station evaluation",
+          "description": "\u2013 RF safety principles, rules, and guidelines; routine station evaluation",
           "topics": [
-            "RF safety principles, rules, and guidelines",
+            "\u2013 RF safety principles, rules, and guidelines",
             "routine station evaluation"
           ],
           "questions": [
@@ -7960,7 +7960,7 @@
                 "D. It cools body tissue"
               ],
               "topics": [
-                "RF safety principles, rules, and guidelines"
+                "\u2013 RF safety principles, rules, and guidelines"
               ]
             },
             {
@@ -7979,7 +7979,7 @@
                 "D. All these choices are correct"
               ],
               "topics": [
-                "RF safety principles, rules, and guidelines"
+                "\u2013 RF safety principles, rules, and guidelines"
               ]
             },
             {
@@ -7998,7 +7998,7 @@
                 "D. All these choices are correct"
               ],
               "topics": [
-                "RF safety principles, rules, and guidelines",
+                "\u2013 RF safety principles, rules, and guidelines",
                 "routine station evaluation"
               ]
             },
@@ -8007,7 +8007,7 @@
               "group": "A",
               "num": "04",
               "qid": "G0A04",
-              "text": "What does \"time averaging\" mean when evaluating RF radiation exposure?",
+              "text": "What does \u201ctime averaging\u201d mean when evaluating RF radiation exposure?",
               "correct": "D",
               "figure": "",
               "fcc": "",
@@ -8018,7 +8018,7 @@
                 "D. The total RF exposure averaged over a certain period"
               ],
               "topics": [
-                "RF safety principles, rules, and guidelines"
+                "\u2013 RF safety principles, rules, and guidelines"
               ]
             },
             {
@@ -8037,7 +8037,7 @@
                 "D. All these choices are correct"
               ],
               "topics": [
-                "RF safety principles, rules, and guidelines",
+                "\u2013 RF safety principles, rules, and guidelines",
                 "routine station evaluation"
               ]
             },
@@ -8057,7 +8057,7 @@
                 "D. Use an FCC-approved band-pass filter"
               ],
               "topics": [
-                "RF safety principles, rules, and guidelines",
+                "\u2013 RF safety principles, rules, and guidelines",
                 "routine station evaluation"
               ]
             },
@@ -8077,7 +8077,7 @@
                 "D. High duty cycle transmitters are exempt from RF exposure requirements"
               ],
               "topics": [
-                "RF safety principles, rules, and guidelines"
+                "\u2013 RF safety principles, rules, and guidelines"
               ]
             },
             {
@@ -8096,7 +8096,7 @@
                 "D. All these choices are correct"
               ],
               "topics": [
-                "RF safety principles, rules, and guidelines"
+                "\u2013 RF safety principles, rules, and guidelines"
               ]
             },
             {
@@ -8115,7 +8115,7 @@
                 "D. An oscilloscope with a high-stability crystal marker generator"
               ],
               "topics": [
-                "RF safety principles, rules, and guidelines"
+                "\u2013 RF safety principles, rules, and guidelines"
               ]
             },
             {
@@ -8134,7 +8134,7 @@
                 "D. All these choices are correct"
               ],
               "topics": [
-                "RF safety principles, rules, and guidelines",
+                "\u2013 RF safety principles, rules, and guidelines",
                 "routine station evaluation"
               ]
             },
@@ -8171,7 +8171,7 @@
                 "D. All stations with a time-averaged transmission of more than one milliwatt"
               ],
               "topics": [
-                "RF safety principles, rules, and guidelines"
+                "\u2013 RF safety principles, rules, and guidelines"
               ]
             }
           ]
@@ -8179,9 +8179,9 @@
         {
           "subelement": "G0",
           "group_id": "B",
-          "description": "Station safety: electrical shock, grounding, fusing, interlocks, and wiring; antenna and tower safety",
+          "description": "\u2013 Station safety: electrical shock, grounding, fusing, interlocks, and wiring; antenna and tower safety",
           "topics": [
-            "Station safety: electrical shock, grounding, fusing, interlocks, and wiring",
+            "\u2013 Station safety: electrical shock, grounding, fusing, interlocks, and wiring",
             "antenna and tower safety"
           ],
           "questions": [
@@ -8218,7 +8218,7 @@
                 "D. AWG number 8"
               ],
               "topics": [
-                "Station safety: electrical shock, grounding, fusing, interlocks, and wiring"
+                "\u2013 Station safety: electrical shock, grounding, fusing, interlocks, and wiring"
               ]
             },
             {
@@ -8237,7 +8237,7 @@
                 "D. 15 amperes"
               ],
               "topics": [
-                "Station safety: electrical shock, grounding, fusing, interlocks, and wiring"
+                "\u2013 Station safety: electrical shock, grounding, fusing, interlocks, and wiring"
               ]
             },
             {
@@ -8245,7 +8245,7 @@
               "group": "B",
               "num": "04",
               "qid": "G0B04",
-              "text": "Where should the station's lightning protection ground system be located?",
+              "text": "Where should the station\u2019s lightning protection ground system be located?",
               "correct": "B",
               "figure": "",
               "fcc": "",
@@ -8290,7 +8290,7 @@
                 "D. RF exposure limits of the human body"
               ],
               "topics": [
-                "Station safety: electrical shock, grounding, fusing, interlocks, and wiring"
+                "\u2013 Station safety: electrical shock, grounding, fusing, interlocks, and wiring"
               ]
             },
             {
@@ -8360,7 +8360,7 @@
               "answers": [
                 "A. Lead can contaminate food if hands are not washed carefully after handling the solder",
                 "B. High voltages can cause lead-tin solder to disintegrate suddenly",
-                "C. Tin in the solder can \"cold flow,\" causing shorts in the circuit",
+                "C. Tin in the solder can \u201ccold flow,\u201d causing shorts in the circuit",
                 "D. RF energy can convert the lead into a poisonous gas"
               ],
               "topics": []
@@ -8392,7 +8392,7 @@
               "figure": "",
               "fcc": "",
               "answers": [
-                "A. To prevent unauthorized changes to the circuit that would void the manufacturer's warranty",
+                "A. To prevent unauthorized changes to the circuit that would void the manufacturer\u2019s warranty",
                 "B. To shut down the unit if it becomes too hot",
                 "C. To ensure that dangerous voltages are removed if the cabinet is opened",
                 "D. To shut off the power supply if too much voltage is produced"

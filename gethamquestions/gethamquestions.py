@@ -26,6 +26,7 @@ Notes
     see function _parse_line() notes for Question Pool anomolies
 
 Change Log
+    2023-06-28 v08 - added case for "E3B08 (DELETED)"
     2023-06-27 v07 - removed match statement for wls python 3.8
     2023-06-22 v06 - cleaned up pylint
     2023-06-13 v05 - Added source file name to
@@ -39,6 +40,8 @@ import json
 import sys
 import datetime
 import os, os.path
+import docx
+import magic
 
 exclude_words = ['a', 'the', 'and', 'of', 'in', 'is', 'rules']
 plural_words = ['phonetic']
@@ -342,7 +345,8 @@ class Element:
         The list of Subelement objects in the Element.
 
     """
-    def __init__(self, elem, elname, yrvalid, effective, subelements, timestamp, filename):
+    def __init__(self, elem, elname, yrvalid, effective, subelements, timestamp, 
+                 filename, filetype):
         """
         Constructs the attributes for the Element object
 
@@ -364,6 +368,7 @@ class Element:
     """
         print(f'timestamp = {timestamp}')
         self.filename = filename
+        self.filetype = filetype
         self.timestamp = str(timestamp)
         self.elem = elem
         self.elname = elname
@@ -457,15 +462,25 @@ class State:
         """
         if self.cur_element:
             str_out = json.dumps(self.cur_element, default=vars, indent=2)
-        # Writing element JSON to file
-        # https://stackoverflow.com/questions/23793987/write-a-file-to-a-directory-that-doesnt-exist
-        outpath = f'./output/Element{self.cur_element.elem }.json'
-        os.makedirs(os.path.dirname(outpath), exist_ok=True)
-        with open(outpath, 'w', encoding='utf-8-sig') as file2:
-            #file2 = open(f'Element{self.cur_element.elem }.json', 'w', encoding='UTF-8')
-            file2.write(str_out)
-            #file2.close()
-        print(f'JSON written to Element{self.cur_element.elem }.json')
+            #print(self.cur_element.filetype)
+            # If windows doc file, write out txt file
+            if (self.cur_element.filetype == 'Microsoft Word'):
+                # write out text file
+                out_lines = get_file(self.cur_element.filename)
+                outpath3 = f'./output/Element{self.cur_element.elem}.txt'
+                with open(outpath3, 'w', encoding='utf-8-sig') as file3:
+                    for line in out_lines:
+                        file3.write(line)
+                print(f'text written to Element{self.cur_element.elem }.txt, lines={len(out_lines)}')
+            # Writing element JSON to file
+            # https://stackoverflow.com/questions/23793987/write-a-file-to-a-directory-that-doesnt-exist
+            outpath = f'./output/Element{self.cur_element.elem }.json'
+            os.makedirs(os.path.dirname(outpath), exist_ok=True)
+            with open(outpath, 'w', encoding='utf-8-sig') as file2:
+                #file2 = open(f'Element{self.cur_element.elem }.json', 'w', encoding='UTF-8')
+                file2.write(str_out)
+                #file2.close()
+            print(f'JSON written to Element{self.cur_element.elem }.json')
 
     def print_summary(self):
         """
@@ -599,8 +614,9 @@ regex_dict = {
     # r'(?P<subelem>T\d)(?P<group>[A-F])(?P<qnum>\d\d).+\((?P<ans>[A-D])\)\s?(?P<fcc>.*)'),
     'removed'   :
         re.compile(r'(?P<subelem>[TGE]\d)(?P<group>[A-F])(?P<qnum>\d\d)\s? Question Removed.?'),
-    'end'       : re.compile(r'~~~~?.*~~~~?'),
-    'blank'     : re.compile(r'~~'),
+    'removed2'  : re.compile(r'(?P<subelem>[TGE]\d)(?P<group>[A-F])(?P<qnum>\d\d)\s? \(DELETED\).?'),
+    'end'      : re.compile(r'~~~~?.*~~~~?'),
+    'blank'    : re.compile(r'~~'),
 }
 
 def _parse_line(line, pool_state):
@@ -620,6 +636,7 @@ def _parse_line(line, pool_state):
                           : FCC Element 4 Question Pool
                           : Effective July 1, 2020
     Anomolies:
+      Element 4: E3B08 (DELETED)
       Element 4: 2020-2024: E7C09 (D) - Missing a ~~ line at the end of the question
                  (~~ at end of answer D, line wrap disguises error in word)
       Element 4: 2020-2024: E8C10 (C) - Missing a ~~ line at the end of the question
@@ -685,24 +702,56 @@ def _parse_line(line, pool_state):
     # if there are no matches
     return None, None
 
+def get_file_type(file_name):
+    """
+    Determine the file type and return:
+    - "ASCII text" if it is a text file
+    - "Microsoft Word" if it is a docx
+    - "anything else" - not ASCII text or Microsoft Word
+
+    """
+    
+    tokens = magic.from_file(file_name).split()
+    result = ''
+    sep = ''
+    i = 0
+    while (i < len(tokens)) and (i < 2):
+        result += sep + tokens[i]
+        sep = ' '
+        i += 1
+    return result
+
 def get_file(file_name):
     """
     Read a file and return an iterable object list of all lines
 
     """
+    
+    file_type = get_file_type(file_name)
+    if (file_type == 'ASCII text') or (file_type == 'UTF-8 Unicode'):
+        try:
+            with open(file_name, 'r', encoding='UTF-8') as file:
+                lines = file.readlines()
+            return lines
 
-    try:
-        with open(file_name, 'r', encoding='UTF-8') as file:
-            lines = file.readlines()
+        except IOError as err:
+            print(f'I/O error({err.errno}): {err.strerror} for: "{file_name}"')
+            return ''
+
+        except: #handle other exceptions such as attribute errors
+            print("Unexpected error:", sys.exc_info()[0])
+            return ''
+    elif (file_type == 'Microsoft Word'):
+        doc = docx.Document(file_name)
+        lines = []
+        for para in doc.paragraphs:
+            lines.append(para.text + '\n')
+        print('get_file(' + file_name + ')' + 'returned len(lines)= ' + str(len(lines)))
         return lines
-
-    except IOError as err:
-        print(f'I/O error({err.errno}): {err.strerror} for: "{file_name}"')
+    else:
+        print('Unknown file type "' + file_type + '"')
         return ''
 
-    except: #handle other exceptions such as attribute errors
-        print("Unexpected error:", sys.exc_info()[0])
-        return ''
 
 def read_fline(filelines, skip_blank=True):
     """
@@ -760,7 +809,7 @@ def get_element_pool (file_name):
         key, match = _parse_line(line, pool_state)
         begin_state = pool_state.state
 
-        if key == 'removed' or key == 'blank':
+        if key == 'removed' or key == 'removed2' or key == 'blank':
             continue
         #match pool_state.state:
             #case 'initial':
@@ -774,7 +823,7 @@ def get_element_pool (file_name):
                 timestamp = datetime.datetime.now()
                 pool_state.cur_element = Element(pool_state.el_num , pool_state.el_name, \
                     pool_state.el_yrvalid, pool_state.el_effective, subelements, \
-                    timestamp, file_name)
+                    timestamp, file_name, get_file_type(file_name))
                 pool_state.state = 'element'
                     #case 'end':
             elif key == 'end':
