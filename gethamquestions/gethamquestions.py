@@ -26,6 +26,7 @@ Notes
     see function _parse_line() notes for Question Pool anomolies
 
 Change Log
+    2023-06-27 v07 - removed match statement for wls python 3.8
     2023-06-22 v06 - cleaned up pylint
     2023-06-13 v05 - Added source file name to
     2023-05-24 v04 - Work for all elements as of now.  Added Question id attribute
@@ -37,6 +38,7 @@ import re
 import json
 import sys
 import datetime
+import os, os.path
 
 exclude_words = ['a', 'the', 'and', 'of', 'in', 'is', 'rules']
 plural_words = ['phonetic']
@@ -456,7 +458,10 @@ class State:
         if self.cur_element:
             str_out = json.dumps(self.cur_element, default=vars, indent=2)
         # Writing element JSON to file
-        with open(f'Element{self.cur_element.elem }.json', 'w', encoding='utf-8-sig') as file2:
+        # https://stackoverflow.com/questions/23793987/write-a-file-to-a-directory-that-doesnt-exist
+        outpath = f'./output/Element{self.cur_element.elem }.json'
+        os.makedirs(os.path.dirname(outpath), exist_ok=True)
+        with open(outpath, 'w', encoding='utf-8-sig') as file2:
             #file2 = open(f'Element{self.cur_element.elem }.json', 'w', encoding='UTF-8')
             file2.write(str_out)
             #file2.close()
@@ -757,154 +762,171 @@ def get_element_pool (file_name):
 
         if key == 'removed' or key == 'blank':
             continue
-        match pool_state.state:
-            case 'initial':
-                match key:
-                    case 'element':
-                        # Can be ended by end of input
-                        # Not currently allowed more than one element, so it can't end anything else
-                        subelements = []
-                        timestamp = datetime.datetime.now()
-                        pool_state.cur_element = Element(pool_state.el_num , pool_state.el_name, \
-                            pool_state.el_yrvalid, pool_state.el_effective, subelements, \
-                            timestamp, file_name)
-                        pool_state.state = 'element'
-                    case 'end':
-                        msg('Error', 'E001', 'Premature end', count, line)
-                        pool_state.state = 'end'
-                    case 'data':
-                        msg('Info', 'I002', 'Data line', count, line)
-                    case _:
-                        msg('Info', 'I001', 'Line b4 Element', count, line)
+        #match pool_state.state:
+            #case 'initial':
+        if pool_state.state == 'initial':
+                #match key:
+                    #case 'element':
+            if key == 'element':
+                # Can be ended by end of input
+                # Not currently allowed more than one element, so it can't end anything else
+                subelements = []
+                timestamp = datetime.datetime.now()
+                pool_state.cur_element = Element(pool_state.el_num , pool_state.el_name, \
+                    pool_state.el_yrvalid, pool_state.el_effective, subelements, \
+                    timestamp, file_name)
+                pool_state.state = 'element'
+                    #case 'end':
+            elif key == 'end':
+                msg('Error', 'E001', 'Premature end', count, line)
+                pool_state.state = 'end'
+                    #case 'data':
+            elif key == 'data':
+                msg('Info', 'I002', 'Data line', count, line)
+                    #case _:
+            else:
+                msg('Info', 'I001', 'Line b4 Element', count, line)
 
-            case 'element':
-                match key:
-                    case 'subelement':
-                        # Can be ended by subelement, end of input
-                        # Can end group, subelement
-#                        pool_state.close_group()
-#                        pool_state.close_subelement()
-                        # New subelement
-                        description = match.group('description').strip().rstrip('-').strip()
-                        pool_state.cur_subelement = \
-                          Subelement(pool_state.cur_element.elem, match.group('subelement'), \
-                                     description, match.group('numq'), match.group('numg'), [])
-                        pool_state.state = 'subelement'
-                    case 'end':
-                        msg('Error', 'E002', 'Unexpected "end"', count, line)
-                        pool_state.state = 'end'
-                    case _:
-                        msg('Error', 'E003', '{key} from {pool_state.state}', count, line)
-                        pool_state.state = 'end'
-            case 'subelement':
-                match key:
-                    case 'group':
-                        # Can be ended by subelement, group, end of input
-                        # Can end group
-                        pool_state.close_group()
-                        # New group
-                        subelem = match.group('subelem')
-                        group_id = match.group('group_id')
-                        description = match.group('description')
-                        description = description.strip().rstrip('-').strip()
-                        questions = []
-                        pool_state.cur_group = Group(subelem, group_id, description, questions)
-                        pool_state.state = 'group'
-
-                    case 'end':
-                        msg('Error', 'E004', 'Unexpected "end"', count, line)
-                        pool_state.state = 'end'
-                    case _:
-                        msg('Error', 'E007', '{key} from {pool_state.state}', count, line)
-                        msg('Error', 'D008', f'{begin_state}:{pool_state.state}', count, line)
-                        pool_state.state = 'end'
-            case 'group':
-                match key:
-                    case 'group':
-                        # Can be ended by subelement, group, end of input
-                        # Can end group
-                        pool_state.close_group()
-                        # New group
-                        subelem = match.group('subelem')
-                        group_id = match.group('group_id')
-                        description = match.group('description')
-                        questions = []
-                        pool_state.cur_group = Group(subelem, group_id, description, questions)
-                        pool_state.state = 'group'
-                    case 'subelement':
-                        # Can be ended by subelement?, end of input
-                        # Can end group, subelement?
-                        pool_state.close_group()
-                        pool_state.close_subelement()
-                        sub_el = match.group('subelement')
-                        description = match.group('description')
-                        # couldn't get regex to elminiate final - in some cases
-                        description = description.strip().rstrip('-').strip()
-                        numq = match.group('numq')
-                        numg = match.group('numg')
-                        groups = []
-                        pool_state.cur_subelement = \
-                            Subelement(pool_state.cur_element.elem, sub_el, \
-                                       description, numq, numg, groups)
-                        pool_state.state = 'subelement'
-                    case 'question':
-                        #'T(?P<subelem>\d)(?P<group>[A-F])(?P<qnum>\d\d).
-                        #\((?P<ans>[A-D])\).(?P<fcc>.*)'
-                        #metastate = 'question'
-                        #print(f'{metastate:8} : {count:04d}:{line}', end='')
-                        msg('Info', 'I002', f'{begin_state}:{pool_state.state}', count, line)
-                        subelem = match.group('subelem')
-                        group = match.group('group')
-                        qnum = match.group('qnum')
-                        qid = f'{subelem}{group}{qnum}'
-                        ans = match.group('ans')
-                        fcc = match.group('fcc')
-                        # Get question lines from the file
-                        text, count = read_fline(file_lines)      # read line 1 Question
-                        figure = ''
-                        regex_figure = re.compile(r'(^|\s)[fF]igure\s+(?P<fig>[TGE]\d?-\d+).?')
-                        match = regex_figure.search(text)
-                        if match:
-                            figure = match.group('fig')
-                        answers = []
-                        line, count = read_fline(file_lines)      # read line 2 Ans A.
-                        answers.append(line.strip())
-                        line, count = read_fline(file_lines)      # read line 3 Ans B.
-                        answers.append(line.strip())
-                        line, count = read_fline(file_lines)      # read line 4 Ans C.
-                        answers.append(line.strip())
-                        line, count = read_fline(file_lines)      # read line 5 Ans D.
-                        answers.append(line.strip())
-                        # ignore this line, ~~ at end of question
-                        # Read line 6 Question End ~~, don't skip blank lines
-                        line, count = read_fline(file_lines, False)
-                        if line.strip() != '~~':
-                            msg('Error', 'E005', 'Missing quest end ~~', count, line)
-                        cur_question = \
-                            Question(subelem, group, qnum, \
-                                     qid, text.strip(), ans, figure, answers, fcc, \
-                                     pool_state.cur_group.topics)
-
-                        # Add question to Group
-                        pool_state.cur_group.questions.append(cur_question)
-
-                    case 'end':
-                        # Can end group, subelement
-                        pool_state.close_group()
-                        pool_state.close_subelement()
-                        pool_state.close_element()
-                        pool_state.state = 'end'
-                        pool_state.print_summary()
-                    case _:
-                        #print(f'Error: {key} is not valid in state "{pool_state.state}" ', end='')
-                        msg('Error', 'E010', f'{key} not valid', count, line)
-                        msg('Info', 'I003', f'{begin_state}:{pool_state.state}', count, line)
-                        pool_state.state = 'end'
-
-            case 'end':
-                pass
-            case _:
-                pass
+            #case 'element':
+        elif pool_state.state == 'element':
+                #match key:
+                    #case 'subelement':
+            if key == 'subelement':
+                # Can be ended by subelement, end of input
+                # Can end group, subelement
+                #                        pool_state.close_group()
+                #                        pool_state.close_subelement()
+                # New subelement
+                description = match.group('description').strip().rstrip('-').strip()
+                pool_state.cur_subelement = \
+                    Subelement(pool_state.cur_element.elem, match.group('subelement'), \
+                                description, match.group('numq'), match.group('numg'), [])
+                pool_state.state = 'subelement'
+                    #case 'end':
+            elif key == 'end':
+                msg('Error', 'E002', 'Unexpected "end"', count, line)
+                pool_state.state = 'end'
+                    #case _:
+            else:
+                msg('Error', 'E003', '{key} from {pool_state.state}', count, line)
+                pool_state.state = 'end'
+            #case 'subelement':
+        elif pool_state.state == 'subelement':
+                #match key:
+                    #case 'group':
+            if key == 'group':
+                # Can be ended by subelement, group, end of input
+                # Can end group
+                pool_state.close_group()
+                # New group
+                subelem = match.group('subelem')
+                group_id = match.group('group_id')
+                description = match.group('description')
+                description = description.strip().rstrip('-').strip()
+                questions = []
+                pool_state.cur_group = Group(subelem, group_id, description, questions)
+                pool_state.state = 'group'
+                    #case 'end':
+            elif key == 'end':
+                msg('Error', 'E004', 'Unexpected "end"', count, line)
+                pool_state.state = 'end'
+                    #case _:
+            else:
+                msg('Error', 'E007', '{key} from {pool_state.state}', count, line)
+                msg('Error', 'D008', f'{begin_state}:{pool_state.state}', count, line)
+                pool_state.state = 'end'
+            #case 'group':
+        elif pool_state.state == 'group':
+                #match key:
+                    #case 'group':
+            if key == 'group':
+                # Can be ended by subelement, group, end of input
+                # Can end group
+                pool_state.close_group()
+                # New group
+                subelem = match.group('subelem')
+                group_id = match.group('group_id')
+                description = match.group('description')
+                questions = []
+                pool_state.cur_group = Group(subelem, group_id, description, questions)
+                pool_state.state = 'group'
+                    #case 'subelement':
+            elif key == 'subelement':
+                # Can be ended by subelement?, end of input
+                # Can end group, subelement?
+                pool_state.close_group()
+                pool_state.close_subelement()
+                sub_el = match.group('subelement')
+                description = match.group('description')
+                # couldn't get regex to elminiate final - in some cases
+                description = description.strip().rstrip('-').strip()
+                numq = match.group('numq')
+                numg = match.group('numg')
+                groups = []
+                pool_state.cur_subelement = \
+                    Subelement(pool_state.cur_element.elem, sub_el, \
+                                description, numq, numg, groups)
+                pool_state.state = 'subelement'
+                    #case 'question':
+            elif key == 'question':
+                #'T(?P<subelem>\d)(?P<group>[A-F])(?P<qnum>\d\d).
+                #\((?P<ans>[A-D])\).(?P<fcc>.*)'
+                #metastate = 'question'
+                #print(f'{metastate:8} : {count:04d}:{line}', end='')
+                msg('Info', 'I002', f'{begin_state}:{pool_state.state}', count, line)
+                subelem = match.group('subelem')
+                group = match.group('group')
+                qnum = match.group('qnum')
+                qid = f'{subelem}{group}{qnum}'
+                ans = match.group('ans')
+                fcc = match.group('fcc')
+                # Get question lines from the file
+                text, count = read_fline(file_lines)      # read line 1 Question
+                figure = ''
+                regex_figure = re.compile(r'(^|\s)[fF]igure\s+(?P<fig>[TGE]\d?-\d+).?')
+                match = regex_figure.search(text)
+                if match:
+                    figure = match.group('fig')
+                answers = []
+                line, count = read_fline(file_lines)      # read line 2 Ans A.
+                answers.append(line.strip())
+                line, count = read_fline(file_lines)      # read line 3 Ans B.
+                answers.append(line.strip())
+                line, count = read_fline(file_lines)      # read line 4 Ans C.
+                answers.append(line.strip())
+                line, count = read_fline(file_lines)      # read line 5 Ans D.
+                answers.append(line.strip())
+                # ignore this line, ~~ at end of question
+                # Read line 6 Question End ~~, don't skip blank lines
+                line, count = read_fline(file_lines, False)
+                if line.strip() != '~~':
+                    msg('Error', 'E005', 'Missing quest end ~~', count, line)
+                cur_question = \
+                    Question(subelem, group, qnum, \
+                                qid, text.strip(), ans, figure, answers, fcc, \
+                                pool_state.cur_group.topics)
+                # Add question to Group
+                pool_state.cur_group.questions.append(cur_question)
+                    #case 'end':
+            elif key == 'end':
+                # Can end group, subelement
+                pool_state.close_group()
+                pool_state.close_subelement()
+                pool_state.close_element()
+                pool_state.state = 'end'
+                pool_state.print_summary()
+                    #case _:
+            else:
+                #print(f'Error: {key} is not valid in state "{pool_state.state}" ', end='')
+                msg('Error', 'E010', f'{key} not valid', count, line)
+                msg('Info', 'I003', f'{begin_state}:{pool_state.state}', count, line)
+                pool_state.state = 'end'
+            #case 'end':
+        elif pool_state.state == 'end':
+            pass
+            #case _:
+        else:
+            pass
         if begin_state != pool_state.state:
             msg('Info', 'I004', f'{begin_state}:{pool_state.state}', count, line)
 
