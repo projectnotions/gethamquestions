@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------------
+gethamquestions Package Changes Log   
+-------------------------------------------------------------------------------------
+
+Release Summary:
+
+0.1, June 27, 2023: 
+     Initial pre-release.
+
+Details of each release follow, from most recent to oldest.
+-------------------------------------------------------------------------------------
+
+Release 0.1, June 27, 2023
+
+Working release with basic function (read Element pool text file).
+Preliminary packing on github.
+
+-------------------------------------------------------------------------------------
