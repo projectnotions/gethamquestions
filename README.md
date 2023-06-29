@@ -9,7 +9,11 @@ With the advent of accessible AI infrastructure, Amateur Radio seems a perfect d
 To get started though, requires accurate question pools.  Fortunately these are publically available from [http://www.ncvec.org/page.php?id=338](http://www.ncvec.org/page.php?id=338).
 You can run gethamquestions.py specifying the docx file as input.  It will create a JSON file as output, and also a text version (UTF-8 encoding) of the docx file.  If you prefer, you can specifiy a text file as input (recommended UTF-8 encoding.)
 
+A javascript class is also provided, elementpool.js (class ElementPool) that supports the method "getQuestionsByIds".  Additional methods will be added as use cases emerge.
+
 The next phase of development will experiment with AI input on topics, and explainations of the questions and answers. Also provide full package support.
+
+A rudimentary deployment of gethamquestions can be seen at [projectnotions.com - Technician Ham Class]([https://projectnotons.com/blog1](https://projectnotions.com/blog1/2023/05/technician-ham-class/)
 
 ## Usage
 
