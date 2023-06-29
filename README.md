@@ -13,7 +13,7 @@ A javascript class is also provided, elementpool.js (class ElementPool) that sup
 
 The next phase of development will experiment with AI input on topics, and explainations of the questions and answers. Also provide full package support.
 
-A rudimentary deployment of gethamquestions can be seen at [projectnotions.com - Technician Ham Class]([https://projectnotons.com/blog1](https://projectnotions.com/blog1/2023/05/technician-ham-class/)
+A rudimentary deployment of gethamquestions can be seen at [projectnotions.com - Technician Ham Class](https://projectnotions.com/blog1/2023/05/technician-ham-class)
 
 ## Usage
 
