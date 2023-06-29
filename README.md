@@ -2,19 +2,21 @@
 Parse the official Amateur Radio FCC question pools and get the Element Questios in a JSON object
 
 ## Installation
-Download the getquestions.py file.  I am working on supporting pip from github.
+Download the getquestions.py file. 
 
 ## Overview
 With the advent of accessible AI infrastructure, Amateur Radio seems a perfect domain in which to experiment with value add functions that AI API's might provide.
 To get started though, requires accurate question pools.  Fortunately these are publically available from [http://www.ncvec.org/page.php?id=338](http://www.ncvec.org/page.php?id=338).
-Unfortunately they are in Microsoft Word format.  You will need to download the files, edit them, and save them as text files (UTF-8) encoding.
+You can run gethamquestions.py specifying the docx file as input.  It will create a JSON file as output, and also a text version (UTF-8 encoding) of the docx file.  If you prefer, you can specifiy a text file as input (recommended UTF-8 encoding.)
+
+The next phase of development will experiment with AI input on topics, and explainations of the questions and answers. Also provide full package support.
 
 ## Usage
 
 ```python
 python gethamquestions.py "C:\Users\kb\onedrive\HamTest\QuestionPools\Technician Pool and Syllabus 2022-2026 Public Release Errata March 7 2022.utf8.txt"
 
-# returns json file and summary (abbreviated below)
+# returns json file, txt file (if the input was docx), and summary (abbreviated below)
 Info I9999 C:\Users\kenwb\onedrive\HamTest\QuestionPools\Technician Pool and Syllabus 2022-2026 Public Release Errata March 7 2022.utf8.txt 0 nond
 timestamp = 2023-06-22 16:13:45.848043
 JSON written to Element2.json
