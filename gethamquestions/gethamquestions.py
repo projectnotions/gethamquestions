@@ -26,6 +26,8 @@ Notes
     see function _parse_line() notes for Question Pool anomolies
 
 Change Log
+    2023-06-29 v10 - adding openai routine to identify topics for question
+    2023-06-29 v09 - fixed unusal characters for +', etc
     2023-06-28 v08 - added case for "E3B08 (DELETED)"
     2023-06-27 v07 - removed match statement for wls python 3.8
     2023-06-22 v06 - cleaned up pylint
@@ -35,6 +37,7 @@ Change Log
     2023-05-21 v02 = Works for Question Pool only. Not for total file. Is not state based.
 """
 
+#-*- coding: utf-8 -*-
 import re
 import json
 import sys
@@ -42,9 +45,6 @@ import datetime
 import os, os.path
 import docx
 import magic
-
-exclude_words = ['a', 'the', 'and', 'of', 'in', 'is', 'rules']
-plural_words = ['phonetic']
 
 #pylint: disable-msg=too-many-instance-attributes
 class Question:
@@ -152,39 +152,6 @@ class Question:
         """
         self.topics = []
         potential_topics = []
-        stop = False
-        for topic in topic_list: #(topic.lower() for topic in topic_list):
-            topic_lower = topic.lower()
-            topic_words = topic_lower.split(' ')
-            word_hit = 0
-            hit = ''
-            for word in self.text.lower().split(' '):
-                trans_table = str.maketrans('', '', '()?.')
-                word = word.strip()
-                word_notable = word
-                word_notable = word_notable.replace('(', '')
-                word_notable = word_notable.replace(')', '')
-                word_notable = word_notable.replace('?', '')
-                word_notable = word_notable.replace('.', '')
-                word= word.translate(trans_table)
-##                if self.qid == 'T1A10':
-##                    print(f' word : {word} , topic : {topic}')
-                if (word not in exclude_words) and ((word in topic_words)
-                    or (f'{word}s' in topic_words)):
-                    word_hit += 1
-                    hit += f' | {word} : {topic}'
-                    # if self.qid == 'T1A10':
-                        # print(f'HIT: word : {word} , topic : {topic}')
-            if word_hit >= 1:
-##                if self.qid == 'T1A10':
-##                    print(f'{hit} | {topic} : [{word_hit}] : "{self.text.lower()}"\n')
-##                    #print(topic)
-                potential_topics.append(topic)
-                if len(topic.split(' ')) == 1:     # word in question matches a one word topic
-                    potential_topics = [topic]
-                    stop = True
-            if stop:
-                break
         self.topics = potential_topics
 
 #pylint: enable-msg=too-many-instance-attributes
@@ -467,20 +434,20 @@ class State:
             if (self.cur_element.filetype == 'Microsoft Word'):
                 # write out text file
                 out_lines = get_file(self.cur_element.filename)
-                outpath3 = f'./output/Element{self.cur_element.elem}.txt'
+                outpath3 = f'./output/element{self.cur_element.elem}.txt'
                 with open(outpath3, 'w', encoding='utf-8-sig') as file3:
                     for line in out_lines:
                         file3.write(line)
-                print(f'text written to Element{self.cur_element.elem }.txt, lines={len(out_lines)}')
+                print(f'text written to element{self.cur_element.elem }.txt, lines={len(out_lines)}')
             # Writing element JSON to file
             # https://stackoverflow.com/questions/23793987/write-a-file-to-a-directory-that-doesnt-exist
-            outpath = f'./output/Element{self.cur_element.elem }.json'
+            outpath = f'./output/element{self.cur_element.elem }.json'
             os.makedirs(os.path.dirname(outpath), exist_ok=True)
             with open(outpath, 'w', encoding='utf-8-sig') as file2:
-                #file2 = open(f'Element{self.cur_element.elem }.json', 'w', encoding='UTF-8')
+                #file2 = open(f'element{self.cur_element.elem }.json', 'w', encoding='UTF-8')
                 file2.write(str_out)
                 #file2.close()
-            print(f'JSON written to Element{self.cur_element.elem }.json')
+            print(f'JSON written to element{self.cur_element.elem }.json')
 
     def print_summary(self):
         """
@@ -745,7 +712,14 @@ def get_file(file_name):
         doc = docx.Document(file_name)
         lines = []
         for para in doc.paragraphs:
+            #try:
+            #    line = para.text.decode('UTF-8', 'strict')
+            #except UnicodeDecodeError:
+            #    print('*** Error, line has non UTF-8 characters: "' + para.text + '"')
+            if (not para.text.isascii):
+                print('*** line has non-ascii chars: "' + para.text + '"')
             lines.append(para.text + '\n')
+            
         print('get_file(' + file_name + ')' + 'returned len(lines)= ' + str(len(lines)))
         return lines
     else:
@@ -758,11 +732,20 @@ def read_fline(filelines, skip_blank=True):
     Read the next non-blank line of the iterable
 
     """
-
+    def fix_line(line):
+        line = line.replace(u"\u2013", '-')
+        line = line.replace(u"\u2019", "'")
+        line = line.replace(u"\u2018", "'")
+        line = line.replace(u"\u201c", '"')
+        line = line.replace(u"\u201d", '"') 
+        return line
+      
     try:
         line, index = next(filelines)
+        line = fix_line(line)
         while line and (len(line.strip()) == 0 and skip_blank):
             line, index = next(filelines)
+            line = fix_line(line)
         return line, index
 
     except StopIteration:
@@ -937,7 +920,12 @@ def get_element_pool (file_name):
                 if match:
                     figure = match.group('fig')
                 answers = []
+
                 line, count = read_fline(file_lines)      # read line 2 Ans A.
+                if (qid == 'T5C08'):
+                    for chr in line:
+                        print('********' + '"' + chr + '", ' + hex(ord(chr)))
+                    print('****"' + line + '"')
                 answers.append(line.strip())
                 line, count = read_fline(file_lines)      # read line 3 Ans B.
                 answers.append(line.strip())
