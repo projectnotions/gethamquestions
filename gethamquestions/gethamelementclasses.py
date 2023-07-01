@@ -1,5 +1,3 @@
-#-*- coding: utf-8 -*-
-
 #pylint: disable-msg=too-many-instance-attributes
 class Question:
     """
@@ -266,7 +264,7 @@ class Element:
         The list of Subelement objects in the Element.
 
     """
-    def __init__(self, elem, elname, yrvalid, effective, subelements, timestamp, 
+    def __init__(self, elem, elname, yrvalid, effective, subelements, timestamp,
                  filename, filetype):
         """
         Constructs the attributes for the Element object

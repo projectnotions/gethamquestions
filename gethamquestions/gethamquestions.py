@@ -14,7 +14,7 @@ Functions:
     get_element
 
 Misc variables:
-    regex_dict
+    REGEX_DICT
 
 References
     https://www.geeksforgeeks.org/read-a-file-line-by-line-in-python/
@@ -44,7 +44,8 @@ import re
 import json
 import sys
 import datetime
-import os, os.path
+import os
+import os.path
 import docx
 import magic
 from gethamelementclasses import *
@@ -69,7 +70,7 @@ class State:
         The instance of the current Group
 
     """
-    def __init__ (self, state, cur_element, cur_subelement, cur_group):
+    def __init__(self, state, cur_element, cur_subelement, cur_group):
         """
         Constructs the attributes for the State object
 
@@ -121,7 +122,7 @@ class State:
             str_out = json.dumps(self.cur_element, default=vars, indent=2)
             #print(self.cur_element.filetype)
             # If windows doc file, write out txt file
-            if (self.cur_element.filetype == 'Microsoft Word'):
+            if self.cur_element.filetype == 'Microsoft Word':
                 # write out text file
                 out_lines = get_file(self.cur_element.filename)
                 #out_lines = Filelines(out_lines)
@@ -130,13 +131,13 @@ class State:
                 with open(outpath3, 'w', encoding='utf-8-sig') as file3:
                     line_num = 0
                     for line in out_lines:
-                        line_num +=1
+                        line_num += 1
                         line = fix_line(line)
-                        if (not line.isascii()):
-                            msg('Warning', 'W002', 
+                        if not line.isascii():
+                            msg('Warning', 'W002',
                                 'Non ASCII in out txt', line_num, json.dumps(line))
                         file3.write(line)
-                msg('Info', 'I201', 
+                msg('Info', 'I201',
                     f'text written to element{self.cur_element.elem }.txt, lines={len(out_lines)}')
             # Writing element JSON to file
             # https://stackoverflow.com/questions/23793987/write-a-file-to-a-directory-that-doesnt-exist
@@ -157,9 +158,9 @@ class State:
         if self.el_name:
             el_namefmt = f'({self.el_name} Class) '
         #TODO: convert to Info msg
-        msg('Info', 'I300', 
-            f'*** Summary - Element {self.cur_element.elem } - {self.cur_element.timestamp} '
-              f'{el_namefmt}{self.cur_element.yrvalid["begin"]}-'
+        msg('Info', 'I300',
+            f'*** Summary - Element {self.cur_element.elem } - {self.cur_element.timestamp} '\
+              f'{el_namefmt}{self.cur_element.yrvalid["begin"]}-'\
               f'{self.cur_element.yrvalid["end"]} ***')
         subelnum = 0
         groupnum = 0
@@ -172,7 +173,7 @@ class State:
                 groupnum += 1
                 questionsnum += len(grp.questions)
                 msg('Info', 'I303', f'    Group: {grp.group_id}, questions: {len(grp.questions)}')
-        msg('Info', 'I304', 
+        msg('Info', 'I304',
             f'Subelements: {subelnum}, groups: {groupnum}, questions: {questionsnum}')
         msg('Info', 'I305', '*** End of Processing ***\n')
 
@@ -192,7 +193,7 @@ class Filelines:
 
     """
 
-    def __init__ (self, listobj):
+    def __init__(self, listobj):
         """
         Constructs the attributes for the Filelines object
 
@@ -237,13 +238,13 @@ class Filelines:
             return line, num
         raise StopIteration
 
-    #def __str__(self):
+    def __str__(self):
         """
         Returns a short string description of the object
 
         """
 
-        #return f'Filelines Object("{self.list}", "Length{len(self.list)}"'
+        return f'Filelines Object("{self.list}", "Length{len(self.list)}"'
 
     def __repr__(self):
         """
@@ -254,7 +255,7 @@ class Filelines:
 
 # set up regular expressions
 # use https://regexper.com to visualise these if required
-regex_dict = {
+REGEX_DICT = {
     """
     Examples:
         subelement
@@ -270,9 +271,9 @@ regex_dict = {
     'el_effective': re.compile(r'Effective (?P<begin>\d+\/\d+/\d+)...(?P<end>\d+\/\d+\/\d+)'),
     'el_eff_short': re.compile(r'Effective (?P<begin>[JFMASOND].*\s\d+\,\s\d\d\d\d).*$'),
     'el_num'   : re.compile(r'FCC Element (?P<elnum>\d)\sQuestion Pool\s*$'),
-    'subelement': re.compile(r'SUBELEMENT (?P<subelement>[TGE]\d)\s.?\s?(?P<description>.*)'
+    'subelement': re.compile(r'SUBELEMENT (?P<subelement>[TGE]\d)\s.?\s?(?P<description>.*)'\
                   r'-?\s?\[(?P<numq>\d+)\s[Ee]xam\s[Qq]uestions?\s.*\s(?P<numg>\d+)\s[Gg]roups?\]'),
-    'subelement2': re.compile(r'(?P<subelement>[TGE]\d)\s.\s(?P<description>.*)'
+    'subelement2': re.compile(r'(?P<subelement>[TGE]\d)\s.\s(?P<description>.*)'\
                    r'\s.?\[(?P<numq>\d+)\sExam\sQuestions\s.\s(?P<numg>\d+)\s[Gg]roups\].*'),
     'group'     : re.compile(
         r'(?P<subelem>[TGE]\d)(?P<group_id>[A-H])\s-?\s?(?P<description>.*)'),
@@ -282,7 +283,8 @@ regex_dict = {
     # r'(?P<subelem>T\d)(?P<group>[A-F])(?P<qnum>\d\d).+\((?P<ans>[A-D])\)\s?(?P<fcc>.*)'),
     'removed'   :
         re.compile(r'(?P<subelem>[TGE]\d)(?P<group>[A-F])(?P<qnum>\d\d)\s? Question Removed.?'),
-    'removed2'  : re.compile(r'(?P<subelem>[TGE]\d)(?P<group>[A-F])(?P<qnum>\d\d)\s? \(DELETED\).?'),
+    'removed2'  : re.compile(
+        r'(?P<subelem>[TGE]\d)(?P<group>[A-F])(?P<qnum>\d\d)\s? \(DELETED\).?'),
     'end'      : re.compile(r'~~~~?.*~~~~?'),
     'blank'    : re.compile(r'~~'),
 }
@@ -325,7 +327,7 @@ def _parse_line(line, pool_state):
     """
     if not line:
         return 'end', ''
-    for key, regex in regex_dict.items():
+    for key, regex in REGEX_DICT.items():
         match = regex.search(line)
         #print(key + ", match='" + match + "'")
         if match:
@@ -338,22 +340,17 @@ def _parse_line(line, pool_state):
                 pool_state.el_num = match.group('elnum')
                 key = 'element'
             if key == 'el_name':
-                # print('el_name match')
-                # print('begin="' + match.group('yrbegin') + '", end="' + match.group('yrend') + '"')
                 pool_state.el_name = match.group('elname')
                 pool_state.el_yrvalid = {'begin' : match.group('yrbegin'), \
                                        'end'   : match.group('yrend')}
                 key = 'data'
             if key == 'el_effective':
-                # print('el_effective match')
                 pool_state.el_effective = {'begin' : match.group('begin'), \
                                          'end'   : match.group('end')}
                 key = 'data'
                 if pool_state.el_num:
                     key = 'element'
             if key == 'el_eff_short':
-                # print('el_eff_short match')
-                # print('el begin="' + match.group('begin') + '"')
                 pool_state.el_effective = {'begin' : match.group('begin'), \
                                          'end'   : ''}
                 key = 'data'
@@ -378,7 +375,7 @@ def get_file_type(file_name):
     - "anything else" - not ASCII text or Microsoft Word
 
     """
-    
+
     tokens = magic.from_file(file_name).split()
     result = ''
     sep = ''
@@ -394,9 +391,9 @@ def get_file(file_name):
     Read a file and return an iterable object list of all lines
 
     """
-    
+
     file_type = get_file_type(file_name)
-    if (file_type == 'ASCII text') or (file_type == 'UTF-8 Unicode'):
+    if file_type in ('ASCII text', 'UTF-8 Unicode'):
         try:
             with open(file_name, 'r', encoding='UTF-8') as file:
                 lines = file.readlines()
@@ -409,7 +406,7 @@ def get_file(file_name):
         except: #handle other exceptions such as attribute errors
             print("Unexpected error:", sys.exc_info()[0])
             return ''
-    elif (file_type == 'Microsoft Word'):
+    elif file_type == 'Microsoft Word':
         doc = docx.Document(file_name)
         lines = []
         line_num = 0
@@ -420,27 +417,30 @@ def get_file(file_name):
             #    print('*** Error, line has non UTF-8 characters: "' + para.text + '"')
             line = para.text
             line_num += 1
-            if (not line.isascii()):
+            if not line.isascii():
                 msg('Warning', 'W402', 'line has non-ascii characters', line_num, json.dumps(line))
                 line = fix_line(line)
             lines.append(line + '\n')
-        msg('Info', 'I400', 'get_file(' + file_name + ')' + 
-            'returned len(lines)= ' + str(len(lines)))  
+        msg('Info', 'I400', 'get_file(' + file_name + ')' +
+            'returned len(lines)= ' + str(len(lines)))
         return lines
     else:
         msg('Error', 'E401', 'Unknown file type "' + file_type + '"')
         return ''
 
-def fix_line(line, index=''):
+def fix_line(line):
+    """
+    Replace common unicode characters with the ASCII version
 
+    """
     line = line.replace(u"\u2013", '-')
     line = line.replace(u"\u2019", "'")
     line = line.replace(u"\u2018", "'")
     line = line.replace(u"\u201c", '"')
-    line = line.replace(u"\u201d", '"') 
+    line = line.replace(u"\u201d", '"')
     line = line.replace(u"\uf0b4", 'x')
     return line
-    
+
 def read_fline(filelines, skip_blank=True):
     """
     Read the next non-blank line of the iterable
@@ -449,12 +449,12 @@ def read_fline(filelines, skip_blank=True):
 
     try:
         line, index = next(filelines)
-        if (not line.isascii()):
+        if not line.isascii():
             msg('Warning', 'W403', 'line has non-ascii characters', index, json.dumps(line))
             line = fix_line(line)
         while line and (len(line.strip()) == 0 and skip_blank):
             line, index = next(filelines)
-            if (not line.isascii()):
+            if not line.isascii():
                 msg('Warning', 'W403', 'line has non-ascii characters', index, json.dumps(line))
                 line = fix_line(line)
         return line, index
@@ -485,15 +485,14 @@ def msg(msg_type, msg_num, message, line_num='', line=''):
     if line_num:
         line_num = f': {line_num:-4d}'
     types = ['zero', 'Error', 'Warning', 'Info', 'Debug']
-    if (not msg_type in types):
+    if not msg_type in types:
         print('Error   : E001: Invalid Message Type:     : "' + msg_type + '"')
     else:
         pri = types.index(msg_type)
         if pri < 4:
             print(f'{msg_type:8}: {msg_num:4}: {message:20} {line_num} {line}\n', end='')
-  
 
-def get_element_pool (file_name):
+def get_element_pool(file_name):
     """
     Extract the element pool from the source file
 
@@ -508,7 +507,7 @@ def get_element_pool (file_name):
         key, match = _parse_line(line, pool_state)
         begin_state = pool_state.state
 
-        if key == 'removed' or key == 'removed2' or key == 'blank':
+        if key in ('removed', 'removed2', 'blank'):
             continue
         #match pool_state.state:
             #case 'initial':
@@ -520,7 +519,7 @@ def get_element_pool (file_name):
                 # Not currently allowed more than one element, so it can't end anything else
                 subelements = []
                 timestamp = datetime.datetime.now()
-                pool_state.cur_element = Element(pool_state.el_num , pool_state.el_name, \
+                pool_state.cur_element = Element(pool_state.el_num, pool_state.el_name, \
                     pool_state.el_yrvalid, pool_state.el_effective, subelements, \
                     timestamp, file_name, get_file_type(file_name))
                 pool_state.state = 'element'
@@ -617,10 +616,6 @@ def get_element_pool (file_name):
                 pool_state.state = 'subelement'
                     #case 'question':
             elif key == 'question':
-                #'T(?P<subelem>\d)(?P<group>[A-F])(?P<qnum>\d\d).
-                #\((?P<ans>[A-D])\).(?P<fcc>.*)'
-                #metastate = 'question'
-                #print(f'{metastate:8} : {count:04d}:{line}', end='')
                 msg('Debug', 'D002', f'{begin_state}:{pool_state.state}', count, line)
                 subelem = match.group('subelem')
                 group = match.group('group')
@@ -677,7 +672,7 @@ def get_element_pool (file_name):
         else:
             pass
         if begin_state != pool_state.state:
-            msg('Debug','D005', f'{begin_state}:{pool_state.state}', count, line)
+            msg('Debug', 'D005', f'{begin_state}:{pool_state.state}', count, line)
 
     return pool_state.cur_element
 
@@ -685,10 +680,10 @@ def get_element_pool (file_name):
 if __name__ == '__main__':
     if len(sys.argv) >= 2:
         msg('Debug', 'D001', sys.argv[1], 0, 'nond')
-        if (os.path.isfile(sys.argv[1])):
-            element = get_element_pool(sys.argv[1])
+        if os.path.isfile(sys.argv[1]):
+            ELEMENT = get_element_pool(sys.argv[1])
         else:
-            msg('Error', 'E002', 'File not found: "' + sys.argv[1] + '"' )
+            msg('Error', 'E002', 'File not found: "' + sys.argv[1] + '"')
     else:
         msg('Error', 'E999', 'Not enough arguments')
         #element = get_element_pool('element2.txt')
