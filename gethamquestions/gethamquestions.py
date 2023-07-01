@@ -20,6 +20,7 @@ References
     https://www.geeksforgeeks.org/read-a-file-line-by-line-in-python/
     https://www.vipinajayakumar.com/parsing-text-with-python/
     stackoverflow.com/questions/55933956/what-does-a-star-asterisk-do-in-f-string/55934921
+    https://docs.python.org/3/howto/unicode.html#introduction-to-unicode
 
 Notes
     pylint is used for style checking
@@ -27,6 +28,7 @@ Notes
 
 Change Log
     2023-06-29 v10 - adding openai routine to identify topics for question
+    2023-06-30 v10 - tried to resolve use of u\uf0b4 for "x", could not fix
     2023-06-29 v09 - fixed unusal characters for +', etc
     2023-06-28 v08 - added case for "E3B08 (DELETED)"
     2023-06-27 v07 - removed match statement for wls python 3.8
@@ -45,320 +47,8 @@ import datetime
 import os, os.path
 import docx
 import magic
+from gethamelementclasses import *
 
-#pylint: disable-msg=too-many-instance-attributes
-class Question:
-    """
-    A class to represent a question and multiple choice answers.
-
-    ...
-
-    Attributes
-    ----------
-    subelement : str
-        Name of the subelement the question is in
-    group : str
-        The group the questio is in, i.e. A-F
-    num : str
-        The number of the question 1...n
-    qid : str
-        The FCC ID, i.e. T1A05
-    correct : str
-        The correct answer to the question A-D
-    figure : str
-        The figure identifier associated with the question, i.e. T-2
-    answers : list
-        The list of multiple choice answers.  There are four answers in the list
-    fcc: str
-        FCC references related to the question
-    topics: list
-        List of topics in the group relating to this question.
-
-    """
-
-    #pylint: disable-msg=too-many-arguments
-    def __init__(self, subelement, group, num, qid, text, correct, figure, answers, \
-                 fcc, topic_list):
-        """
-        Constructs the attributes for the Question object
-
-        Parameters
-        ----------
-            subelement : str
-                Name of the subelement the question is in.
-            group : str
-                The group the questio is in, i.e. A-F.
-            num : str
-                The number of the question 1...n
-            qid : str
-                The FCC ID, i.e. T1A05
-            text : str
-                The text of the question.
-            correct : str
-                The correct answer to the question A-D.
-            figure : str
-                The figure identifier associated with the question, i.e. T-2.
-            answers : list
-                The list of multiple choice answers.  There are four answers in the list.
-            fcc: str
-                FCC references related to the question
-            topic_list
-                A list of topics to make an assessment of relevance to this question.
-                Relevant topics are added to the topic_list
-        """
-        self.subelement = subelement
-        self.group = group
-        self.num = num
-        self.qid = qid                    # i.e. T1A05
-        self.text = text                # Question text
-        self.correct = correct
-        self.figure = figure
-        self.fcc = fcc
-        self.answers = answers          # Array of Answers
-        self.topics = []
-        self.get_topics(topic_list)
-    #pylint: enable-msg=too-many-arguments
-
-    def __str__(self):
-        """
-        Returns a short string description of the object
-
-        """
-
-        shortans = []
-        shortlength = 10
-        for i in self.answers:
-            shortans.append(i[0:shortlength])
-        return(
-            f'Question("{self.subelement+self.group+self.num}", "{self.text[0:shortlength]}", '
-            f'"{self.correct}", "{self.figure}", "{*shortans,}"'
-        )
-
-    def __repr__(self):
-        """
-        Returns a Question contructor.
-
-        """
-
-        return(
-            f'Question("{self.subelement}", "{self.group}", "{self.num}", "{self.text}", '
-            f'"{self.correct}", "{self.figure}", "{*self.answers,}"'
-        )
-
-    def get_topics(self, topic_list):
-        """
-        Returns the topics contained in a question. EXPERIMENTAL
-
-        """
-        self.topics = []
-        potential_topics = []
-        self.topics = potential_topics
-
-#pylint: enable-msg=too-many-instance-attributes
-
-class Group:
-    """
-    A class to represent a group of question.
-
-    ...
-
-    Attributes
-    ----------
-    subelement : str
-        Name of the subelement the question is in
-    group_id : str
-        The group id the questions are in, i.e. A-F
-    description : str
-        A discription of the question group.  Can be several sentences or sentence fragments
-    topics : list
-        A list of the topics in this group.
-    questions : list
-        The list of Question objects in the group.
-
-    """
-    def __init__(self, subelement, group_id, description, questions):
-        """
-        Constructs the attributes for the Group object
-
-        Parameters
-        ----------
-            subelement : str
-                Name of the subelement the question is in
-            group_id : str
-                The group id the questions are in, i.e. A-F
-            description : str
-                A discription of the question group.  Can be several sentences or sentence fragments
-            questions : list
-                The list of Question objects in the group.
-        """
-
-        self.subelement = subelement
-        self.group_id = group_id
-        self.description = description
-        self.topics = self.get_topics(description)
-        self.questions = questions      # Array of Question
-
-    def __str__(self):
-        """
-        Returns a short string description of the object
-
-        """
-
-        return(
-            f'Group("{self.subelement+self.group_id}", "{self.description[0:20]}" '
-        )
-
-    def __repr__(self):
-        """
-        Returns a Group contructor.
-
-        """
-        return(
-            f'Group("{self.subelement}", "{self.group_id}", '
-            f'"{self.description}", "{*self.questions,}")'
-        )
-    def set_description(self, description):
-        """
-        Sets the description of the object
-
-        """
-        self.description = description
-        self.topics = self.get_topics(description)
-
-    def get_topics(self, topic_string):
-        """
-        Returns an array with the topics for the object
-
-        """
-        #print(f'self.description = "{self.description}"')
-        #print(f'self.description.split(";") = {self.description.split(";")}')
-        topics = []
-        for topic in topic_string.split(';'):
-            topics.append(topic.strip())
-        return topics
-
-class Subelement:
-    """
-    A class to represent a subelement of the question pool.
-
-    ...
-
-    Attributes
-    ----------
-    elem : str
-        Name of the element the subelement is in, i.e. 2 or 3 or 4
-    sub_el : str
-        Identifier of the subelement
-    description : str
-        A discription of the subelement.  Can be several sentences or sentence fragments
-    numq : number
-        The number of questions in the subelement
-    numg : number
-        The number of groups in the subelement
-    groups : list of Group objects
-        The list of Group objects in the subelement.
-
-    """
-
-    #pylint: disable-msg=too-many-arguments
-    def __init__(self, elem, sub_el, description, numq, numg, groups):
-        self.elem = elem
-        self.sub_el = sub_el
-        self.description = description
-        self.numq = numq
-        self.numg = numg
-        self.groups = groups            # Array of Group
-    #pylint: enable-msg=too-many-arguments
-
-    def __str__(self):
-        """
-        Returns a short string description of the object
-
-        """
-
-        return(
-            f'Group("{self.sub_el}", "{self.description[0:20]}" '
-        )
-
-    def __repr__(self):
-        """
-        Returns a Subelement contructor.
-
-        """
-        return (
-            f'sub_element("{self.elem}", "{self.sub_el}", "{self.description}", '
-            f'"{self.numq}", "{self.numg}", "{self.groups}")'
-        )
-
-class Element:
-    """
-    A class to represent a element question pool. i.e Element 2, (Technician Class)
-
-    ...
-
-    Attributes
-    ----------
-    timestamp : str
-        datetime.datetime.now() at the time of creation of instance
-    elem : str
-        Name of the element, i.e. 2 or 3 or 4
-    elname : str
-        Identifier of the element, i.e. Technician, General, Extra
-    valid : object
-        .begin - the beginning date for the element question pool
-        .end - the ending date for the element question pool
-    effective : date, first use of the pool, i.e. July 1, 2016
-    subelements : list of Subelement objects
-        The list of Subelement objects in the Element.
-
-    """
-    def __init__(self, elem, elname, yrvalid, effective, subelements, timestamp, 
-                 filename, filetype):
-        """
-        Constructs the attributes for the Element object
-
-        Parameters
-        ----------
-        timestamp : str
-            datetime.datetime.now() at the time of creation of instance
-        elem : str
-            Name of the element, i.e. 2 or 3 or 4
-        elname : str
-            Identifier of the element, i.e. Technician, General, Extra
-        yrvalid : object
-            .begin - the beginning date for the element question pool
-            .end - the ending date for the element question pool
-        effective : date, first use of the pool, i.e. July 1, 2016
-        subelements : list of Subelement objects
-            The list of Subelement objects in the Element.
-
-    """
-        print(f'timestamp = {timestamp}')
-        self.filename = filename
-        self.filetype = filetype
-        self.timestamp = str(timestamp)
-        self.elem = elem
-        self.elname = elname
-        self.yrvalid = yrvalid             # {'begin' : date, 'end' : date}
-        self.effective = effective         # {'begin' : date, 'end' : date}
-        self.subelements = subelements
-
-    def __str__(self):
-        """
-        Returns a short string description of the object
-
-        """
-
-        return(
-            f'Element("{self.elem}", "{self.elname}")'
-            )
-
-    def __repr__(self):
-        """
-        Returns an Element contructor.
-
-        """
-        return f'Element("{self.elem }","","","","{self.subelements},")'
 
 class State:
     """
@@ -434,20 +124,28 @@ class State:
             if (self.cur_element.filetype == 'Microsoft Word'):
                 # write out text file
                 out_lines = get_file(self.cur_element.filename)
+                #out_lines = Filelines(out_lines)
                 outpath3 = f'./output/element{self.cur_element.elem}.txt'
+                os.makedirs(os.path.dirname(outpath3), exist_ok=True)
                 with open(outpath3, 'w', encoding='utf-8-sig') as file3:
+                    line_num = 0
                     for line in out_lines:
+                        line_num +=1
+                        line = fix_line(line)
+                        if (not line.isascii()):
+                            msg('Warning', 'W002', 
+                                'Non ASCII in out txt', line_num, json.dumps(line))
                         file3.write(line)
-                print(f'text written to element{self.cur_element.elem }.txt, lines={len(out_lines)}')
+                msg('Info', 'I201', 
+                    f'text written to element{self.cur_element.elem }.txt, lines={len(out_lines)}')
             # Writing element JSON to file
             # https://stackoverflow.com/questions/23793987/write-a-file-to-a-directory-that-doesnt-exist
             outpath = f'./output/element{self.cur_element.elem }.json'
             os.makedirs(os.path.dirname(outpath), exist_ok=True)
+            #TODO: add Try exception
             with open(outpath, 'w', encoding='utf-8-sig') as file2:
-                #file2 = open(f'element{self.cur_element.elem }.json', 'w', encoding='UTF-8')
                 file2.write(str_out)
-                #file2.close()
-            print(f'JSON written to element{self.cur_element.elem }.json')
+            msg('Info', 'I200', f'JSON written to element{self.cur_element.elem}.json')
 
     def print_summary(self):
         """
@@ -458,22 +156,25 @@ class State:
         el_namefmt = ''
         if self.el_name:
             el_namefmt = f'({self.el_name} Class) '
-        print(f'*** Summary - Element {self.cur_element.elem } - self.cur_element.timestamp '
+        #TODO: convert to Info msg
+        msg('Info', 'I300', 
+            f'*** Summary - Element {self.cur_element.elem } - {self.cur_element.timestamp} '
               f'{el_namefmt}{self.cur_element.yrvalid["begin"]}-'
               f'{self.cur_element.yrvalid["end"]} ***')
         subelnum = 0
         groupnum = 0
         questionsnum = 0
-        print(f'Subelements: {len(self.cur_element.subelements)}')
+        msg('Info', 'I301', f'Subelements: {len(self.cur_element.subelements)}')
         for sube in self.cur_element.subelements:
             subelnum += 1
-            print(f'  Sub element: {sube.sub_el }, Groups: {sube.numg}')
+            msg('Info', 'I302', f'  Sub element: {sube.sub_el }, Groups: {sube.numg}')
             for grp in sube.groups:
                 groupnum += 1
                 questionsnum += len(grp.questions)
-                print(f'    Group: {grp.group_id}, questions: {len(grp.questions)}')
-        print(f'Subelements: {subelnum}, groups: {groupnum}, questions: {questionsnum}')
-        print('*** End of Processing ***\n')
+                msg('Info', 'I303', f'    Group: {grp.group_id}, questions: {len(grp.questions)}')
+        msg('Info', 'I304', 
+            f'Subelements: {subelnum}, groups: {groupnum}, questions: {questionsnum}')
+        msg('Info', 'I305', '*** End of Processing ***\n')
 
 
 class Filelines:
@@ -536,13 +237,13 @@ class Filelines:
             return line, num
         raise StopIteration
 
-    def __str__(self):
+    #def __str__(self):
         """
         Returns a short string description of the object
 
         """
 
-        return f'Filelines Object("{self.list}", "Length{len(self.list)}"'
+        #return f'Filelines Object("{self.list}", "Length{len(self.list)}"'
 
     def __repr__(self):
         """
@@ -711,41 +412,51 @@ def get_file(file_name):
     elif (file_type == 'Microsoft Word'):
         doc = docx.Document(file_name)
         lines = []
+        line_num = 0
         for para in doc.paragraphs:
             #try:
             #    line = para.text.decode('UTF-8', 'strict')
             #except UnicodeDecodeError:
             #    print('*** Error, line has non UTF-8 characters: "' + para.text + '"')
-            if (not para.text.isascii):
-                print('*** line has non-ascii chars: "' + para.text + '"')
-            lines.append(para.text + '\n')
-            
-        print('get_file(' + file_name + ')' + 'returned len(lines)= ' + str(len(lines)))
+            line = para.text
+            line_num += 1
+            if (not line.isascii()):
+                msg('Warning', 'W402', 'line has non-ascii characters', line_num, json.dumps(line))
+                line = fix_line(line)
+            lines.append(line + '\n')
+        msg('Info', 'I400', 'get_file(' + file_name + ')' + 
+            'returned len(lines)= ' + str(len(lines)))  
         return lines
     else:
-        print('Unknown file type "' + file_type + '"')
+        msg('Error', 'E401', 'Unknown file type "' + file_type + '"')
         return ''
 
+def fix_line(line, index=''):
 
+    line = line.replace(u"\u2013", '-')
+    line = line.replace(u"\u2019", "'")
+    line = line.replace(u"\u2018", "'")
+    line = line.replace(u"\u201c", '"')
+    line = line.replace(u"\u201d", '"') 
+    line = line.replace(u"\uf0b4", 'x')
+    return line
+    
 def read_fline(filelines, skip_blank=True):
     """
     Read the next non-blank line of the iterable
 
     """
-    def fix_line(line):
-        line = line.replace(u"\u2013", '-')
-        line = line.replace(u"\u2019", "'")
-        line = line.replace(u"\u2018", "'")
-        line = line.replace(u"\u201c", '"')
-        line = line.replace(u"\u201d", '"') 
-        return line
-      
+
     try:
         line, index = next(filelines)
-        line = fix_line(line)
+        if (not line.isascii()):
+            msg('Warning', 'W403', 'line has non-ascii characters', index, json.dumps(line))
+            line = fix_line(line)
         while line and (len(line.strip()) == 0 and skip_blank):
             line, index = next(filelines)
-            line = fix_line(line)
+            if (not line.isascii()):
+                msg('Warning', 'W403', 'line has non-ascii characters', index, json.dumps(line))
+                line = fix_line(line)
         return line, index
 
     except StopIteration:
@@ -770,12 +481,17 @@ def msg(msg_type, msg_num, message, line_num='', line=''):
         The line in the file being processed
     """
     if line:
-        line = f'{line.strip():20}'
+        line = f': {line.strip():20}'
     if line_num:
-        line_num = f'{line_num:-4d}'
-    pri = ['zero', 'Error', 'Warning', 'Info'].index(msg_type)
-    if pri < 3:
-        print(f'{msg_type:8}: {msg_num:4}: {message:20}: {line_num} : {line}\n', end='')
+        line_num = f': {line_num:-4d}'
+    types = ['zero', 'Error', 'Warning', 'Info', 'Debug']
+    if (not msg_type in types):
+        print('Error   : E001: Invalid Message Type:     : "' + msg_type + '"')
+    else:
+        pri = types.index(msg_type)
+        if pri < 4:
+            print(f'{msg_type:8}: {msg_num:4}: {message:20} {line_num} {line}\n', end='')
+  
 
 def get_element_pool (file_name):
     """
@@ -814,10 +530,10 @@ def get_element_pool (file_name):
                 pool_state.state = 'end'
                     #case 'data':
             elif key == 'data':
-                msg('Info', 'I002', 'Data line', count, line)
+                msg('Debug', 'D002', 'Data line', count, line)
                     #case _:
             else:
-                msg('Info', 'I001', 'Line b4 Element', count, line)
+                msg('Debug', 'D004', 'Line b4 Element', count, line)
 
             #case 'element':
         elif pool_state.state == 'element':
@@ -836,11 +552,11 @@ def get_element_pool (file_name):
                 pool_state.state = 'subelement'
                     #case 'end':
             elif key == 'end':
-                msg('Error', 'E002', 'Unexpected "end"', count, line)
+                msg('Error', 'E003', 'Unexpected "end"', count, line)
                 pool_state.state = 'end'
                     #case _:
             else:
-                msg('Error', 'E003', '{key} from {pool_state.state}', count, line)
+                msg('Error', 'E004', '{key} from {pool_state.state}', count, line)
                 pool_state.state = 'end'
             #case 'subelement':
         elif pool_state.state == 'subelement':
@@ -905,7 +621,7 @@ def get_element_pool (file_name):
                 #\((?P<ans>[A-D])\).(?P<fcc>.*)'
                 #metastate = 'question'
                 #print(f'{metastate:8} : {count:04d}:{line}', end='')
-                msg('Info', 'I002', f'{begin_state}:{pool_state.state}', count, line)
+                msg('Debug', 'D002', f'{begin_state}:{pool_state.state}', count, line)
                 subelem = match.group('subelem')
                 group = match.group('group')
                 qnum = match.group('qnum')
@@ -922,10 +638,6 @@ def get_element_pool (file_name):
                 answers = []
 
                 line, count = read_fline(file_lines)      # read line 2 Ans A.
-                if (qid == 'T5C08'):
-                    for chr in line:
-                        print('********' + '"' + chr + '", ' + hex(ord(chr)))
-                    print('****"' + line + '"')
                 answers.append(line.strip())
                 line, count = read_fline(file_lines)      # read line 3 Ans B.
                 answers.append(line.strip())
@@ -965,18 +677,19 @@ def get_element_pool (file_name):
         else:
             pass
         if begin_state != pool_state.state:
-            msg('Info', 'I004', f'{begin_state}:{pool_state.state}', count, line)
+            msg('Debug','D005', f'{begin_state}:{pool_state.state}', count, line)
 
     return pool_state.cur_element
 
 
 if __name__ == '__main__':
-    print("name = __main__")
     if len(sys.argv) >= 2:
-        msg('Info', 'I9999', sys.argv[1], 0, 'nond')
-        print('Info', 'I9999', sys.argv[1], 0, 'nond')
-        element = get_element_pool(sys.argv[1])
+        msg('Debug', 'D001', sys.argv[1], 0, 'nond')
+        if (os.path.isfile(sys.argv[1])):
+            element = get_element_pool(sys.argv[1])
+        else:
+            msg('Error', 'E002', 'File not found: "' + sys.argv[1] + '"' )
     else:
-        msg('Info', 'I9998', 'Not enough arguments')
+        msg('Error', 'E999', 'Not enough arguments')
         #element = get_element_pool('element2.txt')
         #element = get_element('input.txt')
