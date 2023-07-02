@@ -38,7 +38,7 @@ Change Log
     2023-05-22 v03 - Wrks for element 2 and element 3. State base for better error detection
     2023-05-21 v02 = Works for Question Pool only. Not for total file. Is not state based.
 """
-
+            
 #-*- coding: utf-8 -*-
 import re
 import json
@@ -46,212 +46,20 @@ import sys
 import datetime
 import os
 import os.path
-import docx
+#import docx
 import magic
+#import zipfile
+from gethamexternalfunctions import *
 from gethamelementclasses import *
+from gethamquestionclasses import *
+try:
+    from xml.etree.cElementTree import XML
+except ImportError:
+    from xml.etree.ElementTree import XML
 
 
-class State:
-    """
-    A class to represent internal states and element pool class objects
-    while parsing a question pool
-
-    ...
-
-    Attributes
-    ----------
-    state: str
-        state name "initial", "element", "subelement", "group", "end"
-    cur_element : Element object
-        The instance of the current Element
-    cur_subelement: Submlement object
-        The instance of the current Subelement
-    group : Group object
-        The instance of the current Group
-
-    """
-    def __init__(self, state, cur_element, cur_subelement, cur_group):
-        """
-        Constructs the attributes for the State object
-
-        Parameters
-        ----------
-        state: str
-            state name "initial", "element", "subelement", "group", "end"
-        cur_element : Element object
-            The instance of the current Element
-        cur_subelement: Submlement object
-            The instance of the current Subelement
-        group : Group object
-            The instance of the current Group
-
-    """
-        self.state = state
-        self.cur_element = cur_element
-        self.cur_subelement = cur_subelement
-        self.cur_group = cur_group
-        self.el_name = ''
-        self.el_yrvalid = ''             #{'begin': yyyy, 'end': yyyy}
-        self.el_effective = ''           #{'begin' : July 1, 2019, 'end' : date}
-        self.el_num = ''
-
-    def close_group(self):
-        """
-        closes the current Group object
-
-        """
-        if self.cur_group:
-            self.cur_subelement.groups.append(self.cur_group)
-            self.cur_group = None
-
-    def close_subelement(self):
-        """
-        closes the current Subelement object
-
-        """
-        if self.cur_subelement:
-            self.cur_element.subelements.append(self.cur_subelement)
-            self.cur_subelement = None
-
-    def close_element(self):
-        """
-        closes the current Element object
-
-        """
-        if self.cur_element:
-            str_out = json.dumps(self.cur_element, default=vars, indent=2)
-            #print(self.cur_element.filetype)
-            # If windows doc file, write out txt file
-            if self.cur_element.filetype == 'Microsoft Word':
-                # write out text file
-                out_lines = get_file(self.cur_element.filename)
-                #out_lines = Filelines(out_lines)
-                outpath3 = f'./output/element{self.cur_element.elem}.txt'
-                os.makedirs(os.path.dirname(outpath3), exist_ok=True)
-                with open(outpath3, 'w', encoding='utf-8-sig') as file3:
-                    line_num = 0
-                    for line in out_lines:
-                        line_num += 1
-                        line = fix_line(line)
-                        if not line.isascii():
-                            msg('Warning', 'W002',
-                                'Non ASCII in out txt', line_num, json.dumps(line))
-                        file3.write(line)
-                msg('Info', 'I201',
-                    f'text written to element{self.cur_element.elem }.txt, lines={len(out_lines)}')
-            # Writing element JSON to file
-            # https://stackoverflow.com/questions/23793987/write-a-file-to-a-directory-that-doesnt-exist
-            outpath = f'./output/element{self.cur_element.elem }.json'
-            os.makedirs(os.path.dirname(outpath), exist_ok=True)
-            #TODO: add Try exception
-            with open(outpath, 'w', encoding='utf-8-sig') as file2:
-                file2.write(str_out)
-            msg('Info', 'I200', f'JSON written to element{self.cur_element.elem}.json')
-
-    def print_summary(self):
-        """
-        Prints a summary of the element question pool
-
-        """
-        # Print Summary
-        el_namefmt = ''
-        if self.el_name:
-            el_namefmt = f'({self.el_name} Class) '
-        #TODO: convert to Info msg
-        msg('Info', 'I300',
-            f'*** Summary - Element {self.cur_element.elem } - {self.cur_element.timestamp} '\
-              f'{el_namefmt}{self.cur_element.yrvalid["begin"]}-'\
-              f'{self.cur_element.yrvalid["end"]} ***')
-        subelnum = 0
-        groupnum = 0
-        questionsnum = 0
-        msg('Info', 'I301', f'Subelements: {len(self.cur_element.subelements)}')
-        for sube in self.cur_element.subelements:
-            subelnum += 1
-            msg('Info', 'I302', f'  Sub element: {sube.sub_el }, Groups: {sube.numg}')
-            for grp in sube.groups:
-                groupnum += 1
-                questionsnum += len(grp.questions)
-                msg('Info', 'I303', f'    Group: {grp.group_id}, questions: {len(grp.questions)}')
-        msg('Info', 'I304',
-            f'Subelements: {subelnum}, groups: {groupnum}, questions: {questionsnum}')
-        msg('Info', 'I305', '*** End of Processing ***\n')
 
 
-class Filelines:
-    """
-    A class to represent tile contents in an iterable object
-
-    ...
-
-    Attributes
-    ----------
-    list : list
-        The list object to iterate
-    current_index : number
-        The current index into list for iterable functions
-
-    """
-
-    def __init__(self, listobj):
-        """
-        Constructs the attributes for the Filelines object
-
-        Parameters
-        ----------
-        list : list
-            Name of the list object to iterate
-
-        """
-        self.list = listobj
-        self.current_index = 0
-
-    def __iter__(self):
-        """
-        The iter function
-
-        """
-        self.current_index = 0
-        return self
-
-    def __len__(self):
-        """
-        The length of the iterable (iterables normally don't have lengths.)
-
-        """
-        return len(self.list)
-
-    def __next__(self):
-        """
-        Returns the next iteration and the item number (counting from 1).
-        The first iterate past the end of the list returns null, line number.
-        The next iteration will raise StopIteration
-
-
-        """
-        if self.current_index <= len(self.list):
-            if self.current_index < len(self.list):
-                line, num = self.list[self.current_index], self.current_index +1
-            else:
-                line, num = '', self.current_index + 1
-            self.current_index += 1
-            return line, num
-        raise StopIteration
-
-    def __str__(self):
-        """
-        Returns a short string description of the object
-
-        """
-
-        return f'Filelines Object("{self.list}", "Length{len(self.list)}"'
-
-    def __repr__(self):
-        """
-        Returns an Filelines contructor.
-
-        """
-        return f'Filelines("{self.list}")'
 
 # set up regular expressions
 # use https://regexper.com to visualise these if required
@@ -407,20 +215,24 @@ def get_file(file_name):
             print("Unexpected error:", sys.exc_info()[0])
             return ''
     elif file_type == 'Microsoft Word':
-        doc = docx.Document(file_name)
-        lines = []
-        line_num = 0
-        for para in doc.paragraphs:
-            #try:
-            #    line = para.text.decode('UTF-8', 'strict')
-            #except UnicodeDecodeError:
-            #    print('*** Error, line has non UTF-8 characters: "' + para.text + '"')
-            line = para.text
-            line_num += 1
-            if not line.isascii():
-                msg('Warning', 'W402', 'line has non-ascii characters', line_num, json.dumps(line))
-                line = fix_line(line)
-            lines.append(line + '\n')
+        #TODO: See if get_docx_text alternate works
+        #doc = docx.Document(file_name)
+        # lines = []
+        # line_num = 0
+        # for para in doc.paragraphs:
+        #     #try:
+        #     #    line = para.text.decode('UTF-8', 'strict')
+        #     #except UnicodeDecodeError:
+        #     #    print('*** Error, line has non UTF-8 characters: "' + para.text + '"')
+        #     line = para.text
+        #     line_num += 1
+        #     if not line.isascii():
+        #         msg('Warning', 'W402', 'line has non-ascii characters', line_num, json.dumps(line))
+        #         line = fix_line(line)
+        #     lines.append(line + '\n')
+        #msg('Info', 'I400', 'get_file(' + file_name + ')' +
+        #    'returned len(lines)= ' + str(len(lines)))
+        lines = get_docx_text(file_name)
         msg('Info', 'I400', 'get_file(' + file_name + ')' +
             'returned len(lines)= ' + str(len(lines)))
         return lines
@@ -438,7 +250,9 @@ def fix_line(line):
     line = line.replace(u"\u2018", "'")
     line = line.replace(u"\u201c", '"')
     line = line.replace(u"\u201d", '"')
-    line = line.replace(u"\uf0b4", 'x')
+    # \uF0B4 is a symbol in a symbol table
+    # these are removed in get_docx_text
+    # line = line.replace(u"\uf0b4", 'x')
     return line
 
 def read_fline(filelines, skip_blank=True):
@@ -463,35 +277,6 @@ def read_fline(filelines, skip_blank=True):
         line = ''
         return line, len(filelines)
 
-def msg(msg_type, msg_num, message, line_num='', line=''):
-    """
-    Print messages in a consistant way
-
-    Parameters
-    ----------
-    msg_type: str
-        Type of message: 'Info', 'Warning', 'Error'
-    msg_num : str
-        Identifier of the message, I001, W005, E006, etc
-    message : str
-        A short message to display
-    line_num : str
-        The line number
-    line : str
-        The line in the file being processed
-    """
-    if line:
-        line = f': {line.strip():20}'
-    if line_num:
-        line_num = f': {line_num:-4d}'
-    types = ['zero', 'Error', 'Warning', 'Info', 'Debug']
-    if not msg_type in types:
-        print('Error   : E001: Invalid Message Type:     : "' + msg_type + '"')
-    else:
-        pri = types.index(msg_type)
-        if pri < 4:
-            print(f'{msg_type:8}: {msg_num:4}: {message:20} {line_num} {line}\n', end='')
-
 def get_element_pool(file_name):
     """
     Extract the element pool from the source file
@@ -499,8 +284,8 @@ def get_element_pool(file_name):
     """
     #State __init__(self, state, cur_element, cur_subelement, cur_group):
     #state.elname = ''
-    pool_state = State('initial', None, None, None)
     file_lines = get_file(file_name)
+    pool_state = State('initial', None, None, None, file_lines)
     file_lines = Filelines(file_lines)  # convert to Filelines iterable
     while pool_state.state != 'end':
         line, count = read_fline(file_lines)
@@ -673,6 +458,28 @@ def get_element_pool(file_name):
             pass
         if begin_state != pool_state.state:
             msg('Debug', 'D005', f'{begin_state}:{pool_state.state}', count, line)
+    
+
+
+    # If windows doc file, write out txt file
+    if pool_state.cur_element.filetype == 'Microsoft Word':
+        # write out text file
+        #out_lines = get_file(pool_state.cur_element.filename)
+        out_lines = pool_state.source_lines
+        #out_lines = Filelines(out_lines)
+        outpath3 = f'./output/element{pool_state.cur_element.elem}.txt'
+        os.makedirs(os.path.dirname(outpath3), exist_ok=True)
+        with open(outpath3, 'w', encoding='utf-8-sig') as file3:
+            line_num = 0
+            for line in out_lines:
+                line_num += 1
+                line = fix_line(line)
+                if not line.isascii():
+                    msg('Warning', 'W002',
+                        'Non ASCII in out txt', line_num, json.dumps(line))
+                file3.write(line + '\n')
+        msg('Info', 'I201',
+            f'text written to element{pool_state.cur_element.elem }.txt, lines={len(out_lines)}')
 
     return pool_state.cur_element
 
