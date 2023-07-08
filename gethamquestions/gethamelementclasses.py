@@ -1,4 +1,5 @@
 #pylint: disable-msg=too-many-instance-attributes
+from gethamquestionclasses import msg
 class Question:
     """
     A class to represent a question and multiple choice answers.
@@ -67,8 +68,8 @@ class Question:
         self.figure = figure
         self.fcc = fcc
         self.answers = answers          # Array of Answers
-        self.topics = []
-        self.get_topics(topic_list)
+        #self.topics = []               # deprecate, handle by AI
+        #self.get_topics(topic_list)    
     #pylint: enable-msg=too-many-arguments
 
     def __str__(self):
@@ -97,14 +98,15 @@ class Question:
             f'"{self.correct}", "{self.figure}", "{*self.answers,}"'
         )
 
-    def get_topics(self, topic_list):
-        """
-        Returns the topics contained in a question. EXPERIMENTAL
+    # def get_topics(self, topic_list):
+    #     """
+    #     DEPRECATE THIS FUNCION.... Question Topics are handled by AI
+    #     Returns the topics contained in a question. EXPERIMENTAL
 
-        """
-        self.topics = []
-        potential_topics = []
-        self.topics = potential_topics
+    #     """
+    #     self.topics = []
+    #     potential_topics = []
+    #     self.topics = potential_topics
 
 #pylint: enable-msg=too-many-instance-attributes
 
@@ -147,7 +149,7 @@ class Group:
         self.subelement = subelement
         self.group_id = group_id
         self.description = description
-        self.topics = self.get_topics(description)
+        self.topics, self.subtopics = self.get_topics(description)
         self.questions = questions      # Array of Question
 
     def __str__(self):
@@ -175,7 +177,9 @@ class Group:
 
         """
         self.description = description
-        self.topics = self.get_topics(description)
+        self.topics, self.subtopics = self.get_topics(description)
+        msg('Info', 'I999', f'set_description: self.topics = "{self.topics}"\n')
+        msg('Info', 'I999', f'set_description: self.topics = "{self.subtopics}"\n')
 
     def get_topics(self, topic_string):
         """
@@ -184,10 +188,23 @@ class Group:
         """
         #print(f'self.description = "{self.description}"')
         #print(f'self.description.split(";") = {self.description.split(";")}')
+        # If the topic is too long it throws off the AI, for now will skip
+        #TODO Fix the "long topic situation"
         topics = []
+        sub_topics = []
         for topic in topic_string.split(';'):
-            topics.append(topic.strip())
-        return topics
+            topic = topic.strip()
+            if len(topic.split(':'))<=1:
+                topics.append(topic)
+            else:
+                new_sub_topics = []
+                top_sub_topic = topic.split(':')[0].strip()
+                topics.append(top_sub_topic)
+                new_sub_topics = topic.split(':')[1].split(',')
+                for st in new_sub_topics:
+                    sub_topics.append(top_sub_topic + ': ' + st.strip())
+
+        return topics, sub_topics
 
 class Subelement:
     """
@@ -310,3 +327,32 @@ class Element:
 
         """
         return f'Element("{self.elem }","","","","{self.subelements},")'
+    
+class ElementPool:
+    def __init__(self, element_pool):
+        self.element_pool = element_pool
+
+    def get_questions_by_ids(self, qids, options=''):
+        result = []
+        e = self.element_pool
+        for se in e['subelements']:
+            for g in se['groups']:
+                topics = g['topics']
+                for q in g['questions']:
+                    if q['qid'] in qids:
+                        question = {}
+                        question['qid'] = q['qid']
+                        question['topics'] = topics
+                        if q['figure']:
+                            question['figure'] = q['figure']
+                        question['question'] = f'#{q["qid"]} {q["text"]}'
+                        start = 0
+                        if options.find('strip-answer-prefix') != -1:
+                            start = 3
+                        question['answers'] = []
+                        for answer in q['answers']:
+                            question['answers'].append(answer[start:])
+                        question['correct answer'] = \
+                            q['answers'][['A', 'B', 'C', 'D'].index(q['correct'])][start:]
+                        result.append(question)
+        return result

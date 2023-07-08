@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 """
 Process the Amateur Radio Element Question Pool and return a JSON representation
 The following question pools have been tested:
@@ -21,13 +22,16 @@ References
     https://www.vipinajayakumar.com/parsing-text-with-python/
     stackoverflow.com/questions/55933956/what-does-a-star-asterisk-do-in-f-string/55934921
     https://docs.python.org/3/howto/unicode.html#introduction-to-unicode
+    https://etienned.github.io/posts/extract-text-from-word-docx-simply/
 
 Notes
     pylint is used for style checking
     see function _parse_line() notes for Question Pool anomolies
 
 Change Log
-    2023-06-29 v10 - adding openai routine to identify topics for question
+    2023-07-05 v12 - processed group description string into topics and subtopics
+    2023-07-04 v11 - problem with very long topic in T1C01
+    2023-06-29 v10 - adding openai routine to identify topics for question; will be separate process
     2023-06-30 v10 - tried to resolve use of u\uf0b4 for "x", could not fix
     2023-06-29 v09 - fixed unusal characters for +', etc
     2023-06-28 v08 - added case for "E3B08 (DELETED)"
@@ -38,8 +42,7 @@ Change Log
     2023-05-22 v03 - Wrks for element 2 and element 3. State base for better error detection
     2023-05-21 v02 = Works for Question Pool only. Not for total file. Is not state based.
 """
-            
-#-*- coding: utf-8 -*-
+
 import re
 import json
 import sys
@@ -49,17 +52,9 @@ import os.path
 #import docx
 import magic
 #import zipfile
-from gethamexternalfunctions import *
-from gethamelementclasses import *
-from gethamquestionclasses import *
-try:
-    from xml.etree.cElementTree import XML
-except ImportError:
-    from xml.etree.ElementTree import XML
-
-
-
-
+from gethamexternalfunctions import get_docx_text
+from gethamelementclasses import Element, Subelement, Group, Question
+from gethamquestionclasses import msg, State, Filelines
 
 # set up regular expressions
 # use https://regexper.com to visualise these if required
@@ -215,23 +210,6 @@ def get_file(file_name):
             print("Unexpected error:", sys.exc_info()[0])
             return ''
     elif file_type == 'Microsoft Word':
-        #TODO: See if get_docx_text alternate works
-        #doc = docx.Document(file_name)
-        # lines = []
-        # line_num = 0
-        # for para in doc.paragraphs:
-        #     #try:
-        #     #    line = para.text.decode('UTF-8', 'strict')
-        #     #except UnicodeDecodeError:
-        #     #    print('*** Error, line has non UTF-8 characters: "' + para.text + '"')
-        #     line = para.text
-        #     line_num += 1
-        #     if not line.isascii():
-        #         msg('Warning', 'W402', 'line has non-ascii characters', line_num, json.dumps(line))
-        #         line = fix_line(line)
-        #     lines.append(line + '\n')
-        #msg('Info', 'I400', 'get_file(' + file_name + ')' +
-        #    'returned len(lines)= ' + str(len(lines)))
         lines = get_docx_text(file_name)
         msg('Info', 'I400', 'get_file(' + file_name + ')' +
             'returned len(lines)= ' + str(len(lines)))
@@ -458,8 +436,6 @@ def get_element_pool(file_name):
             pass
         if begin_state != pool_state.state:
             msg('Debug', 'D005', f'{begin_state}:{pool_state.state}', count, line)
-    
-
 
     # If windows doc file, write out txt file
     if pool_state.cur_element.filetype == 'Microsoft Word':
@@ -483,15 +459,19 @@ def get_element_pool(file_name):
 
     return pool_state.cur_element
 
+def main():
+    """
+    Execute gethamquestions if called from commandline
 
-if __name__ == '__main__':
+    """
     if len(sys.argv) >= 2:
         msg('Debug', 'D001', sys.argv[1], 0, 'nond')
         if os.path.isfile(sys.argv[1]):
-            ELEMENT = get_element_pool(sys.argv[1])
+            get_element_pool(sys.argv[1])
         else:
             msg('Error', 'E002', 'File not found: "' + sys.argv[1] + '"')
     else:
         msg('Error', 'E999', 'Not enough arguments')
-        #element = get_element_pool('element2.txt')
-        #element = get_element('input.txt')
+
+if __name__ == '__main__':
+    main()

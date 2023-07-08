@@ -27,7 +27,7 @@ def msg(msg_type, msg_num, message, line_num='', line=''):
         print('Error   : E001: Invalid Message Type:     : "' + msg_type + '"')
     else:
         pri = types.index(msg_type)
-        if pri < 4:
+        if pri < 4 and msg_num not in 'W403':
             print(f'{msg_type:8}: {msg_num:4}: {message:20} {line_num} {line}\n', end='')
 
 class State:
@@ -107,7 +107,7 @@ class State:
             outpath = f'./output/element{self.cur_element.elem }.json'
             os.makedirs(os.path.dirname(outpath), exist_ok=True)
             #TODO: add Try exception
-            with open(outpath, 'w', encoding='utf-8-sig') as file2:
+            with open(outpath, 'w', encoding='utf-8') as file2:
                 file2.write(str_out)
             msg('Info', 'I200', f'JSON written to element{self.cur_element.elem}.json')
 
@@ -128,6 +128,8 @@ class State:
         subelnum = 0
         groupnum = 0
         questionsnum = 0
+        topicsnum = 0
+        subtopicsnum = 0
         msg('Info', 'I301', f'Subelements: {len(self.cur_element.subelements)}')
         for sube in self.cur_element.subelements:
             subelnum += 1
@@ -135,9 +137,13 @@ class State:
             for grp in sube.groups:
                 groupnum += 1
                 questionsnum += len(grp.questions)
-                msg('Info', 'I303', f'    Group: {grp.group_id}, questions: {len(grp.questions)}')
+                topicsnum += len(grp.topics)
+                subtopicsnum += len(grp.subtopics)
+                msg('Info', 'I303', f'    Group: {grp.group_id}, questions: {len(grp.questions)},'
+                    f' topics: {len(grp.topics)}, subtopics: {len(grp.subtopics)}')
         msg('Info', 'I304',
-            f'Subelements: {subelnum}, groups: {groupnum}, questions: {questionsnum}')
+            f'Subelements: {subelnum}, groups: {groupnum}, questions: {questionsnum}'
+            f' topics: {topicsnum}, subtopics: {subtopicsnum}' )
         msg('Info', 'I305', '*** End of Processing ***\n')
 
 
