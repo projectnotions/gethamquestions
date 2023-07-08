@@ -15,10 +15,12 @@ Hi, I'm Mona. You might recognize me as GitHub's mascot.
 <details open>
 <summary>My top THINGS-TO-RANK</summary>
 
-YOUR TABLE
+references
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+https://www.mediawiki.org/wiki/Markup_spec/EBNF
 
 </details>
-Reference this page https://www.mediawiki.org/wiki/Markup_spec/EBNF
+ 
 ---
 <wiki-page>               ::= <redirect> [<article>] | [<article>]
 <redirect>                ::= <redirect-tag> <characters> <internal-link-start> <article-link> (<internal-link-end> | <pipe> | EOL)
