@@ -1,10 +1,8 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
-  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
-</picture>
 
-## About me
+## Introduction
+
+The format of the official amateur radio element exams is fairly straight forward.  
+See (REFERENCE).
 
 Hi, I'm Mona. You might recognize me as GitHub's mascot.
 
@@ -20,15 +18,14 @@ Hi, I'm Mona. You might recognize me as GitHub's mascot.
 YOUR TABLE
 
 </details>
-
+Reference this page https://www.mediawiki.org/wiki/Markup_spec/EBNF
 ---
-> This is hopefully going to be "easy"
-- KennyB
-
-<!-- COMMENT -->
+<wiki-page>               ::= <redirect> [<article>] | [<article>]
+<redirect>                ::= <redirect-tag> <characters> <internal-link-start> <article-link> (<internal-link-end> | <pipe> | EOL)
+<redirect-tag>            ::= FROM_LANGUAGE_FILE
 
 ```
-function test() {
-  console.log("notice the blank line before this function?");
-}
+<wiki-page>               ::= <redirect> [<article>] | [<article>]
+<redirect>                ::= <redirect-tag> <characters> <internal-link-start> <article-link> (<internal-link-end> | <pipe> | EOL)
+<redirect-tag>            ::= FROM_LANGUAGE_FILE
 ```
