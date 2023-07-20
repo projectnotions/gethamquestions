@@ -1,5 +1,8 @@
 #pylint: disable-msg=too-many-instance-attributes
 from gethamquestionclasses import msg
+from pathlib import Path
+import json
+
 class Question:
     """
     A class to represent a question and multiple choice answers.
@@ -356,3 +359,56 @@ class ElementPool:
                             q['answers'][['A', 'B', 'C', 'D'].index(q['correct'])][start:]
                         result.append(question)
         return result
+    
+class ElementHelp:
+    def __init__(self, element_help):
+        #print("v0.6")
+        self.element_help = {}
+        path = Path(element_help)
+        if path.is_file():
+            el_help = ''
+            try:
+                #open(file, mode='r', buffering=- 1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+                with path.open(mode='rt', encoding='UTF-8') as f:
+                    el_help = json.load(f)
+            except:
+                print("An exception occurred, path.open")       
+        else:
+            #TODO: improve error checking with check of isinstance from inspect
+            el_help = element_help
+        for key, val in el_help.items():
+            help = {}
+            cur = val["current"]
+            help["topics"] = cur.get("topics") if cur.get("topics_valid") else ''
+            help["explanation"] = cur.get("explanation") if cur.get("explanation_valid") else ''
+            help["memory_aid"] = cur.get("memory_aid") if cur.get("memory_aid_valid") else ''
+            self.element_help.update({key: help})
+
+    def get_help_by_ids(self, qids):
+        """
+        Returns help information for a list of questions
+
+        Parameters
+            qids - a string with blank separated question ids:
+                   'T1A01 T3B06'
+                   or
+                   'ALL' - all questions should be selected
+
+        Return
+            object with key = qid, and 'topics', 'explanation' and 'memory_aid' object
+            { 'T1A01': {
+                'topics': 'topics separated with; Another topic',
+                'explanation': 'A block of sentences with an explanation',
+                'memory_aid': 'A block of sentences with a memory aid'
+            }}
+        """
+        result = {}
+        e = self.element_help
+        for qid in e:
+            if qid in qids or quis.upper() == 'ALL':
+                result.update({qid: e[qid]})
+                    #{'topics': e[qid]['topics'], 
+                    # 'explanation': e[qid]['explanation'], 
+                    # 'memory_aid': e[qid]['memory_aid']}})
+        return result
+

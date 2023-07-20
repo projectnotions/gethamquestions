@@ -2,23 +2,80 @@
  * Generated from the question pooly by gethamquestions.py
  * More methods will be added as development proceeds
 */
+//console.log('elementpool2.js begin')
+//
+/*********************************************/
+/*** WPCode snippet name: elementpool.js   ***/
+/*********************************************/
 class ElementPool {
-    /**
+	/**
      * Create the ElementPool with an precreated object (see gethamquestions.py)
-     * @param {object} element - element pool object
+	 * or use the method getElementByFileName to load an object
+     * @param {object} element - element pool object, or null
+	 * @property {object} element - an element pool object, created by gethamquestions.py
+	 * @property {function} getFileSuccess - a function called by getElementByFileName on success
+	 * @property {function} getFileFail - a function called by GetElementByFileName on fail
      */
-	constructor(element) {
+	constructor(element=null) {
 		this.element = element;
-		
+		this.getFileSuccess =null;
+		this.getFileFail = null
 	}
-    /**
-     * Get an array of questions corresponding to an input of question ID's
-     * @param {array} qIds an array of strings containing the question id's in form SeGXx, i.e. "T1A02"
-     * @param {string} options  - a string containing: 'strip-answer-prefix' - the answer prefix should be removed, i.e. A. Answer
-     * @returns {array} - an array of Question objects
+
+	EpSuccess(json) {
+		this.element = json;
+	}
+
+	EpFail(evt) {
+		this.element = '';
+	}
+	/**
+	 * Get an Element from a file.  The element is in JSON format.  
+	 * gethamquestions.py can produce the file
+	 * 
+	 * @param {string} fileUrl - The url of the file.  Relative or absolute
+	 * @param {function} [success] - function to be called if loading the file is successfull
+	 * @param {function} [fail] - function to be called if loading the file fails
+	 */
+    getElementByFileName(fileUrl, success, fail) {
+		debug(`getElementByFileName()`, 'Enter', `${fileUrl}`);
+		if (typeof success == 'function') {
+			this.getFileSuccess = success;
+		}
+		if (typeof fail == 'function') {
+			this.getFileFail = fail;
+		}
+		let self = this;
+		this.element = '';
+		jQuery.getJSON(fileUrl, function(json) {	
+		    self.EpSuccess(json);
+			if (self.getFileSuccess) {
+				self.getFileSuccess(json);
+			}
+
+		})
+		    .fail(function(evt) {
+                self.EpFail(evt);
+				if (self.getFileFail) {
+					self.getFileFail(evt);
+				}
+
+			})
+		    //.always(function(evt) {
+			//	self.EpAlways(evt);
+			//})  
+			debug(`getElementByFileName()`, 'Exit', `${fileUrl}`);     
+    }
+	/**
+	 * Get Questions by their ID, i.e. T1A01, T3C04, etc.
+	 * 
+	 * @param {Array} qIds - An array with the question ids
+	 * @param {string} [options=''] options - 'strip-answer-prefix' - Strip 'Question T1A01'
+	 * @return [[{questions}], [errorMessages]] - returns question array and Msg array
 	 */
 	//  /***  @enum
 	//  *         where Question has the properties:
+	//  *         .qid - the question id, i.e. 'T1A01'
 	//  *         .figure - str with the name of the associated figure/diagram,
 	//  *         .correct - str, on of ['A', 'B', 'C', 'D'] that is the correct answer,
 	//  *         .title - str, the question in this format: 'Question #T1A03 What is the ...',
@@ -28,6 +85,15 @@ class ElementPool {
     //  */
 	getQuestionsByIds(qIds, options='') {
 		debug(`getQuestionsById()`, 'Enter', `${qIds}`);
+		let resultMsgs = [];
+		if (!this.element) {
+			resultMsgs.push("this.element is empty")
+			return [[''], resultMsgs];
+		}
+		if (!Array.isArray(qIds)) {
+			resultMsgs.push("input is not an array")
+			return [[''], resultMsgs];
+		}
 		let result = [];
 		let e = this.element;
 		let se = e.subelements;
@@ -42,6 +108,7 @@ class ElementPool {
 					let indx = qIds.indexOf(q[qI].qid);
 					if (indx != -1)	{
 						let question = {};
+						question.qid = q[qI].qid;
 						question.figure = q[qI].figure;
 						if (question.figure) {
 							//debug('getQuestionsByIds()', 'Info', `        Question = "${q[qI].qid}", figure ="${q[qI].figure}"`);	
@@ -58,18 +125,20 @@ class ElementPool {
 						}	
 						question.correct = correct;
 						result[indx] = question;
+						resultMsgs[indx] = 'question found';
 					}
 				}
 			}
 		}
-		let resultError = false;
 		for (let i=0; i<result.length; i++) {
 		    if (!result[i]) {
-				debug(`getQuestionsById()`, 'Error', `result is empty at index ${i}`)
-				debugger;
+				result[i] = {};
+				let errMsg = `result is empty at index ${i}`
+				resultMsgs[i] = errMsg;
+				debug('getQuestionById()', 'Error', errMsg);
 			}	
 		}
-		return result;
 		debug(`getQuestionsById()`, 'Exit', `${qIds}`);
+		return [result, resultMsgs];
 	}
 }

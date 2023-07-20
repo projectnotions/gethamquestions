@@ -32,7 +32,7 @@ Change Log
     2023-07-05 v12 - processed group description string into topics and subtopics
     2023-07-04 v11 - problem with very long topic in T1C01
     2023-06-29 v10 - adding openai routine to identify topics for question; will be separate process
-    2023-06-30 v10 - tried to resolve use of u\uf0b4 for "x", could not fix
+    2023-06-30 v10 - tried to resolve use of u\uf0b4 for "x", could not fix, 7/5 fixed
     2023-06-29 v09 - fixed unusal characters for +', etc
     2023-06-28 v08 - added case for "E3B08 (DELETED)"
     2023-06-27 v07 - removed match statement for wls python 3.8
