@@ -2,6 +2,14 @@
 from gethamquestionclasses import msg
 from pathlib import Path
 import json
+import textwrap
+
+def print_wrap(prefix, preferredWidth, message):
+    #preferredWidth = 70
+    wrapper = textwrap.TextWrapper(initial_indent=prefix, 
+                    width=preferredWidth,
+                    subsequent_indent=' '*len(prefix))
+    print(wrapper.fill(message))
 
 class Question:
     """
@@ -332,10 +340,39 @@ class Element:
         return f'Element("{self.elem }","","","","{self.subelements},")'
     
 class ElementPool:
+    """
+    """
+    #TODO: add fileFN parameter, obj=element_pool, i.e. ElementHelp
     def __init__(self, element_pool):
         self.element_pool = element_pool
 
     def get_questions_by_ids(self, qids, options=''):
+        """
+        returns:
+        [{
+            'qid': 'T1A01', 
+            'topics': [
+                'Purpose and permissible use of the Amateur Radio Service', 
+                'Operator/primary station license grant', 
+                'Meanings of basic terms used in FCC rules', 
+                'Interference', 
+                'RACES rules', 
+                'Phonetics', 
+                'Frequency Coordinator'
+                ], 
+            'question': '#T1A01 Which of the following is part of the Basis and Purpose of the Amateur Radio Service?', 
+            'answers': [
+                'A. Providing personal radio communications for as many citizens as possible', 
+                'B. Providing communications for international non-profit organizations', 
+                'C. Advancing skills in the technical and communication phases of the radio art', 
+                'D. All these choices are correct'
+                ], 
+            'correct answer': 'C. Advancing skills in the technical and communication phases of the radio art'
+        }, 
+        {question}, 
+        {question}
+        }]
+        """
         result = []
         e = self.element_pool
         for se in e['subelements']:
@@ -359,32 +396,102 @@ class ElementPool:
                             q['answers'][['A', 'B', 'C', 'D'].index(q['correct'])][start:]
                         result.append(question)
         return result
-    
+
+# an example ElementHelp file is aianswers.history.json
 class ElementHelp:
-    def __init__(self, element_help):
-        #print("v0.6")
+    def __init__(self, help_FN='', help_obj=''):
+        self.version = "0.15ex"
+        self.version_date = "2023-07-23"
         self.element_help = {}
-        path = Path(element_help)
-        if path.is_file():
-            el_help = ''
-            try:
-                #open(file, mode='r', buffering=- 1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
-                with path.open(mode='rt', encoding='UTF-8') as f:
-                    el_help = json.load(f)
-            except:
-                print("An exception occurred, path.open")       
-        else:
-            #TODO: improve error checking with check of isinstance from inspect
-            el_help = element_help
-        for key, val in el_help.items():
+        if help_FN:
+            path = Path(help_FN)
+            if path.is_file():
+                el_help = ''
+                try:
+                    #open(file, mode='r', buffering=- 1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+                    with path.open(mode='rt', encoding='UTF-8') as f:
+                        el_help = json.load(f)
+                except:
+                    print("An exception occurred, path.open")       
+        if help_obj:
+            el_help = help_obj
+        # sort the keys
+        el_help_sort_keys = list(el_help.keys())
+        el_help_sort_keys.sort()
+        # import "current" aihelp
+        for key in el_help_sort_keys:
             help = {}
-            cur = val["current"]
+            cur = el_help[key]['current']
             help["topics"] = cur.get("topics") if cur.get("topics_valid") else ''
             help["explanation"] = cur.get("explanation") if cur.get("explanation_valid") else ''
             help["memory_aid"] = cur.get("memory_aid") if cur.get("memory_aid_valid") else ''
+            help["topics_valid"] = cur.get("topics_valid")
+            help["explanation_valid"] = cur.get("explanation_valid")
+            help["memory_aid_valid"] = cur.get("memory_aid_valid")
+            help["topics_edited"] = cur.get("topics_edited") if cur.get("topics_edited") else ''
+            help["explanation_edited"] = cur.get("explanation_edited") if cur.get("explanation_edited") else ''
+            help["memory_aid_edited"] = cur.get("memory_aid_edited") if cur.get("memory_aid_edited") else ''
             self.element_help.update({key: help})
 
-    def get_help_by_ids(self, qids):
+    def get_version(self):
+        return self.version
+    
+    def print_summary(self):
+        items_num = 0
+        topics_valid = 0
+        topics_edited = 0
+        explanations_valid = 0
+        explanations_edited = 0
+        memory_aids_valid = 0
+        memory_aids_edited = 0
+        no_explanation = []
+        no_memory_aids = []
+        for qid, helps in self.element_help.items():
+            items_num += 1
+            topics_valid += 1 if (helps["topics_valid"] == True) else 0
+            topics_edited += 1 if (helps["topics_edited"] == True) else 0
+            #explanations_valid += 1 if (helps["explanation_valid"] == True) else 0
+            if helps["explanation_valid"] == True:
+                explanations_valid += 1
+            else:
+                no_explanation.append(qid)
+            explanations_edited += 1 if (helps["explanation_edited"] == True) else 0
+            #memory_aids_valid += 1 if (helps["memory_aid_valid"] == True) else 0
+            if helps["memory_aid_valid"] == True:
+                memory_aids_valid += 1
+            else:
+                no_memory_aids.append(qid)
+            memory_aids_edited += 1 if (helps["memory_aid_edited"] == True) else 0
+
+        print(f'helps:               {items_num}')
+        print(f'topics valid:        {topics_valid}')
+        print(f'topics edited:       {topics_edited}')
+        print(f'explanations valid:  {explanations_valid}')
+        print(f'explanations edited: {explanations_edited}')
+        print(f'memory aids valid:   {memory_aids_valid}')
+        print(f'memory aids edited:  {memory_aids_edited}')
+        if no_explanation:
+            print(f'questions with no explanation:')
+            for qid in no_explanation:
+                print(f'    {qid}')
+        if no_memory_aids:
+            print(f'questions with no memory aids:')
+            for qid in no_memory_aids:
+                print(f'    {qid}')
+
+    def print_help_by_ids(self, qids):
+        PREF_WIDTH = 80
+        h = self.element_help
+        for qid in qids.split():
+            helps = h.get(qid)
+            if helps:
+                print('\n')
+                print_wrap(f'Ham Question:    ', PREF_WIDTH, f'{qid}')
+                print_wrap(f'    Topics:      ', PREF_WIDTH, f'{helps["topics"]}')
+                print_wrap(f'    Explanation: ', PREF_WIDTH, f'{helps["explanation"]}')
+                print_wrap(f'    Memory aid:  ', PREF_WIDTH, f'{helps["memory_aid"]}')
+
+    def get_help_by_ids(self, qids, include_keys='ALL'):
         """
         Returns help information for a list of questions
 
@@ -405,10 +512,22 @@ class ElementHelp:
         result = {}
         e = self.element_help
         for qid in e:
-            if qid in qids or quis.upper() == 'ALL':
-                result.update({qid: e[qid]})
+            if qid in qids or qids.upper() == 'ALL':
+                if include_keys == 'ALL':
+                    result.update({qid: e[qid]})
+                else:
+                    pass
+                    #TODO: implement include_keys = 'topics explanation memory_aid" etc
                     #{'topics': e[qid]['topics'], 
                     # 'explanation': e[qid]['explanation'], 
                     # 'memory_aid': e[qid]['memory_aid']}})
         return result
+    
+    def export_help(self, help_FN):
+        export_help = {}
+        for qid, h in self.element_help.items():
+            export_help.update({qid: {"topics": h["topics"], "explanation": h["explanation"], "memory_aid": h["memory_aid"]}})
+        path = Path(help_FN)
+        with open(help_FN, 'w', encoding='utf-8') as file:
+            file.write(json.dumps(export_help, default=vars, indent=2))
 
