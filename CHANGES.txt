@@ -4,6 +4,9 @@ gethamquestions Package Changes Log
 
 Release Summary:
 
+0.next 
+     2023-09-02 added experiment directory for notes, code, cheatsheets
+
 0.1, June 27, 2023: 
      Initial pre-release.
 
